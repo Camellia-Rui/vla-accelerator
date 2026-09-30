@@ -179,3 +179,14 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# VLA project
+evaluator/results/
+*.safetensors
+*.bin
+*.pt
+*.pth
+checkpoints/
+models/
+data/
+*.log
+runs/
