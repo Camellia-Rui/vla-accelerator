@@ -1,0 +1,8 @@
+﻿method: specprune
+state_type: stateful
+token_prune: true
+dynamic_prune: true
+layer_skip: false
+action_adapter: true
+num_open_loop_steps: 8
+image_resize: 224

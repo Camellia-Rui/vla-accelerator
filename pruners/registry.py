@@ -1,4 +1,4 @@
-"""Registry: map method name -> pruner class, and build from config."""
+﻿"""Registry: map method name -> pruner class, and build from config."""
 
 from __future__ import annotations
 
@@ -24,5 +24,16 @@ def available() -> list[str]:
 
 def build(name: str, config: Dict[str, Any] | None = None) -> BasePruner:
     if name not in _REGISTRY:
+        _auto_import(name)
+    if name not in _REGISTRY:
         raise KeyError(f"unknown pruner '{name}'. available: {available()}")
     return _REGISTRY[name](config=config)
+
+
+def _auto_import(name: str) -> None:
+    """Try to import the adapter module for a method name."""
+    import importlib
+    try:
+        importlib.import_module(f"pruners.{name}")
+    except ImportError:
+        pass
