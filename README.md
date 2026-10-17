@@ -1,5 +1,10 @@
 # VLA Acceleration Evaluator
 
+工具箱现提供 VLA-Pruner 的已有模型挂载接口，支持启停、episode reset 和配置恢复。
+安装、固定外部后端版本及使用示例见
+[VLA-Pruner 工具箱接口](methods/vla_pruner/INTEGRATION.md)。
+封装不包含模型权重、训练数据或仿真环境；真实模型兼容性尚需在模型环境中验证。
+
 `vla-acceleration-evaluator` 是一个用于评估、调优和接入 **免训练 VLA 推理加速模块** 的 Codex skill。
 
 它把加速模块视为需要实验验证的系统改动，而不是仅凭 token 数、FLOPs 或局部 prefill 时间判断效果。最终目标是形成可复现的证据，并对当前模型、任务、硬件和参数组合给出 `PASS`、`TUNE`、`REJECT` 或 `INCONCLUSIVE` 决策。

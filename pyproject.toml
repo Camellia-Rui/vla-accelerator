@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vla-express-toolbox"
+version = "0.1.0"
+description = "Lifecycle adapters and evaluation utilities for VLA inference acceleration"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "pruners*", "methods*"]
+
+[tool.setuptools.package-data]
+"methods.vla_pruner" = ["*.md", "*.json"]

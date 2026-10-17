@@ -2,8 +2,17 @@
 state_type: stateful
 checkpoint: null
 task_suite_name: libero_object
+use_vla_pruner: true
+# fastv_k: pruning execution layer; vla_pruner_layer: attention scoring layer.
+fastv_k: 3
 fastv_r: 0.9275
 vla_pruner_layer: 15
 vla_pruner_mode: semantic_action
 vla_pruner_av_hist_w: 3
 vla_pruner_av_decay: 0.8
+vla_pruner_semantic_weight: 0.5
+vla_pruner_action_weight: 0.5
+vla_pruner_action_horizon: 0
+num_images_in_input: 2
+use_proprio: true
+num_open_loop_steps: 8
