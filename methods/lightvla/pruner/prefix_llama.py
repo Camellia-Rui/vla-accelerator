@@ -6,8 +6,13 @@ from typing import Optional
 import torch
 import torch.nn as nn
 
-from ..core import DifferentiableTokenPruner, PruningResult
-from ..layout import SequencePruningLayout, TokenSpan, build_position_ids, validate_score_context
+from .core import DifferentiableTokenPruner, PruningResult
+from .layout import (
+  SequencePruningLayout,
+  TokenSpan,
+  build_position_ids,
+  validate_score_context,
+)
 
 
 def _get_past_sequence_length(past_key_values) -> int:
