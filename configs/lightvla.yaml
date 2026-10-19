@@ -1,0 +1,11 @@
+method: lightvla
+state_type: stateless
+mode: packaged
+# Verify these boundaries from the actual prefill input before use.
+patch_start: 1
+patch_count: null
+score_context: suffix
+# Low-level training option; evaluation selection is deterministic.
+noise_scale: null
+# Explicit permission to bypass a known builtin LightVLA forward.
+allow_existing_pruner: true

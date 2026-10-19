@@ -11,9 +11,17 @@ requires-python = ">=3.10"
 license = {file = "LICENSE"}
 dependencies = []
 
+[project.optional-dependencies]
+# The lightweight registry/config API does not import these dependencies.
+lightvla = ["torch>=2.3", "transformers>=4.40,<4.41"]
+
+[project.scripts]
+vla-lightvla = "methods.lightvla.cli:main"
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["core*", "pruners*", "methods*"]
 
 [tool.setuptools.package-data]
 "methods.vla_pruner" = ["*.md", "*.json"]
+"methods.lightvla" = ["*.md", "*.json"]

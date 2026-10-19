@@ -1,5 +1,9 @@
 # VLA Acceleration Evaluator
 
+LightVLA 已接入统一注册接口，支持模式切换与卸载恢复。
+当前用法、模型来源和验证范围见 [LightVLA 工具箱说明](methods/lightvla/README.md)。
+LightVLA 原方法包含微调，使用已有权重时本工具箱无需重新训练；不要将原方法标为免训练。
+
 工具箱现提供 VLA-Pruner 的已有模型挂载接口，支持启停、episode reset 和配置恢复。
 安装、固定外部后端版本及使用示例见
 [VLA-Pruner 工具箱接口](methods/vla_pruner/INTEGRATION.md)。

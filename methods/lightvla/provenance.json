@@ -1,0 +1,13 @@
+{
+  "method": "LightVLA",
+  "official_repository": "https://github.com/LiAutoAD/LightVLA",
+  "paper": "https://arxiv.org/abs/2509.12594",
+  "official_training_requirement": "fine-tuning is part of the original method",
+  "packaged_implementation_origin": "toolbox commit 400125f439daa8a9999bf330596fa9de18089a49",
+  "upstream_source_commit": null,
+  "note": "The inherited packaged implementation has not been verified as a byte-identical official source snapshot.",
+  "checkpoint_example": "TTJiang/LightVLA-libero-spatial",
+  "historical_results": "EXPERIMENTS.md; raw evidence not bundled",
+  "user_provided_report": "README(5).md; corresponding historical experiment report",
+  "current_validation_scope": "toolbox lifecycle and CPU synthetic decoder tests; not full VLA/GPU/closed-loop validation"
+}

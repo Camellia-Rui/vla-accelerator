@@ -111,11 +111,17 @@ class PrefixLlamaPruningAdapter(nn.Module):
         self.pruner = pruner
         self.layout_resolver = layout_resolver
         self.bypass_with_cache = bypass_with_cache
+        self.reset_stats()
+        # Do not recursively change the caller's existing decoder training flags.
+        self.training = decoder_model.training
+        self.pruner.train(decoder_model.training)
+
+    def reset_stats(self) -> None:
         self.pruned_forward_count = 0
+        self.bypassed_forward_count = 0
         self.last_input_sequence_length: Optional[int] = None
         self.last_output_sequence_length: Optional[int] = None
         self.last_patch_keep_counts: Optional[tuple[int, ...]] = None
-        self.train(decoder_model.training)
 
     def __getattr__(self, name: str):
         try:
@@ -141,6 +147,8 @@ class PrefixLlamaPruningAdapter(nn.Module):
         layout = self.layout_resolver.resolve(inputs_embeds.shape[1])
         if position_ids is None:
             position_ids = build_position_ids(inputs_embeds, attention_mask)
+        elif position_ids.shape == (1, inputs_embeds.shape[1]):
+            position_ids = position_ids.expand(inputs_embeds.shape[0], -1)
         return self.pruner(
             tokens=inputs_embeds,
             position_ids=position_ids,
@@ -157,8 +165,14 @@ class PrefixLlamaPruningAdapter(nn.Module):
         inputs_embeds: Optional[torch.Tensor] = None,
         **kwargs,
     ):
+        # Metrics describe a successful call, never an incomplete pruning attempt.
+        self.last_input_sequence_length = None
+        self.last_output_sequence_length = None
+        self.last_patch_keep_counts = None
+        if input_ids is not None and inputs_embeds is not None:
+            raise ValueError("Specify input_ids or inputs_embeds, not both")
         if inputs_embeds is None:
-            return self.decoder_model(
+            output = self.decoder_model(
                 input_ids=input_ids,
                 attention_mask=attention_mask,
                 position_ids=position_ids,
@@ -166,11 +180,13 @@ class PrefixLlamaPruningAdapter(nn.Module):
                 inputs_embeds=None,
                 **kwargs,
             )
+            self.bypassed_forward_count += 1
+            return output
 
         past_sequence_length = _get_past_sequence_length(past_key_values)
         should_bypass = self.bypass_with_cache and past_sequence_length > 0
         if should_bypass:
-            return self.decoder_model(
+            output = self.decoder_model(
                 input_ids=None,
                 attention_mask=attention_mask,
                 position_ids=position_ids,
@@ -178,20 +194,15 @@ class PrefixLlamaPruningAdapter(nn.Module):
                 inputs_embeds=inputs_embeds,
                 **kwargs,
             )
+            self.bypassed_forward_count += 1
+            self.last_input_sequence_length = int(inputs_embeds.shape[1])
+            self.last_output_sequence_length = int(inputs_embeds.shape[1])
+            return output
 
         pruning_result = self.prune_inputs(
             inputs_embeds=inputs_embeds,
             attention_mask=attention_mask,
             position_ids=position_ids,
-        )
-
-        self.pruned_forward_count += 1
-        self.last_input_sequence_length = int(inputs_embeds.shape[1])
-        self.last_output_sequence_length = int(pruning_result.tokens.shape[1])
-        self.last_patch_keep_counts = (
-            None
-            if pruning_result.patch_keep_counts is None
-            else tuple(int(value) for value in pruning_result.patch_keep_counts.detach().cpu().tolist())
         )
 
         if kwargs.get("cache_position") is not None:
@@ -203,7 +214,7 @@ class PrefixLlamaPruningAdapter(nn.Module):
                 device=input_cache_position.device,
             )
 
-        return self.decoder_model(
+        output = self.decoder_model(
             input_ids=None,
             attention_mask=pruning_result.attention_mask,
             position_ids=pruning_result.position_ids,
@@ -211,3 +222,11 @@ class PrefixLlamaPruningAdapter(nn.Module):
             inputs_embeds=pruning_result.tokens,
             **kwargs,
         )
+        self.pruned_forward_count += 1
+        self.last_input_sequence_length = int(inputs_embeds.shape[1])
+        self.last_output_sequence_length = int(pruning_result.tokens.shape[1])
+        self.last_patch_keep_counts = (
+            None if pruning_result.patch_keep_counts is None else
+            tuple(int(value) for value in pruning_result.patch_keep_counts.detach().cpu().tolist())
+        )
+        return output

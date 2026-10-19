@@ -1,8 +1,0 @@
-name: lightvla
-state_type: stateless
-
-mode: packaged
-patch_start: 1
-score_context: suffix
-noise_scale: null
-allow_existing_pruner: true
