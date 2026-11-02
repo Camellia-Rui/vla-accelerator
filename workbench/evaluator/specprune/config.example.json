@@ -1,0 +1,17 @@
+{
+  "method": "specprune",
+  "task_suite": "libero_object",
+  "device": "cuda:0",
+  "python": "/ABSOLUTE/PATH/TO/specprune-env/bin/python",
+  "views": 2,
+  "action_dim": 7,
+  "chunk_size": 8,
+  "paths": {
+    "vla_repository": "/ABSOLUTE/PATH/TO/openvla-oft",
+    "method_repository": "/ABSOLUTE/PATH/TO/specprune",
+    "checkpoint": "/ABSOLUTE/PATH/TO/checkpoint",
+    "libero_assets": "/ABSOLUTE/PATH/TO/LIBERO",
+    "toolbox_src": "/ABSOLUTE/PATH/TO/exported-toolbox/src"
+  }
+}
+

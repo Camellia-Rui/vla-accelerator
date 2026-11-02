@@ -190,3 +190,5 @@ models/
 data/
 *.log
 runs/
+handoff-snapshots/
+handoff-work/

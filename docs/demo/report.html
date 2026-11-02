@@ -1,0 +1,40 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>VLA 工具箱报告</title><style>body{font:18px/1.7 system-ui;max-width:1000px;margin:48px auto;padding:0 24px;color:#172b4d}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f9;padding:24px;border-radius:12px}h1{color:#075985}.flow{font-size:64px;font-weight:700;color:#047857}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:12px;border-bottom:1px solid #cbd5e1}</style><h1>VLA Express Toolbox</h1><h2>LightVLA 合成 CPU 演示</h2><div class="flow">8 → 5 → 8</div><p>原生序列 → 剪枝序列 → 卸载后原生序列</p><p>参数与原生输出恢复检查：通过</p><p>随机 tiny LLaMA，4 个相同视觉 token 合并为 1；展示接入及卸载，不代表机器人成功率或真实推理加速。</p><details><summary>完整检查记录</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;check&quot;: &quot;synthetic-cpu-lifecycle-only&quot;,
+  &quot;passed&quot;: true,
+  &quot;recorded_at_utc&quot;: &quot;2026-11-02T07:02:12.954322+00:00&quot;,
+  &quot;environment&quot;: {
+    &quot;python&quot;: &quot;3.12.14&quot;,
+    &quot;torch&quot;: &quot;2.3.0+cpu&quot;,
+    &quot;transformers&quot;: &quot;4.40.1&quot;,
+    &quot;device&quot;: &quot;cpu&quot;,
+    &quot;seed&quot;: 0
+  },
+  &quot;sequence_lengths&quot;: [
+    8,
+    5,
+    8
+  ],
+  &quot;restored&quot;: true,
+  &quot;stats&quot;: {
+    &quot;method&quot;: &quot;lightvla&quot;,
+    &quot;attached&quot;: true,
+    &quot;enabled&quot;: true,
+    &quot;mode&quot;: &quot;packaged&quot;,
+    &quot;pruned_forward_count&quot;: 1,
+    &quot;bypassed_forward_count&quot;: 0,
+    &quot;last_input_sequence_length&quot;: 8,
+    &quot;last_output_sequence_length&quot;: 5,
+    &quot;last_patch_keep_counts&quot;: [
+      1
+    ],
+    &quot;decoder_class&quot;: &quot;LlamaModel&quot;,
+    &quot;pruner_class&quot;: &quot;DifferentiableTokenPruner&quot;,
+    &quot;patch_count&quot;: 4,
+    &quot;patch_start&quot;: 1,
+    &quot;score_context&quot;: &quot;suffix&quot;
+  },
+  &quot;real_vla_validated&quot;: false,
+  &quot;speedup_measured&quot;: false,
+  &quot;explanation&quot;: &quot;随机 tiny LLaMA，4 个相同视觉 token 合并为 1；展示接入及卸载，不代表机器人成功率或真实推理加速。&quot;
+}</pre></details></html>

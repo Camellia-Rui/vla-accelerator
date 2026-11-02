@@ -1,73 +1,29 @@
 ---
-name: vla-acceleration-evaluator
-description: Evaluate, tune, and integrate training-free acceleration modules for vision-language-action (VLA) inference. Use when inspecting a VLA or acceleration repository, writing temporary probe/adapter/benchmark scripts, locating an attachment point, distinguishing stateless token pruning from stateful cross-frame caching, building paired baseline/accelerated experiments, checking action fidelity and cache reset behavior, profiling latency by stage, tuning module hyperparameters, deciding PASS/TUNE/REJECT, or generating a deployment adapter only after validation.
+name: vla-express-toolbox
+description: Inspect a user's VLA model workspace, select compatible acceleration candidates, guide environment and checkpoint setup, integrate LightVLA or the pinned VLA-Pruner backend, and assess reproducible inference evidence. Use when a user adds this toolbox and a VLA project to Codex and asks to accelerate, reproduce, or evaluate its inference.
 ---
 
-# VLA Acceleration Evaluator
+# VLA Express Toolbox
 
-Evaluate an acceleration module as an experimental intervention. Do not assume that fewer tokens, patches, or cache entries imply end-to-end acceleration or acceptable control behavior.
+用户目标是给现有 VLA 推理项目提供可执行的接入与评估指导；不局限于 OpenVLA-OFT。先读 [用户指南](docs/USER_GUIDE.md) 和 [发布状态](docs/RELEASE_STATUS.md)。用户只询问方案时不自动启动实验；请求执行时在已有授权内继续。
 
-## Inputs and boundaries
+## 检查与选择
 
-Require paths or identifiers for the VLA implementation, checkpoint, acceleration module, evaluation task, and output directory. Keep repositories, checkpoints, datasets, and generated evidence outside this skill directory.
+在工具箱根目录使用 `python -m core doctor --workspace <实际目录> --output <独立新报告目录>`，再阅读用户的原生加载及推理入口。检查输出是源码线索，不能作为兼容性证明。明确 checkpoint、processor、归一化统计、动作头、视图数、动作维度与 chunk、decoder 结构、KV cache、依赖版本和已有 patch。
 
-Do not edit a user's original checkpoint. Use a separate checkpoint directory and link or copy immutable weight shards when remote-code files must be changed.
+- LightVLA：有 CPU 验证的封装；读 [方法说明](methods/lightvla/README.md) 和 [来源](methods/lightvla/provenance.json)。原方法含微调，不标为完全免训练。真实模型兼容和效果待验证。
+- VLA-Pruner：读 [接口说明](methods/vla_pruner/INTEGRATION.md)，必须核实固定官方 backend；普通 PyPI Transformers 不替代该 backend。
+- SpecPrune：实验路线，不承诺完整统一接入；读 [开发评估说明](workbench/evaluator/specprune/README-ZH.md)。
+- VLA-Cache：隔离，不提供集成或部署建议。AutoPrune 已退出项目，不恢复旧路线。
 
-## Temporary experiment scripts
+无可验证的兼容方法时直接说明缺口，不强行分配方法。环境按所选模型与后端分别配置，不将本工具箱的 CPU 测试环境推广到真实 VLA。权重从用户已有记录或核实的上游取得；检查模型和任务变体及归一化键，不编造下载地址或公开可用性。
 
-Temporary, reversible scripts and wrappers are expected during evaluation; they are not deployment adapters. When asked to implement or test a new integration, read [references/temporary-script-playbook.md](references/temporary-script-playbook.md) before writing code.
+## 执行与报告
 
-Generate scripts in the user-selected experiment/output directory, never inside this skill. Inspect the target repository first and use its real loading and inference entry points. A usable experiment must include a runtime probe or recorded discovery evidence, baseline and accelerated paths, a zero-effect control when possible, raw paired samples, action outputs, actual retained/reused counts, environment metadata, and cleanup of hooks or monkeypatches in `finally`.
+根据用户原项目在独立目录编写真实加载工厂，避免修改原权重。LightVLA 使用 `scripts/run_pruning.py --method lightvla` 或方法 CLI；已有模型按其生命周期接口接入。VLA-Pruner 使用固定后端接口。保持原生 action API，在 `finally` 卸载并检查恢复。工厂导入会执行用户代码，先阅读其行为。
 
-For training-free claims, put the model in evaluation mode, run under inference/no-grad context, record a parameter fingerprint before and after, and fail if sampled weights change. Treat a script that only shortens tensors or reports a local kernel time as incomplete.
+给用户完整回答：选哪个方法及依据、适用环境、权重来源、按实际路径填好的命令、成功输出、实测效果与可信范围。无法完成的项指出实际阻塞资源。不得把带占位符的命令描述为已能直接运行。
 
-## Route the module
+`python -m core demo` 只展示 tiny LLaMA CPU 的 8→5→8 生命周期；不是速度基准或真实 VLA 成功率。真实性标准见 [证据说明](docs/EVIDENCE.md)。需要评估真实模型时读 [评估 Skill](workbench/skill/vla-acceleration-evaluator/SKILL.md) 并使用其 schema 3 校验器；旧根目录 evaluator 是历史版本。
 
-Classify the module before writing an adapter:
-
-- **Stateless:** transforms the current forward input, such as visual-token pruning before the language decoder. Read [references/lightvla-pruner.md](references/lightvla-pruner.md).
-- **Stateful:** reuses information across observations, such as KV-cache or patch reuse. It requires explicit episode reset validation. Read [references/vla-cache.md](references/vla-cache.md).
-- **Unknown:** inspect source and run one unaccelerated forward before deciding. Do not guess tensor layout from class names alone.
-
-## Evaluation workflow
-
-Follow [references/evaluation-protocol.md](references/evaluation-protocol.md) and execute these gates in order:
-
-1. **Audit:** record repository commits, environment versions, model/checkpoint identity, official entry points, defaults, and all local modifications.
-2. **Probe:** load the model without acceleration and observe runtime classes, tensor shapes, prefill/decode calls, cache format, device, and memory.
-3. **Attach and control:** implement the smallest reversible adapter. Verify no-op or zero-acceleration mode reproduces baseline exactly or within a justified tolerance.
-4. **Pair measurements:** alternate baseline and accelerated runs on identical inputs. Include warm-up, CUDA synchronization, repeated samples, per-stage timing, action outputs, and resource counts.
-5. **Validate semantics:** test action fidelity, gripper agreement, repeated-frame behavior, state reset, order effects, and closed-loop task success.
-6. **Diagnose and tune:** attribute gains and overhead to stages. Tune only documented parameters and preserve an untouched default regression.
-7. **Decide:** write a manifest following [references/result-schema.md](references/result-schema.md), validate it, then run the deterministic admission script.
-
-Use:
-
-```bash
-python scripts/validate_manifest.py result.json
-python scripts/admission_decision.py result.json --pretty
-```
-
-## Decision policy
-
-- **PASS:** structure/control gates pass, required reset and closed-loop evidence pass, fidelity is within thresholds, and measured end-to-end speedup meets the target.
-- **TUNE:** structural and correctness gates pass, but performance or non-critical fidelity still has credible tunable headroom.
-- **REJECT:** attachment is incompatible, the control is invalid, state leaks across episodes, action/closed-loop quality fails, or no credible speedup remains after profiling.
-- **INCONCLUSIVE:** mandatory evidence is missing or invalid.
-
-Never describe a module as accelerated based only on theoretical FLOPs, token retention, prefill improvement, or a synthetic input. Never ship an adapter for a rejected configuration.
-
-## Deployment output
-
-Generate a persistent, task-specific deployment adapter only after PASS. Evaluation-time scripts may use temporary hooks or wrappers before PASS, but must remain reversible and outside the original checkpoint. A deployment adapter must expose enable/disable, selected hyperparameters, reset behavior for stateful methods, compatibility checks, evidence path, and a clean uninstall/restore path. Preserve the original model forward implementation when hooks or wrappers suffice.
-
-## Bundled resources
-
-- `scripts/validate_manifest.py`: checks evidence completeness and schema invariants.
-- `scripts/admission_decision.py`: emits deterministic PASS/TUNE/REJECT/INCONCLUSIVE results.
-- `scripts/profile_vla_cache_stages.py`: reference CUDA stage profiler for VLA-Cache/OpenVLA; adapt model-loading imports rather than assuming universal compatibility.
-- `scripts/self_test.py`: exercises manifest validation and PASS/TUNE/REJECT/INCONCLUSIVE decisions without model dependencies.
-- `references/temporary-script-playbook.md`: contract and implementation patterns for disposable probe, adapter, benchmark, and closed-loop scripts.
-- `references/result-schema.md`: canonical manifest fields and meanings.
-- `references/lightvla-pruner.md`: known stateless-pruning evidence and hazards.
-- `references/vla-cache.md`: known stateful-cache evidence, reset requirements, and suitability.
+工作目录与其他成员并行时按 [协作规则](docs/USER_GUIDE.md) 回传源码差异、环境、命令、原始记录和校验值，不覆盖他人成果。用户的新指令优先于历史交接包的任务。

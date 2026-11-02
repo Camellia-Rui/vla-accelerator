@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "captured_on": "2026-10-31",
+  "implementations": [
+    {
+      "package": "lightvla_pruner",
+      "source": "D:/packaged_pruner/src/lightvla_pruner",
+      "kind": "stateless visual-prefix pruning",
+      "included": true
+    },
+    {
+      "package": "specprune",
+      "source": "D:/vla加速模块/specprune",
+      "kind": "hybrid stateful two-view visual-token pruning and action-aware rollout control",
+      "target": "OpenVLA-OFT with continuous L1 action head",
+      "included": true,
+      "files": {
+        "accelerator.py": "sha256:AA41CBCDF0A8ABCB6799C725AA01EEDD9C3F74A569F6E29E350EAAAD2EAC3C37",
+        "README.md": "sha256:2467F4E37CDAB573F54105D288D0DADA1D7651B850E3DA458F34F1F7C9F94EED",
+        "__init__.py": "sha256:E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "provenance": {
+        "upstream": "https://github.com/alexwhz-sjtu/SpecPrune-VLA",
+        "note": "User-supplied engineering wrapper; no accompanying license file was present."
+      }
+    },
+    {
+      "package": "vla_pruner",
+      "source": "D:/vla加速模块/VLA-Pruner",
+      "kind": "stateful semantic and action-history visual-token pruning adapter",
+      "target": "Pinned official VLA-Pruner OpenVLA-OFT backend",
+      "included": true,
+      "algorithm_source_included": false,
+      "files": {
+        "accelerator.py": "sha256:05C0D2E76302467342D5AD01E53BF90CC9C50BC2A51B86CC5E3AC213622710DB",
+        "backend.py": "sha256:E98D4663D9A462CD8EC06B7973CAB4DA7B9CB66444B1A1D08BD8C1000FB23897",
+        "backend.lock.json": "sha256:3AB00D7CF1B45D3A9E9F00BCD6D0EEFC92B644697589086CC6F0C6A851227F72",
+        "__init__.py": "sha256:F7D11D92B80470B7145403AA8746C020E0D86910951D0BC61B3D7DA36D82C74A",
+        "README.md": "sha256:40FD6DBADDBB1BA21E46BC14293D37776865BE3F19EFC704648AB0BAFDBAC3CA",
+        "INTEGRATION.md": "sha256:91E7A55861D413F29EF1F5CC5F1797CFFE0750B305E6908D142C3CF78A566C8A"
+      },
+      "provenance": {
+        "upstream": "https://github.com/MINT-SJTU/VLA-Pruner",
+        "backend_commit": "84d4b7192c77abf1585610e2f12393319b7ebff9",
+        "note": "User-supplied reversible adapter; the external backend is not vendored."
+      }
+    },
+    {
+      "package": "autoprune",
+      "included": false,
+      "status": "permanently-retired",
+      "reason": "Explicit user decision; executable source, integrations, examples, and tests removed."
+    },
+    {
+      "package": "vla-cache",
+      "included": false,
+      "status": "quarantined",
+      "reason": "Tested implementation failed closed-loop acceptance; no executable overlay is bundled."
+    }
+  ]
+}
+

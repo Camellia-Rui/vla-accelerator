@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vla-express-toolbox"
-version = "0.1.0"
+version = "0.2.0rc1"
 description = "Lifecycle adapters and evaluation utilities for VLA inference acceleration"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -16,6 +16,7 @@ dependencies = []
 lightvla = ["torch>=2.3", "transformers>=4.40,<4.41"]
 
 [project.scripts]
+vla-toolbox = "core.toolbox:main"
 vla-lightvla = "methods.lightvla.cli:main"
 
 [tool.setuptools.packages.find]

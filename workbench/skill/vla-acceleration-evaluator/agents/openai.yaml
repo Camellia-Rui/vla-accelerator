@@ -1,0 +1,4 @@
+interface:
+  display_name: "VLA Acceleration Evaluator"
+  short_description: "Evaluate and adapt training-free VLA acceleration modules"
+  default_prompt: "Use $vla-acceleration-evaluator to inspect this VLA acceleration module, benchmark it, and decide PASS, TUNE, or REJECT."

@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/MINT-SJTU/VLA-Pruner",
+  "commit": "84d4b7192c77abf1585610e2f12393319b7ebff9",
+  "model_project": "src/openvla-oft",
+  "transformers_project": "src/openvla-oft/transformers",
+  "implementation_files": [
+    "src/openvla-oft/prismatic/extern/hf/modeling_prismatic.py",
+    "src/openvla-oft/transformers/src/transformers/models/llama/modeling_llama.py",
+    "src/openvla-oft/experiments/robot/openvla_utils.py"
+  ],
+  "distribution": "external dependency; no upstream source is vendored",
+  "compatibility": "structural checks implemented; real model execution not yet verified"
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "release": "2026-11-02-r6",
+  "files": [
+    {
+      "path": "archive/excluded-vla-cache-evidence/09_closed_loop_paired.json",
+      "size": 2676050,
+      "sha256": "d6e58d441142affd0eb2f7882e8a4a43a4fb0e53a74b5c85fb9b1569601d1ed2",
+      "kind": "archived_raw_result",
+      "method": "vla-cache",
+      "deployment": "quarantined",
+      "recorded_status": "complete",
+      "recorded_decision": "CLOSED_LOOP_REVIEW_OR_FAIL",
+      "recorded_summary": {
+        "native_successes": 14,
+        "cache_successes": 0,
+        "episodes_per_mode": 20,
+        "query_median_speedup": 1.0358485695602606
+      }
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/09_closed_loop_paired.log",
+      "size": 910478,
+      "sha256": "64da2de9af295d40ba66c794dce39c4a21d32b026ed635ae5a538ff6b1e75c8b",
+      "kind": "archived_log",
+      "method": "vla-cache",
+      "deployment": "quarantined"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/10_refresh_screen.json",
+      "size": 1037786,
+      "sha256": "93f448cd1477e961236f36134f518a215e42d4d9e2147990830f269e4005dbab",
+      "kind": "archived_raw_result",
+      "method": "vla-cache",
+      "deployment": "quarantined",
+      "recorded_status": "complete",
+      "recorded_decision": "NO_REFRESH_CANDIDATE_FOUND"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/10_refresh_screen.log",
+      "size": 379972,
+      "sha256": "bcc218ba10980e5931f5ed0f91c1df3874e39ac8b36443e4edb09b3bbc83a5b5",
+      "kind": "archived_log",
+      "method": "vla-cache",
+      "deployment": "quarantined"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/11_sdpa_sidecar_screen.json",
+      "size": 982386,
+      "sha256": "c1e04de3b7238d2a2d4223dec5f63f297854ea4844303f6887e4db78a797082b",
+      "kind": "archived_raw_result",
+      "method": "vla-cache",
+      "deployment": "quarantined",
+      "recorded_status": "complete",
+      "recorded_decision": "FULL_REFRESH_RESTORES_SUCCESS_NO_SKIP_CANDIDATE"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/11_sdpa_sidecar_screen.log",
+      "size": 257006,
+      "sha256": "1453c4249900c48b9bb3540447c7ac6e6967379d943095194c03e8e536963476",
+      "kind": "archived_log",
+      "method": "vla-cache",
+      "deployment": "quarantined"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/12_safe_reuse_screen.json",
+      "size": 1107739,
+      "sha256": "58fbb0ce34b1b4397ad54a13b10977aec862f32ddfb34c2182272ee95a89f702",
+      "kind": "archived_raw_result",
+      "method": "vla-cache",
+      "deployment": "quarantined",
+      "recorded_status": "complete",
+      "recorded_decision": "NO_REFRESH_CANDIDATE_FOUND"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/12_safe_reuse_screen.log",
+      "size": 393306,
+      "sha256": "24f4f0cc5aecd69b6dcf3458ca3d36291e2a266eb079c26deae7b72728881bc5",
+      "kind": "archived_log",
+      "method": "vla-cache",
+      "deployment": "quarantined"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/13_late_layer_screen.json",
+      "size": 964389,
+      "sha256": "642b8a2247ee2d18c48badd037d0652599876171afc3866cdc4a0b0606aaebfa",
+      "kind": "archived_raw_result",
+      "method": "vla-cache",
+      "deployment": "quarantined",
+      "recorded_status": "complete",
+      "recorded_decision": "NO_REFRESH_CANDIDATE_FOUND"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/13_late_layer_screen.log",
+      "size": 341962,
+      "sha256": "04e9c8977661bf4d65c377479c26898cfb0570811220e519fdd94b84509da927",
+      "kind": "archived_log",
+      "method": "vla-cache",
+      "deployment": "quarantined"
+    }
+  ],
+  "missing_or_unvalidated": [
+    {
+      "method": "lightvla",
+      "path_hint": "results/01_real_fixed_observation_r6.json",
+      "status": "NOT_BUNDLED"
+    },
+    {
+      "method": "lightvla",
+      "path_hint": "results/02_closed_loop_smoke_r1.json",
+      "status": "NOT_BUNDLED"
+    },
+    {
+      "method": "lightvla",
+      "path_hint": "results/03_multitask_paired_r1.json",
+      "status": "NOT_BUNDLED"
+    },
+    {
+      "method": "lightvla",
+      "path_hint": "results/04_targeted_adjudication_r1.json",
+      "status": "NOT_BUNDLED"
+    },
+    {
+      "method": "lightvla",
+      "path_hint": "results/05_weight_audit_r1.json",
+      "status": "NOT_BUNDLED"
+    },
+    {
+      "method": "specprune",
+      "status": "INCOMPLETE_REAL_RUNTIME_VALIDATION",
+      "needed": "runtime probe, mechanism records, paired timing/actions, closed-loop, active weight/detach audit"
+    },
+    {
+      "method": "vla-pruner",
+      "status": "INCOMPLETE_REAL_RUNTIME_VALIDATION",
+      "needed": "runtime probe, mechanism records, paired timing/actions, closed-loop, active weight/detach audit"
+    }
+  ],
+  "historical_context": [
+    "history/VLA_PROJECT_HANDOFF_2026-10-30.md",
+    "skill/vla-acceleration-evaluator/references/project-state.md",
+    "skill/vla-acceleration-evaluator/assets/toolbox/SOURCE_MANIFEST.json"
+  ],
+  "limits": [
+    "Recorded summaries are not newly reproduced experiments.",
+    "LightVLA stage 04 is conditional, not universally required.",
+    "Stage 05 sampled weight audit cannot retroactively certify earlier closed-loop runs.",
+    "Unit-test synthetic-only.json is not experiment evidence."
+  ]
+}

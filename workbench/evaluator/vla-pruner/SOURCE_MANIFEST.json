@@ -1,0 +1,55 @@
+{
+  "method": "vla-pruner",
+  "status": "INCOMPLETE_REAL_RUNTIME_VALIDATION",
+  "files": [
+    {
+      "path": "evaluator/common/__init__.py",
+      "sha256": "1dbdbb588e7f56e8873872837f1d6523740b231bad0d34a6d5393e96509bcf4d"
+    },
+    {
+      "path": "evaluator/common/lifecycle.py",
+      "sha256": "fd998bd3f8dd8443bbccb9575b404078e44c3a16a931ebe80fa4a5505ac9e89b"
+    },
+    {
+      "path": "evaluator/common/mechanism.py",
+      "sha256": "36a2a329c8738e15e176b7a581527c9a2c44bf539aa2020a73e9cf1b7e0ebf75"
+    },
+    {
+      "path": "evaluator/common/paired_stats.py",
+      "sha256": "2e152162307bc44c5aca3355fbc79a3df9af9e064a9819f8246b825b87f6a415"
+    },
+    {
+      "path": "evaluator/common/preflight.py",
+      "sha256": "7dd8dfd472a7fcd89e219ea691b812776f8f6b0aa497f0e7511cf2d997c38a4f"
+    },
+    {
+      "path": "evaluator/common/result_io.py",
+      "sha256": "a3d6927e4e6fd5f0df08c49b3020781eb67bd55618c93fc7d8d768b4336dabfe"
+    },
+    {
+      "path": "evaluator/common/tests/test_infrastructure.py",
+      "sha256": "539f7bc3d41806bb1fef85c057e14adb2cca8788882cb21372cc80aa43187edd"
+    },
+    {
+      "path": "evaluator/vla-pruner/probe_runtime.py",
+      "sha256": "9e43a9512e2ea6e320bc9413230dae88c8866e6b6c655b4b53a86a16cf4917a0"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/__init__.py",
+      "sha256": "f7d11d92b80470b7145403aa8746c020e0d86910951d0bc61b3d7da36d82c74a"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/accelerator.py",
+      "sha256": "05c0d2e76302467342d5ad01e53bf90cc9c50bc2a51b86cc5e3ac213622710db"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/backend.py",
+      "sha256": "e98d4663d9a462cd8ec06b7973cab4da7b9cb66444b1a1d08bd8c1000fb23897"
+    }
+  ],
+  "runtime_source_verified": false,
+  "checkpoint_verified": false,
+  "five_stage_chain_delivered": false,
+  "gpu_experiments_run": false,
+  "required_backend_commit": "84d4b7192c77abf1585610e2f12393319b7ebff9"
+}

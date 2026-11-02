@@ -68,6 +68,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     acc = None
     try:
+        if args.output and args.output.exists():
+            raise ValueError("output already exists; choose a new file before running the model")
         config = _config(args.config)
         if args.mode is not None:
             from dataclasses import replace

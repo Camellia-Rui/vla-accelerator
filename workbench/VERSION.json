@@ -1,0 +1,15 @@
+{
+  "name": "vla-codex-workbench",
+  "version": "2026-11-02-r6",
+  "scope": "handoff plus tested offline evaluator infrastructure and method-specific preflight; real evaluation incomplete",
+  "bootstrap": "START_HERE.md",
+  "one_line_user_message": "请执行附件中的 START_HERE.md。",
+  "authoritative_instructions": "CODEX_INSTRUCTIONS.md",
+  "initialization_mode": "read-only-audit",
+  "development_backlog": "builder/BUILDER_MISSION.md",
+  "reference_evaluator": "evaluator/lightvla",
+  "planned_evaluators": ["specprune", "vla-pruner"],
+  "autoprune": "permanently-retired-executable-assets-absent",
+  "vla_cache": "quarantined-rejected-for-closed-loop-deployment",
+  "grids_openpi": "excluded"
+}

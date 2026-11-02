@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "check": "synthetic-cpu-lifecycle-only",
+  "passed": true,
+  "recorded_at_utc": "2026-11-02T07:02:12.954322+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.3.0+cpu",
+    "transformers": "4.40.1",
+    "device": "cpu",
+    "seed": 0
+  },
+  "sequence_lengths": [
+    8,
+    5,
+    8
+  ],
+  "restored": true,
+  "stats": {
+    "method": "lightvla",
+    "attached": true,
+    "enabled": true,
+    "mode": "packaged",
+    "pruned_forward_count": 1,
+    "bypassed_forward_count": 0,
+    "last_input_sequence_length": 8,
+    "last_output_sequence_length": 5,
+    "last_patch_keep_counts": [
+      1
+    ],
+    "decoder_class": "LlamaModel",
+    "pruner_class": "DifferentiableTokenPruner",
+    "patch_count": 4,
+    "patch_start": 1,
+    "score_context": "suffix"
+  },
+  "real_vla_validated": false,
+  "speedup_measured": false,
+  "explanation": "随机 tiny LLaMA，4 个相同视觉 token 合并为 1；展示接入及卸载，不代表机器人成功率或真实推理加速。"
+}

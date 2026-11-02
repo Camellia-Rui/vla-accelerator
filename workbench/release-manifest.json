@@ -1,0 +1,937 @@
+{
+  "schema_version": 1,
+  "release": "vla-codex-workbench-2026-11-02-r6",
+  "file_count": 186,
+  "files": [
+    {
+      "path": "archive/excluded-vla-cache-evidence/09_closed_loop_paired.json",
+      "size": 2676050,
+      "sha256": "d6e58d441142affd0eb2f7882e8a4a43a4fb0e53a74b5c85fb9b1569601d1ed2"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/09_closed_loop_paired.log",
+      "size": 910478,
+      "sha256": "64da2de9af295d40ba66c794dce39c4a21d32b026ed635ae5a538ff6b1e75c8b"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/10_refresh_screen.json",
+      "size": 1037786,
+      "sha256": "93f448cd1477e961236f36134f518a215e42d4d9e2147990830f269e4005dbab"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/10_refresh_screen.log",
+      "size": 379972,
+      "sha256": "bcc218ba10980e5931f5ed0f91c1df3874e39ac8b36443e4edb09b3bbc83a5b5"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/11_sdpa_sidecar_screen.json",
+      "size": 982386,
+      "sha256": "c1e04de3b7238d2a2d4223dec5f63f297854ea4844303f6887e4db78a797082b"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/11_sdpa_sidecar_screen.log",
+      "size": 257006,
+      "sha256": "1453c4249900c48b9bb3540447c7ac6e6967379d943095194c03e8e536963476"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/12_safe_reuse_screen.json",
+      "size": 1107739,
+      "sha256": "58fbb0ce34b1b4397ad54a13b10977aec862f32ddfb34c2182272ee95a89f702"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/12_safe_reuse_screen.log",
+      "size": 393306,
+      "sha256": "24f4f0cc5aecd69b6dcf3458ca3d36291e2a266eb079c26deae7b72728881bc5"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/13_late_layer_screen.json",
+      "size": 964389,
+      "sha256": "642b8a2247ee2d18c48badd037d0652599876171afc3866cdc4a0b0606aaebfa"
+    },
+    {
+      "path": "archive/excluded-vla-cache-evidence/13_late_layer_screen.log",
+      "size": 341962,
+      "sha256": "04e9c8977661bf4d65c377479c26898cfb0570811220e519fdd94b84509da927"
+    },
+    {
+      "path": "builder/BUILDER_MISSION.md",
+      "size": 4987,
+      "sha256": "9748f89bfb95990076ade46dbaa451f47d03cf386487ddfc74a1d099c572fa18"
+    },
+    {
+      "path": "builder/EVALUATOR_DELIVERY_CONTRACT.md",
+      "size": 3511,
+      "sha256": "3ad708551b9e1f844757063d6ad30068c9c9cfa1703e0d28fc55317c92f5fe80"
+    },
+    {
+      "path": "builder/METHOD_MECHANISM_REQUIREMENTS.md",
+      "size": 2902,
+      "sha256": "a720d226b2e31a543ca31913a2fb7cf82966266b8f2f8b19c17ddb4b906a405e"
+    },
+    {
+      "path": "builder/SERVER_DISCOVERY_CHECKLIST.md",
+      "size": 2309,
+      "sha256": "fd1c00fefa13b2542c337fdf450b3504c58940106474e1fa9b24c42c21036f2a"
+    },
+    {
+      "path": "CODEX_INSTRUCTIONS.md",
+      "size": 6008,
+      "sha256": "f3425fb4f99d7f2ecf7c399262b0c92eb87ad46e7132183469ba8d616c05e7f1"
+    },
+    {
+      "path": "COLLABORATION.md",
+      "size": 1495,
+      "sha256": "682d6d825366d75ca11af95bce075d204655281363319143c9814d6c69d5ee40"
+    },
+    {
+      "path": "conversation/ATTACHMENT_ROUTING.md",
+      "size": 1512,
+      "sha256": "e111531ebae05a553e6202faf481a170d04befffb24b5e33b06dff5ad51888e1"
+    },
+    {
+      "path": "conversation/EXPERIMENT_HANDOFF_DIALOGUE.md",
+      "size": 1238,
+      "sha256": "07bc8c5ccac819492602371566e397d5da1f47697eb61fc7318ffd0b9f66bea8"
+    },
+    {
+      "path": "conversation/INITIALIZATION_DIALOGUE.md",
+      "size": 488,
+      "sha256": "5177c7459a80d0fca5a55968a252bba85c780d63a05af7b4d83348c901b76f1d"
+    },
+    {
+      "path": "conversation/PROJECT_INPUT_TEMPLATE.md",
+      "size": 1349,
+      "sha256": "e3fe2494aee8c2cdb04d46d65b892b20d03da895e87a463f6dc27fb41df7678f"
+    },
+    {
+      "path": "DEVELOPMENT.md",
+      "size": 2889,
+      "sha256": "6641793a3cfe9cf9dcc1557039787202d4cc52d3f8ccfab90c55698258f4cfa3"
+    },
+    {
+      "path": "evaluator/common/__init__.py",
+      "size": 74,
+      "sha256": "1dbdbb588e7f56e8873872837f1d6523740b231bad0d34a6d5393e96509bcf4d"
+    },
+    {
+      "path": "evaluator/common/lifecycle.py",
+      "size": 3597,
+      "sha256": "fd998bd3f8dd8443bbccb9575b404078e44c3a16a931ebe80fa4a5505ac9e89b"
+    },
+    {
+      "path": "evaluator/common/mechanism.py",
+      "size": 2233,
+      "sha256": "36a2a329c8738e15e176b7a581527c9a2c44bf539aa2020a73e9cf1b7e0ebf75"
+    },
+    {
+      "path": "evaluator/common/paired_stats.py",
+      "size": 3054,
+      "sha256": "2e152162307bc44c5aca3355fbc79a3df9af9e064a9819f8246b825b87f6a415"
+    },
+    {
+      "path": "evaluator/common/preflight.py",
+      "size": 7102,
+      "sha256": "7dd8dfd472a7fcd89e219ea691b812776f8f6b0aa497f0e7511cf2d997c38a4f"
+    },
+    {
+      "path": "evaluator/common/result_io.py",
+      "size": 2672,
+      "sha256": "a3d6927e4e6fd5f0df08c49b3020781eb67bd55618c93fc7d8d768b4336dabfe"
+    },
+    {
+      "path": "evaluator/common/tests/test_infrastructure.py",
+      "size": 8131,
+      "sha256": "539f7bc3d41806bb1fef85c057e14adb2cca8788882cb21372cc80aa43187edd"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/benchmark_real_observation.py",
+      "size": 15564,
+      "sha256": "c4c06ef508dc13a09b371a66431d85bcb067740b38550c31fb109400d4ce5b32"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/discover_paths.py",
+      "size": 2317,
+      "sha256": "aaa79a6b848e6c7cf66eea1f6eda1a13e44807d8fd9e5c3947061ae71125b838"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/__init__.py",
+      "size": 449,
+      "sha256": "4d3ac38c5bd3bc1f0a9cd83a6f18adcb34b98bbff05f57abbf27f74d917f4cbf"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/__main__.py",
+      "size": 48,
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/accelerator.py",
+      "size": 11366,
+      "sha256": "b0ca54cb77cff19bda1b3f291c4460efa1556bedd5bb6492411043f5c50bd4e8"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/cli.py",
+      "size": 5632,
+      "sha256": "dada7acf578dbad54585827718d50e84797a677a45e1ca0cb704a847770332bc"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/config.py",
+      "size": 2155,
+      "sha256": "d067fb8a2d37f5c9f2e86751b9c143c3ee6b38f088419830a2335a05f58e6a42"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/EXPERIMENTS.md",
+      "size": 19035,
+      "sha256": "6bde0418536f072f4e8c0d4c5dc60d73495fa1b9d23b4010b305306d4eb81297"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/provenance.json",
+      "size": 805,
+      "sha256": "00d909dc70e4648d9fb716d408e04a7576aded872a2fe25c1d59478ccd121b1e"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/pruner/__init__.py",
+      "size": 433,
+      "sha256": "b9f836b048702f7f0eb12892606f9602df94fc49c56de42ba30ff560c2c3346a"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/pruner/core.py",
+      "size": 12552,
+      "sha256": "6800868d35ff8524d9c4bdba5010d92fd426fb3c652cc3c9962217e3e39be2f4"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/pruner/layout.py",
+      "size": 5308,
+      "sha256": "6c9cf20036e7bb358599ee22c270f1af257063ba7e3c575b3ac327f04d1080eb"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/pruner/prefix_llama.py",
+      "size": 8702,
+      "sha256": "a324ff45b623ee60ed4bf40d3450d91fae7fbbbbcda75071ad9a58f99195c834"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/README.md",
+      "size": 9383,
+      "sha256": "4ca9cab1e3efc586bd391aaa24e102ad7643ed9962c7641ac81db1dcc4048cc7"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/lightvla/UPSTREAM_LICENSE.md",
+      "size": 1255,
+      "sha256": "ae9f18cac5844226859bfd11e56fa31bc2fb8fee92e5b15fefb7f86daa9e3afc"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/README-ZH.md",
+      "size": 1472,
+      "sha256": "b991881dbd220546b9c07b435a68e791ed89bb94533bba76357be9e67c066e9a"
+    },
+    {
+      "path": "evaluator/lightvla/01-fixed-observation-r6/run.sh",
+      "size": 3408,
+      "sha256": "bdfc0f046afba417d37b26c57bb3a8d3eef7cc170995a0b9b7395c1b5be62190"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/closed_loop_paired.py",
+      "size": 13928,
+      "sha256": "1a69439bd06a700ad84dd478fcf421015768ddcea6c57b3f30f634a5884e5b63"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/discover_paths.py",
+      "size": 2317,
+      "sha256": "aaa79a6b848e6c7cf66eea1f6eda1a13e44807d8fd9e5c3947061ae71125b838"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/__init__.py",
+      "size": 449,
+      "sha256": "4d3ac38c5bd3bc1f0a9cd83a6f18adcb34b98bbff05f57abbf27f74d917f4cbf"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/__main__.py",
+      "size": 48,
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/accelerator.py",
+      "size": 11366,
+      "sha256": "b0ca54cb77cff19bda1b3f291c4460efa1556bedd5bb6492411043f5c50bd4e8"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/cli.py",
+      "size": 5632,
+      "sha256": "dada7acf578dbad54585827718d50e84797a677a45e1ca0cb704a847770332bc"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/config.py",
+      "size": 2155,
+      "sha256": "d067fb8a2d37f5c9f2e86751b9c143c3ee6b38f088419830a2335a05f58e6a42"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/EXPERIMENTS.md",
+      "size": 19035,
+      "sha256": "6bde0418536f072f4e8c0d4c5dc60d73495fa1b9d23b4010b305306d4eb81297"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/provenance.json",
+      "size": 805,
+      "sha256": "00d909dc70e4648d9fb716d408e04a7576aded872a2fe25c1d59478ccd121b1e"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/pruner/__init__.py",
+      "size": 433,
+      "sha256": "b9f836b048702f7f0eb12892606f9602df94fc49c56de42ba30ff560c2c3346a"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/pruner/core.py",
+      "size": 12552,
+      "sha256": "6800868d35ff8524d9c4bdba5010d92fd426fb3c652cc3c9962217e3e39be2f4"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/pruner/layout.py",
+      "size": 5308,
+      "sha256": "6c9cf20036e7bb358599ee22c270f1af257063ba7e3c575b3ac327f04d1080eb"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/pruner/prefix_llama.py",
+      "size": 8702,
+      "sha256": "a324ff45b623ee60ed4bf40d3450d91fae7fbbbbcda75071ad9a58f99195c834"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/README.md",
+      "size": 9383,
+      "sha256": "4ca9cab1e3efc586bd391aaa24e102ad7643ed9962c7641ac81db1dcc4048cc7"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/lightvla/UPSTREAM_LICENSE.md",
+      "size": 1255,
+      "sha256": "ae9f18cac5844226859bfd11e56fa31bc2fb8fee92e5b15fefb7f86daa9e3afc"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/README-ZH.md",
+      "size": 504,
+      "sha256": "92a0b129d4711c4bbbd11302dc3d5325697ded34c113cb263d25b3d31308ba8a"
+    },
+    {
+      "path": "evaluator/lightvla/02-closed-loop-smoke-r1/run.sh",
+      "size": 1293,
+      "sha256": "34fbb5935b1b808e8d512047e131a6f050f217c21f594b72e9f96ecfc54a5925"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/closed_loop_paired.py",
+      "size": 14858,
+      "sha256": "b0fb45cb1090d19df1ac0af0c58332220601b4af2ccbb0a34121b06c4e50cfdc"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/discover_paths.py",
+      "size": 2317,
+      "sha256": "aaa79a6b848e6c7cf66eea1f6eda1a13e44807d8fd9e5c3947061ae71125b838"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/__init__.py",
+      "size": 449,
+      "sha256": "4d3ac38c5bd3bc1f0a9cd83a6f18adcb34b98bbff05f57abbf27f74d917f4cbf"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/__main__.py",
+      "size": 48,
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/accelerator.py",
+      "size": 11366,
+      "sha256": "b0ca54cb77cff19bda1b3f291c4460efa1556bedd5bb6492411043f5c50bd4e8"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/cli.py",
+      "size": 5632,
+      "sha256": "dada7acf578dbad54585827718d50e84797a677a45e1ca0cb704a847770332bc"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/config.py",
+      "size": 2155,
+      "sha256": "d067fb8a2d37f5c9f2e86751b9c143c3ee6b38f088419830a2335a05f58e6a42"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/EXPERIMENTS.md",
+      "size": 19035,
+      "sha256": "6bde0418536f072f4e8c0d4c5dc60d73495fa1b9d23b4010b305306d4eb81297"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/provenance.json",
+      "size": 805,
+      "sha256": "00d909dc70e4648d9fb716d408e04a7576aded872a2fe25c1d59478ccd121b1e"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/pruner/__init__.py",
+      "size": 433,
+      "sha256": "b9f836b048702f7f0eb12892606f9602df94fc49c56de42ba30ff560c2c3346a"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/pruner/core.py",
+      "size": 12552,
+      "sha256": "6800868d35ff8524d9c4bdba5010d92fd426fb3c652cc3c9962217e3e39be2f4"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/pruner/layout.py",
+      "size": 5308,
+      "sha256": "6c9cf20036e7bb358599ee22c270f1af257063ba7e3c575b3ac327f04d1080eb"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/pruner/prefix_llama.py",
+      "size": 8702,
+      "sha256": "a324ff45b623ee60ed4bf40d3450d91fae7fbbbbcda75071ad9a58f99195c834"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/README.md",
+      "size": 9383,
+      "sha256": "4ca9cab1e3efc586bd391aaa24e102ad7643ed9962c7641ac81db1dcc4048cc7"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/lightvla/UPSTREAM_LICENSE.md",
+      "size": 1255,
+      "sha256": "ae9f18cac5844226859bfd11e56fa31bc2fb8fee92e5b15fefb7f86daa9e3afc"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/README-ZH.md",
+      "size": 591,
+      "sha256": "5c494473b8a1497e85a73fea7b6878fbfae7518efc6bc4802e2ff49281ffc73f"
+    },
+    {
+      "path": "evaluator/lightvla/03-multitask-paired-r1/run.sh",
+      "size": 1677,
+      "sha256": "d7340efd117fb94f2bdea366b0069eee55d9577324f2acd37fa26aa9f3207bf3"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/closed_loop_paired.py",
+      "size": 18174,
+      "sha256": "7a553cbc95770076aa79defe7cb65a7cc99839e344173f60a84756397e7cf719"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/discover_paths.py",
+      "size": 2317,
+      "sha256": "aaa79a6b848e6c7cf66eea1f6eda1a13e44807d8fd9e5c3947061ae71125b838"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/__init__.py",
+      "size": 449,
+      "sha256": "4d3ac38c5bd3bc1f0a9cd83a6f18adcb34b98bbff05f57abbf27f74d917f4cbf"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/__main__.py",
+      "size": 48,
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/accelerator.py",
+      "size": 11366,
+      "sha256": "b0ca54cb77cff19bda1b3f291c4460efa1556bedd5bb6492411043f5c50bd4e8"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/cli.py",
+      "size": 5632,
+      "sha256": "dada7acf578dbad54585827718d50e84797a677a45e1ca0cb704a847770332bc"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/config.py",
+      "size": 2155,
+      "sha256": "d067fb8a2d37f5c9f2e86751b9c143c3ee6b38f088419830a2335a05f58e6a42"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/EXPERIMENTS.md",
+      "size": 19035,
+      "sha256": "6bde0418536f072f4e8c0d4c5dc60d73495fa1b9d23b4010b305306d4eb81297"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/provenance.json",
+      "size": 805,
+      "sha256": "00d909dc70e4648d9fb716d408e04a7576aded872a2fe25c1d59478ccd121b1e"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/pruner/__init__.py",
+      "size": 433,
+      "sha256": "b9f836b048702f7f0eb12892606f9602df94fc49c56de42ba30ff560c2c3346a"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/pruner/core.py",
+      "size": 12552,
+      "sha256": "6800868d35ff8524d9c4bdba5010d92fd426fb3c652cc3c9962217e3e39be2f4"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/pruner/layout.py",
+      "size": 5308,
+      "sha256": "6c9cf20036e7bb358599ee22c270f1af257063ba7e3c575b3ac327f04d1080eb"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/pruner/prefix_llama.py",
+      "size": 8702,
+      "sha256": "a324ff45b623ee60ed4bf40d3450d91fae7fbbbbcda75071ad9a58f99195c834"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/README.md",
+      "size": 9383,
+      "sha256": "4ca9cab1e3efc586bd391aaa24e102ad7643ed9962c7641ac81db1dcc4048cc7"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/lightvla/UPSTREAM_LICENSE.md",
+      "size": 1255,
+      "sha256": "ae9f18cac5844226859bfd11e56fa31bc2fb8fee92e5b15fefb7f86daa9e3afc"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/README-ZH.md",
+      "size": 662,
+      "sha256": "4448d7d59837255728badc1422168963cd49bd406027570aa6f5b08f47e7806f"
+    },
+    {
+      "path": "evaluator/lightvla/04-adjudication-r1/run.sh",
+      "size": 1452,
+      "sha256": "db1f3a8e6f01427925891cf472595bd44d732aaee4f5522b84ce6b7ba605138d"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/benchmark_real_observation.py",
+      "size": 17803,
+      "sha256": "ffa8f734e8a63ef35a4dafed806ebbfb28f19e6bf92eac324329c0f4b172a1d2"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/discover_paths.py",
+      "size": 2317,
+      "sha256": "aaa79a6b848e6c7cf66eea1f6eda1a13e44807d8fd9e5c3947061ae71125b838"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/__init__.py",
+      "size": 449,
+      "sha256": "4d3ac38c5bd3bc1f0a9cd83a6f18adcb34b98bbff05f57abbf27f74d917f4cbf"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/__main__.py",
+      "size": 48,
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/accelerator.py",
+      "size": 11366,
+      "sha256": "b0ca54cb77cff19bda1b3f291c4460efa1556bedd5bb6492411043f5c50bd4e8"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/cli.py",
+      "size": 5632,
+      "sha256": "dada7acf578dbad54585827718d50e84797a677a45e1ca0cb704a847770332bc"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/config.py",
+      "size": 2155,
+      "sha256": "d067fb8a2d37f5c9f2e86751b9c143c3ee6b38f088419830a2335a05f58e6a42"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/EXPERIMENTS.md",
+      "size": 19035,
+      "sha256": "6bde0418536f072f4e8c0d4c5dc60d73495fa1b9d23b4010b305306d4eb81297"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/provenance.json",
+      "size": 805,
+      "sha256": "00d909dc70e4648d9fb716d408e04a7576aded872a2fe25c1d59478ccd121b1e"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/pruner/__init__.py",
+      "size": 433,
+      "sha256": "b9f836b048702f7f0eb12892606f9602df94fc49c56de42ba30ff560c2c3346a"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/pruner/core.py",
+      "size": 12552,
+      "sha256": "6800868d35ff8524d9c4bdba5010d92fd426fb3c652cc3c9962217e3e39be2f4"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/pruner/layout.py",
+      "size": 5308,
+      "sha256": "6c9cf20036e7bb358599ee22c270f1af257063ba7e3c575b3ac327f04d1080eb"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/pruner/prefix_llama.py",
+      "size": 8702,
+      "sha256": "a324ff45b623ee60ed4bf40d3450d91fae7fbbbbcda75071ad9a58f99195c834"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/README.md",
+      "size": 9383,
+      "sha256": "4ca9cab1e3efc586bd391aaa24e102ad7643ed9962c7641ac81db1dcc4048cc7"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/lightvla/UPSTREAM_LICENSE.md",
+      "size": 1255,
+      "sha256": "ae9f18cac5844226859bfd11e56fa31bc2fb8fee92e5b15fefb7f86daa9e3afc"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/README-ZH.md",
+      "size": 2594,
+      "sha256": "5edfbdff6e66078d11fc7cc76d7e9b7c066b5663ed725727b0f5fc179832b54c"
+    },
+    {
+      "path": "evaluator/lightvla/05-weight-audit-r1/run.sh",
+      "size": 3389,
+      "sha256": "df90fdc1cb0fe3ae7d8f6325a2bc97f70ff98d095aebb0d80c60024c58558ce1"
+    },
+    {
+      "path": "evaluator/lightvla/launch-stage.sh",
+      "size": 1794,
+      "sha256": "0f33aa26680b6901ca7fbc3e75c5713d92a07ee27b2e1403d54360c53700c8eb"
+    },
+    {
+      "path": "evaluator/lightvla/README-ZH.md",
+      "size": 1255,
+      "sha256": "18a2f7628e61f60296ed809f881d5f553ee53486add88f2850379c4cd161046f"
+    },
+    {
+      "path": "evaluator/lightvla/status-stage.sh",
+      "size": 1723,
+      "sha256": "43f0f7b80dee46bfb467d57dbc1ba9aaa1c858d39240c11753233b3a13a8c0f2"
+    },
+    {
+      "path": "evaluator/specprune/config.example.json",
+      "size": 482,
+      "sha256": "82e13284ba86b61f40e40059fec6bad67d8fa3ba96c409889e74511cfac2e6aa"
+    },
+    {
+      "path": "evaluator/specprune/probe_runtime.py",
+      "size": 288,
+      "sha256": "19cafb3bfcb30defc0033c21f372ee6e2a4c07524edb9fe26d9f07f9a3ced678"
+    },
+    {
+      "path": "evaluator/specprune/README-ZH.md",
+      "size": 1306,
+      "sha256": "aa48adcd9128146e1d1af5f7edeb8013e86c558fed3760862cbc666df101ca5a"
+    },
+    {
+      "path": "evaluator/specprune/SOURCE_MANIFEST.json",
+      "size": 1830,
+      "sha256": "6c16c41cf9de6ee7ef785e0eb62f5d0cbd3b4d09de22009f81d162e138bf6997"
+    },
+    {
+      "path": "evaluator/vla-pruner/config.example.json",
+      "size": 485,
+      "sha256": "8f205a577b1d28bb1945138a842ea8630b5897e3190594cebf3552d92eeb3820"
+    },
+    {
+      "path": "evaluator/vla-pruner/probe_runtime.py",
+      "size": 289,
+      "sha256": "9e43a9512e2ea6e320bc9413230dae88c8866e6b6c655b4b53a86a16cf4917a0"
+    },
+    {
+      "path": "evaluator/vla-pruner/README-ZH.md",
+      "size": 1271,
+      "sha256": "a8b50eb3ce4e446ee3b3b91c81d40e213ce338935468daf1b8f3f3dd76408ac1"
+    },
+    {
+      "path": "evaluator/vla-pruner/SOURCE_MANIFEST.json",
+      "size": 2099,
+      "sha256": "b978f829efb444032140cdf4491b7b5373e43a16a584a47f42817f0429414cf0"
+    },
+    {
+      "path": "EVIDENCE_INDEX.json",
+      "size": 5479,
+      "sha256": "fc0760ba19f3e5715fd667e30efac33757cf4d3c4b52afe8e817ec6b5c8eeb42"
+    },
+    {
+      "path": "history/VLA_PROJECT_HANDOFF_2026-10-30.md",
+      "size": 9422,
+      "sha256": "fc41a64a23414094911b71487150c07e130271279b3b61df757870b5a23d673f"
+    },
+    {
+      "path": "NEW_CODEX_PROMPT.md",
+      "size": 194,
+      "sha256": "a2d1d8e043b492071b9391a96f6073cde8bdb1bb935dcaa4d83cd43890b6cb08"
+    },
+    {
+      "path": "ONE_LINE_TO_SEND.txt",
+      "size": 40,
+      "sha256": "0fd2210e07134c8b2e92d87003682ef6f29ad086e15c0ac49404280b1e114906"
+    },
+    {
+      "path": "PROJECT_STATUS.md",
+      "size": 2623,
+      "sha256": "4b743d875ed136ad41a7860852a5de5d2d95b6431bf121a930d0596a0da153b5"
+    },
+    {
+      "path": "README-ZH.md",
+      "size": 8168,
+      "sha256": "5a84b595cd0cfa6255829da9ce507f73cf3485dcf3a6d0c534ef195476e6fda1"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "size": 1056,
+      "sha256": "23a08fccc0e899d470e5dbf05f29e5f8e04298cc35408071077acddd40a2922d"
+    },
+    {
+      "path": "scripts/build_evaluator_source_manifests.py",
+      "size": 1344,
+      "sha256": "a10d39cba6d3da85ceeadea30c4dda2242bb336cc420f23117c07f2930c88598"
+    },
+    {
+      "path": "scripts/build_evidence_index.py",
+      "size": 2821,
+      "sha256": "487cae440a1febcf1d8b31494cdf570490187512b7b272b45262aa6e9dd196a0"
+    },
+    {
+      "path": "scripts/build_release_manifest.py",
+      "size": 1425,
+      "sha256": "9b38a01271fa596733c8b07bd0d7b1cfa6e757ce87312b9b73a0c1a460be90b5"
+    },
+    {
+      "path": "scripts/discover_environment.py",
+      "size": 2591,
+      "sha256": "0f46f5de9a8460f6268aadf562bfc2e16d68d2caba6b2c7876df355a8b0fe674"
+    },
+    {
+      "path": "scripts/test_release.py",
+      "size": 1509,
+      "sha256": "41298d15921811e834b3778982df1d5ce5c7b71ff19f4cc6e368d22954d912cf"
+    },
+    {
+      "path": "scripts/validate_handoff.py",
+      "size": 2270,
+      "sha256": "19b0b44081c24f481712603a8b1e09fef03a98c85fe212e576af4e3a61bf1c29"
+    },
+    {
+      "path": "scripts/verify_bundle.py",
+      "size": 6358,
+      "sha256": "0790f35a43a3ed594ed27847426d78a813951283961c50c6586b8d6ddd723407"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/agents/openai.yaml",
+      "size": 282,
+      "sha256": "c87f9b01d6dd75a9fd5e3b30e8a4018e1c9c498ecbfe8c89a3c50e359f2b77ab"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/examples/prefix_vla_example.py",
+      "size": 1180,
+      "sha256": "aa0300ba7626eee547fab09ee2fcab5f8013e175a3a77f59c0d9b012e06e4a56"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/pyproject.toml",
+      "size": 433,
+      "sha256": "cd9fe29ce6fb3a4e04fbadcd6d71914a827d46fc7b7cc7cb152468eb566e7aec"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/README.md",
+      "size": 2193,
+      "sha256": "cf33c1d0d5d31cb7102467c850efcd5c3eb6d7e0346ceeb5b58968085ddfe51c"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/SOURCE_MANIFEST.json",
+      "size": 2649,
+      "sha256": "dbadd24cd3541e54fd3ae3c786e32506a4cd80d86ee0945b1695ec15a3266229"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/lightvla_pruner/__init__.py",
+      "size": 677,
+      "sha256": "e5828a4430b5404069e3ff164c1590e03638ee45daac8197098714a104688f3f"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/lightvla_pruner/adapters/__init__.py",
+      "size": 162,
+      "sha256": "003a04c5b3b7f88d7a2274bf08bb5aa3fe43628c00d6ad533b22cc269e706c76"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/lightvla_pruner/adapters/prefix_llama.py",
+      "size": 9457,
+      "sha256": "536871e0c901793fbd424f57a3fde84f7a2ae0f1054cd0c14c68c3744dba2747"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/lightvla_pruner/core.py",
+      "size": 21041,
+      "sha256": "b9c4d5d7af97ed449b8a9fc8b181e452dd1ca7e6091dd13982b5709e7b4a9238"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/lightvla_pruner/layout.py",
+      "size": 5308,
+      "sha256": "6c9cf20036e7bb358599ee22c270f1af257063ba7e3c575b3ac327f04d1080eb"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/lightvla_pruner/runtime.py",
+      "size": 8135,
+      "sha256": "43d40ceca0c83e4fe62bf25f0ec57781408fb3a7dfea0153dc3df48e42101fc8"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/specprune/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/specprune/accelerator.py",
+      "size": 56837,
+      "sha256": "aa41cbcdf0a8abcb6799c725aa01eedd9c3f74a569f6e29e350eaaad2eac3c37"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/specprune/README.md",
+      "size": 20770,
+      "sha256": "2467f4e37cdab573f54105d288d0dada1d7651b850e3da458f34f1f7c9f94eed"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/__init__.py",
+      "size": 193,
+      "sha256": "f7d11d92b80470b7145403aa8746c020e0d86910951d0bc61b3d7da36d82c74a"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/accelerator.py",
+      "size": 17833,
+      "sha256": "05c0d2e76302467342d5ad01e53bf90cc9c50bc2a51b86cc5e3ac213622710db"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/backend.lock.json",
+      "size": 617,
+      "sha256": "3ab00d7cf1b45d3a9e9f00bcd6d0eefc92b644697589086cc6f0c6a851227f72"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/backend.py",
+      "size": 3678,
+      "sha256": "e98d4663d9a462cd8ec06b7973cab4da7b9cb66444b1a1d08bd8c1000fb23897"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/INTEGRATION.md",
+      "size": 8017,
+      "sha256": "91e7a55861d413f29ef1f5cc5f1797cffe0750b305e6908d142c3cf78a566c8a"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/src/vla_pruner/README.md",
+      "size": 5248,
+      "sha256": "40fd6dbaddbb1ba21e46bc14293d37776865be3f19efc704648ab0bafdbac3ca"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/tests/test_lightvla_pruner.py",
+      "size": 22220,
+      "sha256": "380279911774b035bbb73cbf5d314c5d2400fcdf7468b47b06fd8b57ec169807"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/assets/toolbox/tests/test_vla_pruner.py",
+      "size": 4241,
+      "sha256": "8108caaa0571fcbded15c421c660f39f06291ebd9635929ebacc739a51f00920"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/README.md",
+      "size": 954,
+      "sha256": "9a3a58bd1a9b4a59a9f44614b5ab9743b5f68d067c7e94ac28db77b4dc477212"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/cloud-operations.md",
+      "size": 1552,
+      "sha256": "3f9ff69104649f4b61eadd07e3342154a0753ebf7fbd74453696e0ef7b7daa96"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/evaluation-protocol.md",
+      "size": 2415,
+      "sha256": "5086398be02af478e61b425511acc026e316c3484d7d8c68aca807b02596e513"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/lightvla-evaluator-chain.md",
+      "size": 1485,
+      "sha256": "372d99e8df88b70e877ee39c271090ce3fbf5a84bff4a29911b2387a4def2b47"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/lightvla-pruner.md",
+      "size": 1473,
+      "sha256": "86e4dd68554ecf74bf17fd85c4af42476f3f3a837b01f7782d2d2b3f547e5328"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/project-state.md",
+      "size": 1507,
+      "sha256": "c54c6e2de5cb569d52228cc6220c71d664cce25c17c2c852bf2b2ca45b5380b1"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/result-schema.md",
+      "size": 4034,
+      "sha256": "633f557f836a0e97f2897e7334e8e7f8a7ce0cd6c258676b7058382ed5f39653"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/retired-methods.md",
+      "size": 1380,
+      "sha256": "b9f62f049ffd3013614c92dc44c10fe179db7ea26b6a24d2d19614f4e3df65a7"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/specprune.md",
+      "size": 5006,
+      "sha256": "d5b402066e93fa89e2cb8d8d1b117dddab966a9513f638364cb2baaeb02624cc"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/temporary-script-playbook.md",
+      "size": 7934,
+      "sha256": "ed0204ae26aa1ce0b69846d834fc1796be7346df53e23b03dc2da0dbfba423b7"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/toolbox.md",
+      "size": 1915,
+      "sha256": "e558c865c1623778fe6b9eaa626bf01a71b5eee89d6648a0e1e837fe1c2fd793"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/vla-cache.md",
+      "size": 1443,
+      "sha256": "2aa136afaebd71d3e2d5e801903fd4897fd124aacb6b6bee12a221db2823bcb7"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/references/vla-pruner.md",
+      "size": 3946,
+      "sha256": "313772d55592fb70c0f1d597d85eadb76ea63b82eb8c639bc324e8b71b5f8fa5"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/scripts/admission_decision.py",
+      "size": 3645,
+      "sha256": "cc16d3e736813cf6f5b9ed0457f9618ddf89d035cf146d2abe098f9cf93ef7d6"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/scripts/export_toolbox.py",
+      "size": 983,
+      "sha256": "081ea74874a88544f5f0d624cb4ddc0f0106fa71b66c3b6d18ba2a921cb199c4"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/scripts/fixtures/synthetic-only.json",
+      "size": 85,
+      "sha256": "8346bbd15dec9cb97b99c72efe1ae048d36cf4bb877e7942b69ab5eecc8543a2"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/scripts/self_test.py",
+      "size": 8724,
+      "sha256": "d1d6b5277cbd11d2a9c25d358d9873e63180bcfa29bb17c7ea07adc29616f1f8"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/scripts/validate_manifest.py",
+      "size": 8110,
+      "sha256": "3e6d72309f86a422775cea5a8e9c9938a03c7ce822b96d932af48016d541ab48"
+    },
+    {
+      "path": "skill/vla-acceleration-evaluator/SKILL.md",
+      "size": 7017,
+      "sha256": "5c75a88ac5cf5f402859994b37a2793001fd14def8bf1e630d4e78b8a68a2c90"
+    },
+    {
+      "path": "START_HERE.md",
+      "size": 2028,
+      "sha256": "10157f9c3b82b708b7e955486ab672237c2aeadbee59661c5bee23433a4c873e"
+    },
+    {
+      "path": "templates/remote-experiment/launch.sh",
+      "size": 782,
+      "sha256": "b8e8042e3ac7f1001c79549586f707687231eae07ad836432c7ae0d812b4a5cc"
+    },
+    {
+      "path": "templates/remote-experiment/README-ZH.md",
+      "size": 519,
+      "sha256": "a8594c0305eaedfd9a5ef641be52293dcca67ce7d5b29561dcca2ab9cf2dff07"
+    },
+    {
+      "path": "templates/remote-experiment/run.sh",
+      "size": 581,
+      "sha256": "c9f702bb834414b9a090b1cb4091d35994a4e32889d8c11ebf273ea67791bdd9"
+    },
+    {
+      "path": "templates/remote-experiment/status.sh",
+      "size": 1012,
+      "sha256": "387c4cba6805a23d1bc1337d665c804593bed9a2245a3005899c3741b41f8c87"
+    },
+    {
+      "path": "templates/remote-experiment/summarize.py",
+      "size": 652,
+      "sha256": "c135bf5be56a146531caba29e1fd2837498f86399b112bec9b3ed08bae9a1035"
+    },
+    {
+      "path": "VERSION.json",
+      "size": 707,
+      "sha256": "f522ceb4fd63675c0d5ad59dfa4c349a11f8111c65fc49c8a8bcb31069f5692b"
+    }
+  ]
+}

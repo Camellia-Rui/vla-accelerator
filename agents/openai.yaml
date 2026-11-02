@@ -1,4 +1,4 @@
 interface:
-  display_name: "VLA Acceleration Evaluator"
-  short_description: "Evaluate and adapt training-free VLA acceleration modules"
-  default_prompt: "Use $vla-acceleration-evaluator to inspect this VLA acceleration module, benchmark it, and decide PASS, TUNE, or REJECT."
+  display_name: "VLA Express Toolbox"
+  short_description: "Inspect VLA projects and guide acceleration with traceable evidence"
+  default_prompt: "Use $vla-express-toolbox to inspect my VLA workspace and guide a compatible acceleration integration."
