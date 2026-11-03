@@ -1,0 +1,61 @@
+{
+  "method": "vla_pruner",
+  "operation": "evaluate",
+  "passed": true,
+  "config": {
+    "checkpoint": "/home/wxy/Rui_work/openvla-7b-oft-libero-object",
+    "task_suite_name": "libero_object",
+    "unnorm_key": "libero_object_no_noops",
+    "use_vla_pruner": true,
+    "fastv_k": 3,
+    "fastv_r": 0.5,
+    "vla_pruner_layer": 15,
+    "vla_pruner_mode": "semantic_action",
+    "vla_pruner_av_hist_w": 3,
+    "vla_pruner_av_decay": 0.8,
+    "vla_pruner_action_horizon": 0,
+    "vla_pruner_semantic_weight": 0.5,
+    "vla_pruner_action_weight": 0.5,
+    "use_proprio": true,
+    "num_images_in_input": 2,
+    "num_open_loop_steps": 8,
+    "center_crop": true,
+    "use_film": false,
+    "load_in_8bit": false,
+    "load_in_4bit": false,
+    "lora_rank": 32
+  },
+  "python": "/home/wxy/miniconda3/envs/openvla-oft/bin/python",
+  "workspace": "/home/wxy/Rui_work/VLA-Pruner/VLA-Pruner/src/openvla-oft",
+  "records": [],
+  "environment": {
+    "gpu_visibility": "2",
+    "cache_root": "/home/wxy/Rui_work/toolbox-native-check/unified-eval-20261103-01/cache/huggingface",
+    "packages": {
+      "torch": "2.2.0",
+      "transformers": "4.47.0",
+      "numpy": "1.26.4"
+    }
+  },
+  "provenance": {
+    "backend_head": "3d156ee29e3d15172abbb69dc3495c47e826e460",
+    "core_matches_pinned": true,
+    "workspace": "/home/wxy/Rui_work/VLA-Pruner/VLA-Pruner/src/openvla-oft",
+    "checkpoint": "/home/wxy/Rui_work/openvla-7b-oft-libero-object",
+    "loaded_model_file": "/home/wxy/Rui_work/toolbox-native-check/unified-eval-20261103-01/cache/huggingface/modules/transformers_modules/openvla-7b-oft-libero-object/modeling_prismatic.py"
+  },
+  "integration_passed": true,
+  "input_screen": {
+    "decision": "INCONCLUSIVE",
+    "failed_gates": [],
+    "unspecified_thresholds": [
+      "max_action_error",
+      "max_action_mae",
+      "min_gripper_agreement",
+      "min_speedup"
+    ],
+    "closed_loop_quality_accepted": false
+  },
+  "evaluation_file": "evaluation.json",
+  "closed_loop_tested": false
+}

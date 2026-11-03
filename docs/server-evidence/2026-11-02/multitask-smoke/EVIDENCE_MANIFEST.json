@@ -1,0 +1,75 @@
+{
+  "source": "Direct SSH execution and SCP download; tasks 1 and 2, trial 0, six repeated pairs per input; no closed-loop success measurement",
+  "files": [
+    {
+      "path": "capture-task1-trial0/observation.npz",
+      "bytes": 414020,
+      "sha256": "4dae82d1bc5f04ab9ef5b26d26c93aa189cf33f4de1af60189dd96525393f24f"
+    },
+    {
+      "path": "capture-task1-trial0/report.json",
+      "bytes": 2695,
+      "sha256": "3ade822d5daeaab73da9456d05ad3277f2dd4bd9eae67b6c3b22fadc9aafb12a"
+    },
+    {
+      "path": "capture-task2-trial0/observation.npz",
+      "bytes": 407862,
+      "sha256": "8ec4ed7292b1649eda0e2f04c6a30850e4463ee0c126c3f6468be08b608cd6ca"
+    },
+    {
+      "path": "capture-task2-trial0/report.json",
+      "bytes": 2699,
+      "sha256": "c2090994c3c06186d080412b04335d3bfab62fad6ac6963ceb9d79b8e2157fa4"
+    },
+    {
+      "path": "pruner-task1-trial0/lifecycle_actions.npz",
+      "bytes": 1238,
+      "sha256": "0927e0533c8a00e6f6d80e4022fc355c265338dec024836dd476fbf1e8a1dcd7"
+    },
+    {
+      "path": "pruner-task1-trial0/records.jsonl",
+      "bytes": 19696,
+      "sha256": "b98940d09834198f49c56fa112bf7d1773d6f2e18c22debf76af9325501e3790"
+    },
+    {
+      "path": "pruner-task1-trial0/report.json",
+      "bytes": 45171,
+      "sha256": "a3724dd352f4f3dfeba9dea2a41cbec62fb2a207a2f6968ae183c2b90430f234"
+    },
+    {
+      "path": "pruner-task1-trial0.launcher.json",
+      "bytes": 804,
+      "sha256": "71666279975c710419e0bf244431ea156cea4273c2837a47982b96ef798b4e82"
+    },
+    {
+      "path": "pruner-task1-trial0.launcher.log",
+      "bytes": 4606,
+      "sha256": "0eb00f91eef780c1eb546dd00f209533f107d7ea8a22a54711f641282d2cd4a6"
+    },
+    {
+      "path": "pruner-task2-trial0/lifecycle_actions.npz",
+      "bytes": 1246,
+      "sha256": "2cbe331b5b85e61a5b06ae2247030bfbc680e40d09e5dedfb4846956e5ba0d2a"
+    },
+    {
+      "path": "pruner-task2-trial0/records.jsonl",
+      "bytes": 19705,
+      "sha256": "7562e15209ae2d8d0a10b60b2a35aa048803cbd9d607d151df346825bf05857a"
+    },
+    {
+      "path": "pruner-task2-trial0/report.json",
+      "bytes": 45197,
+      "sha256": "7c779297c9510ac60b486734a24a0d37be8aa9befe9b5de8483157cbf40c063f"
+    },
+    {
+      "path": "pruner-task2-trial0.launcher.json",
+      "bytes": 804,
+      "sha256": "d772b1ca312483cb5272269404ae620c0dcbd593118aacee61fb8fe26a1dd0cc"
+    },
+    {
+      "path": "pruner-task2-trial0.launcher.log",
+      "bytes": 4606,
+      "sha256": "b129448a4c2dca5a846fb90b22c0ffdecd04e70be2af96b65e15bab5b30ced51"
+    }
+  ]
+}

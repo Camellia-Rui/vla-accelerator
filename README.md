@@ -2,7 +2,9 @@
 
 给 VLA 研究者和机器人开发者使用的 Codex 加速接入工具箱。把本目录和模型工作目录添加给 Codex，说明要加速的模型，它将检查源码、选择候选方法、说明环境与权重需求，并根据实际加载接口生成接入代码和评估方案。
 
-**0.2.0-rc1 是可演示的发布候选版。** 已有统一检查入口、LightVLA 接入/卸载演示与证据评估组件；尚未完成真实 VLA 模型环境验收。不能将它称为四种方法均可一键加速的正式版。
+**0.3.0a1 提供统一的实际推理与输入级评估入口。** VLA-Pruner 已通过 H20 / OpenVLA-OFT / LIBERO-Object 的真实运行验证；LightVLA 支持用户加载工厂。闭环任务质量和正式速度验收仍待完成，不能将它称为四种方法均可一键加速的正式版。
+
+主要交付是源码、Codex 指令、运行入口及可追溯证据。最新真实运行结果见 [统一入口验证](docs/UNIFIED_RUNTIME_RESULT.md)。
 
 从 [START_HERE.md](START_HERE.md) 开始。给 Codex 的指令在 [SKILL.md](SKILL.md)。
 
@@ -31,7 +33,7 @@ python -m core demo --output "runs/first-demo"
 | 方法 | 现在能做什么 | 尚未完成什么 |
 |---|---|---|
 | LightVLA | 生命周期封装、真实 CPU 张量测试、用户工厂单次调用、合成演示 | 指定真实 checkpoint 的原生与加速成对测试、闭环证据及来源核验 |
-| VLA-Pruner | 固定官方后端的已有模型挂载、启停、reset、卸载与契约测试 | 官方模型环境实际前向、机制验证和闭环验收 |
+| VLA-Pruner | 固定后端挂载、启停、reset、卸载；OFT/H20 三个真实输入的对照、实际裁剪与恢复验证 | 多初始状态、attention 路径核对、闭环质量和正式性能验收 |
 | SpecPrune | 历史实验实现、运行前资源检查和评估公共组件 | 完整统一接入及卸载、真实实验、再分发来源核验 |
 | VLA-Cache | 隔离历史证据供分析 | 不属于当前部署路线 |
 
@@ -45,7 +47,14 @@ python -m core demo --output "runs/first-demo"
 python scripts/run_pruning.py --method lightvla --workspace "用户模型目录" --factory toolbox_entry:build --mode packaged --output "runs/query.json"
 ```
 
-此命令依赖用户目录中真实存在且已审核的 `toolbox_entry.py:build`，不是开箱即有的文件。VLA-Pruner 使用 [固定后端接口](methods/vla_pruner/INTEGRATION.md)，不使用该 LightVLA 命令。
+此命令依赖用户目录中真实存在且已审核的 `toolbox_entry.py:build`，不是开箱即有的文件。统一入口为 `python -m core run --method lightvla` 或 `--method vla_pruner`。VLA-Pruner 还有无需另写工厂的固定 OFT 后端加载器：
+
+```bash
+python -m core run --method vla_pruner --help
+python -m core evaluate --method vla_pruner --help
+```
+
+完整参数、输入采集格式和工厂约定见 [统一运行指南](docs/UNIFIED_RUNTIME.md)。运行保存完整动作块；评估保存原生对照、配对延迟、动作差异、实际裁剪和恢复检查。未提供完整质量门槛时返回 INCONCLUSIVE，不宣称准确率合格。
 
 ## 评估、协作与发布
 
@@ -58,7 +67,7 @@ python scripts/run_pruning.py --method lightvla --workspace "用户模型目录"
 ```bash
 python -B -m unittest discover -s tests -v
 python scripts/build_product.py
-python -B scripts/verify_product.py "dist/vla-express-toolbox-0.2.0-rc1"
+python -B scripts/verify_product.py "dist/vla-express-toolbox-0.3.0a1"
 ```
 
-构建只包含白名单源码，不包含本地虚拟环境、模型、数据、运行输出、Git 或交接快照。校验文件用于检查发布包完整性，不是第三方签名。开源前仍需完成真实环境验收和来源/许可证审查。
+构建包含白名单源码和已归档的小型验收证据，不包含本地虚拟环境、模型权重、训练数据、临时运行目录或 Git。校验文件用于检查发布包完整性，不是第三方签名。正式公开版仍需完成闭环质量、独立用户验收和来源/许可证审查。

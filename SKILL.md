@@ -13,6 +13,8 @@ description: Inspect a user's VLA model workspace, select compatible acceleratio
 
 - LightVLA：有 CPU 验证的封装；读 [方法说明](methods/lightvla/README.md) 和 [来源](methods/lightvla/provenance.json)。原方法含微调，不标为完全免训练。真实模型兼容和效果待验证。
 - VLA-Pruner：读 [接口说明](methods/vla_pruner/INTEGRATION.md)，必须核实固定官方 backend；普通 PyPI Transformers 不替代该 backend。
+
+已验证的窄范围：OpenVLA-OFT LIBERO-Object、连续 L1 动作头、双视图、8D 本体、8×7 动作块、H20，自定义 Transformers 4.47.0。在 3 个任务各一个初始输入上完成关闭剪枝对照、实际裁剪、卸载恢复。复现入口见 [服务器对比说明](docs/SERVER_PRUNER_PAIR.md)；结果见 [多输入验证](docs/MULTITASK_RESULT.md)。此证据不迁移为任意 checkpoint 支持或闭环质量承诺。
 - SpecPrune：实验路线，不承诺完整统一接入；读 [开发评估说明](workbench/evaluator/specprune/README-ZH.md)。
 - VLA-Cache：隔离，不提供集成或部署建议。AutoPrune 已退出项目，不恢复旧路线。
 
@@ -20,7 +22,9 @@ description: Inspect a user's VLA model workspace, select compatible acceleratio
 
 ## 执行与报告
 
-根据用户原项目在独立目录编写真实加载工厂，避免修改原权重。LightVLA 使用 `scripts/run_pruning.py --method lightvla` 或方法 CLI；已有模型按其生命周期接口接入。VLA-Pruner 使用固定后端接口。保持原生 action API，在 `finally` 卸载并检查恢复。工厂导入会执行用户代码，先阅读其行为。
+使用 [统一运行指南](docs/UNIFIED_RUNTIME.md) 中的 `python -m core run --method lightvla|vla_pruner`。固定 OFT 后端可直接用 VLA-Pruner 内置加载器；其他兼容项目根据原生入口在独立目录编写真实加载工厂，避免修改原权重。VLA-Pruner 输入级对照使用 `python -m core evaluate --method vla_pruner`。保持原生 action API，在 `finally` 卸载并检查恢复。工厂导入会执行用户代码，先阅读其行为。
+
+`report.json` 的 passed/integration_passed 只代表运行或接入检查通过。必须另读 input_screen 和 closed_loop_tested；缺少用户质量门槛时 INCONCLUSIVE，不能自行指定阈值冒充用户验收。输入级报告不是 schema 3 正式验收清单，不能直接提交正式 admission 工具。
 
 给用户完整回答：选哪个方法及依据、适用环境、权重来源、按实际路径填好的命令、成功输出、实测效果与可信范围。无法完成的项指出实际阻塞资源。不得把带占位符的命令描述为已能直接运行。
 

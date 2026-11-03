@@ -1,0 +1,51 @@
+{
+  "provenance": "Downloaded directly over authenticated SSH after agent launched paired check on server. Earlier capture and baseline outputs reused unchanged.",
+  "observation_hash_verified": true,
+  "files": [
+    {
+      "path": "baseline-002/actions.npy",
+      "sha256": "971154de03e2f94ee190b3ec9f54bb4823551c7364f392b2b09064733be58518",
+      "bytes": 576
+    },
+    {
+      "path": "baseline-002/report.json",
+      "sha256": "52b5d666625fefe9a3314dc43e642cd524dfab6820f242dbdabd01aa1c1a3e8c",
+      "bytes": 9912
+    },
+    {
+      "path": "capture-001/observation.npz",
+      "sha256": "95031c05767a3910fbc41d4abd39b3a28cbd4e54a2dc372c8f61d37d8254b9f8",
+      "bytes": 404996
+    },
+    {
+      "path": "capture-001/report.json",
+      "sha256": "ccc527243f43e5237383207d233d405b9a6a5f7b74fb2ab7ac8bb477f4ebf308",
+      "bytes": 2700
+    },
+    {
+      "path": "pruner-pair-001/lifecycle_actions.npz",
+      "sha256": "70b73e31e853e01912069bfd13d5c38a036d3f6b45fbfa514a79e47743ba623a",
+      "bytes": 1248
+    },
+    {
+      "path": "pruner-pair-001/records.jsonl",
+      "sha256": "195487d98ff57b2629ce3f3c260f98503e44c265c5e2804a7cfc5a5c202e2301",
+      "bytes": 19780
+    },
+    {
+      "path": "pruner-pair-001/report.json",
+      "sha256": "f017e09de30f4a72de99bdc0fe587c09902c4539ffdd81970db729c7a53441a4",
+      "bytes": 45264
+    },
+    {
+      "path": "pruner-pair-001.launcher.json",
+      "sha256": "7bc186a853bb55491fbf810ef2917e2569d0fde557f40b10fca49f1270d03632",
+      "bytes": 787
+    },
+    {
+      "path": "pruner-pair-001.launcher.log",
+      "sha256": "3f2fcd45a41a6b97c213ca2fabbb4a36337273a30da721e8dd5b282e5e8b79e5",
+      "bytes": 4602
+    }
+  ]
+}

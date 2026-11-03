@@ -1,0 +1,378 @@
+{
+  "stage": "baseline",
+  "passed": true,
+  "python": "/home/wxy/miniconda3/envs/openvla-oft/bin/python",
+  "script_sha256": "a6fe119f92256adfaa6b3f4afb3ae4dd3f12ec5a1c4103c06706225f2339c15b",
+  "started_at_unix": 1793607230.371899,
+  "gpu_inventory": [
+    {
+      "index": 0,
+      "uuid": "GPU-e6525e27-676f-6554-a0e8-7b8c1a702509",
+      "free_mib": 24366,
+      "utilization": 100
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-cac9088e-f576-3efe-2fd5-c8609a091a99",
+      "free_mib": 7396,
+      "utilization": 0
+    },
+    {
+      "index": 2,
+      "uuid": "GPU-389ced12-b430-4b86-84da-7c22738a3258",
+      "free_mib": 51579,
+      "utilization": 59
+    },
+    {
+      "index": 3,
+      "uuid": "GPU-f4920dd5-2070-3b92-2929-fcefa07bde84",
+      "free_mib": 15118,
+      "utilization": 1
+    },
+    {
+      "index": 4,
+      "uuid": "GPU-ad39f5cf-7762-0a33-0b7c-870acd4cd98a",
+      "free_mib": 23760,
+      "utilization": 0
+    },
+    {
+      "index": 5,
+      "uuid": "GPU-df2e105e-0841-847e-c94f-b5a12eef6c5e",
+      "free_mib": 9304,
+      "utilization": 0
+    },
+    {
+      "index": 6,
+      "uuid": "GPU-51628529-1058-69be-78a6-03ed66e42fde",
+      "free_mib": 22604,
+      "utilization": 0
+    },
+    {
+      "index": 7,
+      "uuid": "GPU-2608c188-6418-45e8-7a4e-351e5b6eae92",
+      "free_mib": 22734,
+      "utilization": 0
+    }
+  ],
+  "selected_gpu": {
+    "index": 2,
+    "uuid": "GPU-389ced12-b430-4b86-84da-7c22738a3258",
+    "free_mib": 51579,
+    "utilization": 59
+  },
+  "backend_head": "3d156ee29e3d15172abbb69dc3495c47e826e460",
+  "tracked_core_matches_pinned": true,
+  "checkpoint": "/home/wxy/Rui_work/openvla-7b-oft-libero-object",
+  "checkpoint_before": {
+    ".gitattributes": {
+      "bytes": 674,
+      "sha256": null
+    },
+    "README.md": {
+      "bytes": 2897,
+      "sha256": null
+    },
+    "action_head--150000_checkpoint.pt": {
+      "bytes": 302242674,
+      "sha256": null
+    },
+    "added_tokens.json": {
+      "bytes": 21,
+      "sha256": "ab43123267b190cb7990bc9f2ae4ad32dcb7ed029fb0fccb1b4e062c6f54a2a1"
+    },
+    "config.json": {
+      "bytes": 60711,
+      "sha256": "bcb688a66f3e94a42311b77d37b7e1484886701f7b2aa8e36d165dfccac92ae6"
+    },
+    "config.json.back.20260914_194506": {
+      "bytes": 60712,
+      "sha256": null
+    },
+    "config.json.back.20260914_194748": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260914_195050": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260914_214524": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260914_223216": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260915_100746": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260915_115858": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260915_120049": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260915_120724": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260915_131316": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260915_140158": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260915_145047": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260916_090054": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20260927_154713": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261014_115351": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261014_120126": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261014_120902": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261014_132824": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261016_100727": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261016_113101": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261016_142721": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261016_154027": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261016_165000": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261016_172904": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "config.json.back.20261016_185514": {
+      "bytes": 60711,
+      "sha256": null
+    },
+    "configuration_prismatic.py": {
+      "bytes": 5865,
+      "sha256": "68cc5ae34f1b46af3168d8d479cb81bb776965653453fd904aa8eefb6c8f9f68"
+    },
+    "dataset_statistics.json": {
+      "bytes": 3022,
+      "sha256": "2bff9cb26fea5d50522fc327f71362dda38252dfc9003aae444259ff96371aa7"
+    },
+    "generation_config.json": {
+      "bytes": 136,
+      "sha256": "67fbe17b12e8beb5be98eb911483971cc78589e51a37ac0cce9cd499d06a8bf1"
+    },
+    "model-00001-of-00004.safetensors": {
+      "bytes": 4925122448,
+      "sha256": null
+    },
+    "model-00002-of-00004.safetensors": {
+      "bytes": 4947392496,
+      "sha256": null
+    },
+    "model-00003-of-00004.safetensors": {
+      "bytes": 4947417456,
+      "sha256": null
+    },
+    "model-00004-of-00004.safetensors": {
+      "bytes": 262668432,
+      "sha256": null
+    },
+    "model.safetensors.index.json": {
+      "bytes": 94764,
+      "sha256": "ca8b53fed8133ee2afcd2fc483de8febf7f5bb0f6bcb09f91189772e59e8f659"
+    },
+    "modeling_prismatic.py": {
+      "bytes": 60825,
+      "sha256": "0605f823a813aaaece63796ffa80fd32e006a7e9424df69f49646ff50d7bb98c"
+    },
+    "modeling_prismatic.py.back.20260914_194506": {
+      "bytes": 49029,
+      "sha256": null
+    },
+    "preprocessor_config.json": {
+      "bytes": 1650,
+      "sha256": "bd024783fb785cbdfe35b710b621c5e8678d4c157a9ba625675e67d40d1757da"
+    },
+    "processing_prismatic.py": {
+      "bytes": 12718,
+      "sha256": "06563586bbc73d36501a14a231a3174904ede830d33174d0c625ece8e931ef1e"
+    },
+    "processor_config.json": {
+      "bytes": 130,
+      "sha256": "167e026d8121f6cb0bf5c18310b97ba8139152f970822bb3824213bd37dc7a76"
+    },
+    "proprio_projector--150000_checkpoint.pt": {
+      "bytes": 67275256,
+      "sha256": null
+    },
+    "special_tokens_map.json": {
+      "bytes": 552,
+      "sha256": "cb90ee5cf5793aa444039af9795b00db59d3fef8942e7eca9cf1990bab370d61"
+    },
+    "tokenizer.json": {
+      "bytes": 1842976,
+      "sha256": "8f5e2869e1807b8bb3c7717a294539c37e9de5d728ad60e31ef57e83cc5ea527"
+    },
+    "tokenizer.model": {
+      "bytes": 499723,
+      "sha256": null
+    },
+    "tokenizer_config.json": {
+      "bytes": 1192,
+      "sha256": "f5f1d3ed015ebb71cf11686ff00bc8e0c25957bbf3952f95312cecc9b168fbea"
+    }
+  },
+  "config": {
+    "pretrained_checkpoint": "/home/wxy/Rui_work/openvla-7b-oft-libero-object",
+    "model_family": "openvla",
+    "task_suite_name": "libero_object",
+    "unnorm_key": "libero_object_no_noops",
+    "use_l1_regression": true,
+    "use_diffusion": false,
+    "use_film": false,
+    "num_images_in_input": 2,
+    "use_proprio": true,
+    "load_in_8bit": false,
+    "load_in_4bit": false,
+    "center_crop": true,
+    "num_open_loop_steps": 8,
+    "lora_rank": 32,
+    "use_vla_cache": false,
+    "use_fastv": false,
+    "use_vla_pruner": false,
+    "fastv_k": 3,
+    "fastv_r": 0.0,
+    "vla_pruner_layer": 15,
+    "vla_pruner_mode": "semantic_action",
+    "vla_pruner_av_hist_w": 3,
+    "vla_pruner_av_decay": 0.8,
+    "vla_pruner_action_horizon": 0,
+    "vla_pruner_semantic_weight": 0.5,
+    "vla_pruner_action_weight": 0.5,
+    "merge_local_lora_adapter": false
+  },
+  "observation_sha256": "95031c05767a3910fbc41d4abd39b3a28cbd4e54a2dc372c8f61d37d8254b9f8",
+  "task_description": "pick up the alphabet soup and place it in the basket",
+  "device": "NVIDIA H20",
+  "torch_version": "2.2.0+cu121",
+  "loaded_model_class_file": "/home/wxy/.cache/huggingface/modules/transformers_modules/openvla-7b-oft-libero-object/modeling_prismatic.py",
+  "actions": [
+    [
+      0.02824795608737829,
+      -0.10255737979552482,
+      0.0018453648120879684,
+      -0.01033551435426295,
+      0.021942317201585154,
+      -0.0003306327087822247,
+      1.0078125
+    ],
+    [
+      0.06476180225298644,
+      -0.23270613349411073,
+      0.013389592473754819,
+      -0.0051719397704330095,
+      0.02502372071467021,
+      0.00015067311473623834,
+      1.0078125
+    ],
+    [
+      0.09688046323199362,
+      -0.35193918526958945,
+      0.023345952390136704,
+      -0.00026654391579457315,
+      0.03579241509724118,
+      0.0008726318500139052,
+      0.99609375
+    ],
+    [
+      0.13736688062395264,
+      -0.422471413080436,
+      0.022888188715820323,
+      2.8517488995710716e-05,
+      0.04214983708213246,
+      0.0003913260264954421,
+      0.98828125
+    ],
+    [
+      0.16923197322680972,
+      -0.48628628586167816,
+      0.02128601585571288,
+      -4.524786220186372e-05,
+      0.039035997742593864,
+      -8.997979702299319e-05,
+      0.984375
+    ],
+    [
+      0.16847126809835955,
+      -0.5467424811281181,
+      -0.005006785187835705,
+      6.540016459449793e-05,
+      0.03138114269956152,
+      -0.00081193853230066,
+      0.9921875
+    ],
+    [
+      0.16627367550505912,
+      -0.6071986763945579,
+      -0.013103480177307114,
+      0.0012087631081568462,
+      0.02502372071467021,
+      -0.0034591205616521237,
+      0.9921875
+    ],
+    [
+      0.19594117551461576,
+      -0.684448259235009,
+      -0.005035395417480548,
+      0.009415158428886572,
+      0.020320525878908813,
+      -0.01031772854679,
+      0.97265625
+    ]
+  ],
+  "action_shape": [
+    8,
+    7
+  ],
+  "first_query_ms": 856.5445189597085,
+  "benchmark_valid": false,
+  "success_rate_measured": false,
+  "note": "One cold native query only; no speedup or task-success conclusion",
+  "checkpoint_metadata_and_sizes_unchanged": true,
+  "weight_content_hash_verified": false
+}

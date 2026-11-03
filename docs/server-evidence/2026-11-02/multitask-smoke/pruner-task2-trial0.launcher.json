@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/wxy/miniconda3/envs/openvla-oft/bin/python",
+    "-u",
+    "-B",
+    "/home/wxy/Rui_work/vla-pruner-server-check-r1/scripts/server_pruner_pair.py",
+    "--output",
+    "/home/wxy/Rui_work/toolbox-native-check/pruner-task2-trial0",
+    "--gpu",
+    "auto",
+    "--observation-dir",
+    "/home/wxy/Rui_work/toolbox-native-check/capture-task2-trial0"
+  ],
+  "exit_code": 0,
+  "log": "/home/wxy/Rui_work/toolbox-native-check/pruner-task2-trial0.launcher.log",
+  "LD_LIBRARY_PATH": "/home/wxy/miniconda3/envs/openvla-oft/lib/python3.10/site-packages/nvidia/cudnn/lib:/home/wxy/miniconda3/envs/openvla-oft/lib/python3.10/site-packages/nvidia/cublas/lib:/home/wxy/miniconda3/envs/openvla-oft/lib",
+  "note": "Nonzero exit, including native-library abort, is not a successful check"
+}

@@ -3,3 +3,4 @@
 
 # Preserve the exact bytes covered by the workbench release/evidence manifests.
 workbench/** -text
+docs/server-evidence/** -text

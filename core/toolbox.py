@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 CATALOG = {
     "lightvla": {"status": "conditional", "label": "有封装与 CPU 验证，真实模型待验收",
                  "guide": "methods/lightvla/README.md"},
-    "vla_pruner": {"status": "conditional", "label": "有封装，必须匹配固定官方后端，真实模型待验收",
+    "vla_pruner": {"status": "conditional", "label": "OFT/H20 三个真实初始输入接入验证通过；闭环待验收，需匹配固定后端",
                    "guide": "methods/vla_pruner/INTEGRATION.md"},
     "specprune": {"status": "experimental", "label": "实验实现；统一生命周期及真实模型验收未完成",
                   "guide": "workbench/evaluator/specprune/README-ZH.md"},
@@ -163,6 +163,10 @@ def write_report(report, directory):
 
 
 def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if argv and argv[0] in ("run", "evaluate"):
+        from core.run import main as run
+        return run(argv[1:], evaluate=argv[0] == "evaluate")
     parser = argparse.ArgumentParser(description="VLA 工具箱统一入口")
     commands = parser.add_subparsers(dest="command", required=True)
     doctor = commands.add_parser("doctor", help="只读检查用户工作目录")
@@ -171,6 +175,8 @@ def main(argv=None):
     demo = commands.add_parser("demo", help="tiny LLaMA CPU 接入/卸载演示")
     demo.add_argument("--output", required=True, type=Path)
     commands.add_parser("methods", help="方法状态目录")
+    commands.add_parser("run", help="执行真实推理：--method lightvla 或 vla_pruner")
+    commands.add_parser("evaluate", help="原生/关闭剪枝/加速/恢复的输入级评估")
     try:
         args = parser.parse_args(argv)
         if args.command == "methods":

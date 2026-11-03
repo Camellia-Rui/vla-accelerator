@@ -8,7 +8,7 @@ import zipfile
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    version = "0.2.0-rc1"
+    version = "0.3.0a1"
     name = "vla-express-toolbox-" + version
     destination = root / "dist" / name
     archive = destination.parent / (name + ".zip")
@@ -20,7 +20,10 @@ def main():
     for folder in folders:
         selected.extend(p for p in (root / folder).rglob("*") if p.is_file()
                         and "__pycache__" not in p.parts and p.suffix not in {".pyc", ".pyo"})
+    excluded = {"showcase-template.html", "showcase-results.json", "PRESENTATION_SCRIPT.md", "build_showcase.py", "check_showcase.py"}
     for source in sorted(selected):
+        if source.name in excluded:
+            continue
         target = destination / source.relative_to(root)
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
@@ -28,7 +31,7 @@ def main():
              "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}
             for p in sorted(destination.rglob("*")) if p.is_file()]
     manifest = {"product": "vla-express-toolbox", "version": version, "files": rows,
-                "scope": "source-only release candidate; native VLA validation pending"}
+                "scope": "source and small evidence artifacts; three-input VLA-Pruner integration verified, closed-loop quality pending"}
     (destination / "product-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     with zipfile.ZipFile(archive, "x", zipfile.ZIP_DEFLATED) as stream:
         for path in sorted(destination.rglob("*")):

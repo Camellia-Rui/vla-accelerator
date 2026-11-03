@@ -1,0 +1,95 @@
+{
+  "stage": "capture",
+  "passed": true,
+  "python": "/home/wxy/miniconda3/envs/openvla-oft/bin/python",
+  "script_sha256": "a6fe119f92256adfaa6b3f4afb3ae4dd3f12ec5a1c4103c06706225f2339c15b",
+  "started_at_unix": 1793616642.024508,
+  "gpu_inventory": [
+    {
+      "index": 0,
+      "uuid": "GPU-e6525e27-676f-6554-a0e8-7b8c1a702509",
+      "free_mib": 66750,
+      "utilization": 0
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-cac9088e-f576-3efe-2fd5-c8609a091a99",
+      "free_mib": 15118,
+      "utilization": 0
+    },
+    {
+      "index": 2,
+      "uuid": "GPU-389ced12-b430-4b86-84da-7c22738a3258",
+      "free_mib": 51547,
+      "utilization": 16
+    },
+    {
+      "index": 3,
+      "uuid": "GPU-f4920dd5-2070-3b92-2929-fcefa07bde84",
+      "free_mib": 15118,
+      "utilization": 0
+    },
+    {
+      "index": 4,
+      "uuid": "GPU-ad39f5cf-7762-0a33-0b7c-870acd4cd98a",
+      "free_mib": 23760,
+      "utilization": 0
+    },
+    {
+      "index": 5,
+      "uuid": "GPU-df2e105e-0841-847e-c94f-b5a12eef6c5e",
+      "free_mib": 9304,
+      "utilization": 0
+    },
+    {
+      "index": 6,
+      "uuid": "GPU-51628529-1058-69be-78a6-03ed66e42fde",
+      "free_mib": 22604,
+      "utilization": 0
+    },
+    {
+      "index": 7,
+      "uuid": "GPU-2608c188-6418-45e8-7a4e-351e5b6eae92",
+      "free_mib": 22734,
+      "utilization": 0
+    }
+  ],
+  "selected_gpu": {
+    "index": 0,
+    "uuid": "GPU-e6525e27-676f-6554-a0e8-7b8c1a702509",
+    "free_mib": 66750,
+    "utilization": 0
+  },
+  "backend_head": "3d156ee29e3d15172abbb69dc3495c47e826e460",
+  "tracked_core_matches_pinned": true,
+  "libero_assets": {
+    "assets": "/home/wxy/project1/openvla-oft/LIBERO-master/libero/libero/./assets",
+    "bddl_files": "/home/wxy/project1/openvla-oft/LIBERO-master/libero/libero/./bddl_files",
+    "benchmark_root": "/home/wxy/project1/openvla-oft/LIBERO-master/libero/libero",
+    "datasets": "/home/wxy/project1/openvla-oft/LIBERO-master/libero/libero/../datasets",
+    "init_states": "/home/wxy/project1/openvla-oft/LIBERO-master/libero/libero/./init_files"
+  },
+  "libero_module": "/home/wxy/Rui_work/lerobot-libero-main/libero/libero/benchmark/__init__.py",
+  "task_suite": "libero_object",
+  "task_id": 1,
+  "trial": 0,
+  "task_description": "pick up the cream cheese and place it in the basket",
+  "seed": 7,
+  "settle_steps": 10,
+  "observation_sha256": "4dae82d1bc5f04ab9ef5b26d26c93aa189cf33f4de1af60189dd96525393f24f",
+  "initial_state_sha256": "4404ff0ecec75d07dbe02cdb0a6284fb3b24c79f2c164987433f00d3b885948c",
+  "full_image_shape": [
+    224,
+    224,
+    3
+  ],
+  "wrist_image_shape": [
+    224,
+    224,
+    3
+  ],
+  "state_shape": [
+    8
+  ],
+  "policy_actions_executed": 0
+}

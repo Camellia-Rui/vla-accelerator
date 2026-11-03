@@ -1,0 +1,51 @@
+{
+  "source": "Direct SSH execution and SCP download from wxy@172.23.148.117 under /home/wxy/Rui_work",
+  "files": [
+    {
+      "path": "unified-evaluate/evaluation.json",
+      "sha256": "4fd3720f73a84ba3f34d64a551c287bbd3e905a9dab476c2b2bc94d982eb2a64"
+    },
+    {
+      "path": "unified-evaluate/process.json",
+      "sha256": "012990dce06483bfdc166072dddff9c5652f45924ece7efd0d297d2d6f3cadbc"
+    },
+    {
+      "path": "unified-evaluate/process.log",
+      "sha256": "dc45cde005201d7b210f3c3bcff00542940ebc608fc65928fd96e161c6a16401"
+    },
+    {
+      "path": "unified-evaluate/records.jsonl",
+      "sha256": "7b29d0f98bb53866a4b6b7b378750b2c42a6be12fcb80ead7d68b2b951c35e7b"
+    },
+    {
+      "path": "unified-evaluate/report.json",
+      "sha256": "df02f9174fb6f3fd25c19c1da33d02900f793b67d42075dd1d5fd3e960d7e1aa"
+    },
+    {
+      "path": "unified-run/actions.jsonl",
+      "sha256": "1b4691f41b1dbeb6bef88319e3f1bafaf44e7cf1ecdd02ddc44d799ba6e48d12"
+    },
+    {
+      "path": "unified-run/process.json",
+      "sha256": "8c1002e959252cbe394c6b15152965234b8aa712425435495c980e2ab7a5a692"
+    },
+    {
+      "path": "unified-run/process.log",
+      "sha256": "3511924556ee6d4969b32c20ee49afa399649f92bdd9b6e959389c15247f9be8"
+    },
+    {
+      "path": "unified-run/report.json",
+      "sha256": "47be57624b38ba4826e1853f70c30138351f4670dc4d035a0dd0e076b8dbfbc1"
+    }
+  ],
+  "executed_source_archives": [
+    {
+      "path": "vla-runtime-20261103-r1.zip",
+      "sha256": "508b6807694ca98d0ca3ade59d027f58c702d8437434ceccc6ec692715ba801e"
+    },
+    {
+      "path": "vla-runtime-20261103-r2.zip",
+      "sha256": "7f998e47a307fd8dccf3f0964ffd4b67670e54c10004cc9846dc3d1f8d8fb727"
+    }
+  ]
+}

@@ -2,6 +2,14 @@
 
 ## 当前证据
 
+2026-11-03：统一 `core run/evaluate` 已直接执行真实 OFT 模型，原始报告归档在 `server-evidence/2026-11-03/`。3 个已有输入共 12 对，接入检查通过，质量结论 INCONCLUSIVE；见 [最新结果](UNIFIED_RUNTIME_RESULT.md)。以下为此前阶段记录。
+
+0.2.0-rc2 已增加另外两个任务初始输入，合计三个真实输入、18 对调用，均通过接入检查。见 [多输入结果](MULTITASK_RESULT.md)。新增原始文件同样由 Codex 直接从服务器下载并核对；不作为闭环成功率证据。
+
+**最新进展：** Codex 已通过 SSH 直接执行并核对 VLA-Pruner 真实模型接入测试，结果 `INTEGRATION_PASS`。关闭剪枝与原生一致、实际序列缩短、卸载恢复均通过；单输入重复测试不证明闭环质量或正式加速效果。完整结果和直接下载的原始文件见 [服务器接入结果](SERVER_INTEGRATION_RESULT.md)。下面的“用户回传”段落保留先前阶段来源记录。
+
+2026-11-02 新增用户回传的服务器报告，见 `server-evidence/2026-11-02/`：LIBERO-Object task 0 / trial 0 的真实 observation 已采集，OFT 原生前向输出 8×7 有限动作。JSON 从用户终端粘贴文本提取，来源哈希记录在 PROVENANCE.json；本地没有原始 observation.npz，也未独立登录服务器重跑。首次调用约 856.5 ms，运行时 GPU 已有其他负载，不是性能基准。checkpoint 小文件哈希和文件大小未变化，不代表完整权重哈希核验。工具箱剪枝、对照恢复与闭环尚待验收。
+
 | 内容 | 来源 | 能支持的结论 |
 |---|---|---|
 | 根 tests 中 LightVLA CPU 模型测试及 VLA-Pruner 契约测试 | 本仓库源码、实际测试输出 | 封装配置、生命周期及对应测试范围；不证明真实 VLA 性能 |

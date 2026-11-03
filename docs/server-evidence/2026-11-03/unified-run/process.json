@@ -1,0 +1,27 @@
+{
+  "exit_code": 0,
+  "command": [
+    "/home/wxy/miniconda3/envs/openvla-oft/bin/python",
+    "-u",
+    "-B",
+    "-m",
+    "methods.vla_pruner",
+    "--workspace",
+    "/home/wxy/Rui_work/VLA-Pruner/VLA-Pruner/src/openvla-oft",
+    "--checkpoint",
+    "/home/wxy/Rui_work/openvla-7b-oft-libero-object",
+    "--unnorm-key",
+    "libero_object_no_noops",
+    "--observation-dir",
+    "/home/wxy/Rui_work/toolbox-native-check/capture-001",
+    "--gpu",
+    "2",
+    "--prefer-env-cuda",
+    "--prune-ratio",
+    "0.5",
+    "--output",
+    "/home/wxy/Rui_work/toolbox-native-check/unified-run-20261103-01",
+    "--_worker"
+  ],
+  "cache_dir": "/home/wxy/Rui_work/toolbox-native-check/unified-run-20261103-01/cache"
+}
