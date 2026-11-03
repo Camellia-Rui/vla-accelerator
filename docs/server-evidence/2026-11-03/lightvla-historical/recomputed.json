@@ -1,0 +1,14 @@
+{
+  "paired_episodes": 500,
+  "baseline_successes": 490,
+  "packaged_successes": 490,
+  "baseline_only_success": 8,
+  "packaged_only_success": 8,
+  "device_mismatch_pairs": 350,
+  "current_adapter_acceptance": false,
+  "formal_speedup_accepted": false,
+  "source_sha256": {
+    "EVAL-libero_spatial-openvla-2026_10_16-04_49_56--baseline.episodes.jsonl": "133912cf55c81e4fcc53ed09422ce72434160165b6802126df3c5a84305065dd",
+    "EVAL-libero_spatial-openvla-2026_10_16-18_33_31--packaged.episodes.jsonl": "975c42928a86a2bbbad63ade0bb6fd0fd6bd163d9bb448521de99881a61f3133"
+  }
+}

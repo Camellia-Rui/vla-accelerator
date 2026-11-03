@@ -1,0 +1,49 @@
+/home/wxy/miniconda3/envs/daisy_openvla/lib/python3.10/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+2026-11-03 14:14:36.763962: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-03 14:14:36.946955: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-11-03 14:14:36.947040: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-11-03 14:14:36.976886: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-11-03 14:14:37.038772: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-11-03 14:14:37.818348: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+2026-11-03 14:14:42.836857: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2348] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 9.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+11/03 [14:14:52] WARNING  | >> No private macro file found!        __init__.py:7
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+                 WARNING  | >> It is recommended to use a private  __init__.py:8
+                          macro file                                            
+[robosuite WARNING] To setup, run: python /home/wxy/miniconda3/envs/daisy_openvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+                 WARNING  | >> To setup, run: python               __init__.py:9
+                          /home/wxy/miniconda3/envs/daisy_openvla/              
+                          lib/python3.10/site-packages/robosuite/s              
+                          cripts/setup_macros.py                                
+                 INFO     | >> No OpenGL_accelerate      acceleratesupport.py:24
+                          module loaded: No module named                        
+                          'OpenGL_accelerate'                                   
+Traceback (most recent call last):
+  File "/home/wxy/Rui_work/vla-lightvla-check-20261103-r1/scripts/server_lightvla_pair.py", line 24, in worker
+    bundle = build(args.workspace, args.checkpoint, args.task, args.trial)
+  File "/home/wxy/Rui_work/vla-lightvla-check-20261103-r1/methods/lightvla/oft_factory.py", line 20, in build
+    from experiments.robot.libero import libero_utils as lu
+  File "/home/wxy/daisy_work/lightvla_clean/experiments/robot/libero/libero_utils.py", line 10, in <module>
+    from libero.libero.envs import OffScreenRenderEnv
+  File "/home/wxy/daisy_work/lightvla_clean/LIBERO/libero/libero/envs/__init__.py", line 1, in <module>
+    from .bddl_base_domain import TASK_MAPPING
+  File "/home/wxy/daisy_work/lightvla_clean/LIBERO/libero/libero/envs/bddl_base_domain.py", line 3, in <module>
+    import robosuite.utils.transform_utils as T
+  File "/home/wxy/miniconda3/envs/daisy_openvla/lib/python3.10/site-packages/robosuite/__init__.py", line 11, in <module>
+    from robosuite.environments.base import make
+  File "/home/wxy/miniconda3/envs/daisy_openvla/lib/python3.10/site-packages/robosuite/environments/__init__.py", line 1, in <module>
+    from .base import REGISTERED_ENVS, MujocoEnv
+  File "/home/wxy/miniconda3/envs/daisy_openvla/lib/python3.10/site-packages/robosuite/environments/base.py", line 12, in <module>
+    from robosuite.utils.binding_utils import MjRenderContextOffscreen, MjSim
+  File "/home/wxy/miniconda3/envs/daisy_openvla/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 34, in <module>
+    MUJOCO_EGL_DEVICE_ID in CUDA_VISIBLE_DEVICES
+AssertionError: MUJOCO_EGL_DEVICE_ID needs to be set to one of the device id specified in CUDA_VISIBLE_DEVICES

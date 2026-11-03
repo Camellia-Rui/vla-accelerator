@@ -1,0 +1,77 @@
+{
+  "source": "Direct SSH/SCP from daisy_work historical files and Rui_work current checks; no original directory modification",
+  "files": [
+    {
+      "path": "lightvla-current-001/process.json",
+      "sha256": "d26b0745a1a2f3d452def2624b3b0bcc425124b18690dbf694f4de0ff91cb07e"
+    },
+    {
+      "path": "lightvla-current-001/process.log",
+      "sha256": "58ecf753854e60722a6c7ea6b61f079d67f59f1a7df789e7aca7574076764009"
+    },
+    {
+      "path": "lightvla-current-001/report.json",
+      "sha256": "edbf026b70cd560d372eedddb1cd822c2c20d5d7f27733190c2a9d83c56d68c8"
+    },
+    {
+      "path": "lightvla-current-002/observation.npz",
+      "sha256": "a3bbc56ad72fd7d99fcd30c7c318898f375f20068c09d473f84031e064f93ce2"
+    },
+    {
+      "path": "lightvla-current-002/process.json",
+      "sha256": "124fd50cb6d223cdd18fedc166d00af7254199b6e6dedf9be82f71db87af6d01"
+    },
+    {
+      "path": "lightvla-current-002/process.log",
+      "sha256": "c34e460d91865091e1b904065479d648657f86656995780e04d196b14fbb3ff5"
+    },
+    {
+      "path": "lightvla-current-002/records.jsonl",
+      "sha256": "00292058926ebfa8c5469ec1fbb74f43e403776bcb59bcc93e8d692a8704f19f"
+    },
+    {
+      "path": "lightvla-current-002/report.json",
+      "sha256": "f68491317eb533e897c8cf648b9a14397586aee621f905bb9a8f19c330c34f26"
+    },
+    {
+      "path": "lightvla-historical/episode_comparison.csv",
+      "sha256": "d762ecf678e51b51adc826f456df8aef17a634a6d96594c4d6290d0fc0355e1f"
+    },
+    {
+      "path": "lightvla-historical/EVAL-libero_spatial-openvla-2026_10_16-04_49_56--baseline.episodes.jsonl",
+      "sha256": "133912cf55c81e4fcc53ed09422ce72434160165b6802126df3c5a84305065dd"
+    },
+    {
+      "path": "lightvla-historical/EVAL-libero_spatial-openvla-2026_10_16-18_33_31--packaged.episodes.jsonl",
+      "sha256": "975c42928a86a2bbbad63ade0bb6fd0fd6bd163d9bb448521de99881a61f3133"
+    },
+    {
+      "path": "lightvla-historical/recomputed.json",
+      "sha256": "50e09e4b7a18721f2aa8eacdc85e1e4931a7261fafa2f66fefb46582892bcffa"
+    },
+    {
+      "path": "lightvla-historical/summary.json",
+      "sha256": "62a811a9ea974932e104d5b8e6286ad3428435ba17e1ef840c52ecaf0c6f3957"
+    },
+    {
+      "path": "lightvla-historical/task_comparison.csv",
+      "sha256": "3db3d1ee60fd1469178498526e6f8c11b55abbd670c9b3ebb1fb03972903ddb9"
+    },
+    {
+      "path": "lightvla-unified-001/config.json",
+      "sha256": "247441d7d8c9e634e58731588964219dcbf07b257cf557d54d3f771ee5f3fd2a"
+    },
+    {
+      "path": "lightvla-unified-001/process.json",
+      "sha256": "124fd50cb6d223cdd18fedc166d00af7254199b6e6dedf9be82f71db87af6d01"
+    },
+    {
+      "path": "lightvla-unified-001/process.log",
+      "sha256": "ee03e9bec2421c8e805ee45870182ffb0c831b26336b708c2c0ba3c3db1f1004"
+    },
+    {
+      "path": "lightvla-unified-001/query.json",
+      "sha256": "8df239e3cf4eee87b4c66dfb6201c4112bcaf5864dfc4c183be54e013695f4bc"
+    }
+  ]
+}

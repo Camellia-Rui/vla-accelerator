@@ -8,7 +8,7 @@ import zipfile
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    version = "0.3.0a1"
+    version = "0.3.0a2"
     name = "vla-express-toolbox-" + version
     destination = root / "dist" / name
     archive = destination.parent / (name + ".zip")
@@ -31,7 +31,7 @@ def main():
              "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}
             for p in sorted(destination.rglob("*")) if p.is_file()]
     manifest = {"product": "vla-express-toolbox", "version": version, "files": rows,
-                "scope": "source and small evidence artifacts; three-input VLA-Pruner integration verified, closed-loop quality pending"}
+                "scope": "source and small evidence artifacts; VLA-Pruner input checks and LightVLA closed-loop smoke; formal deployment acceptance pending"}
     (destination / "product-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     with zipfile.ZipFile(archive, "x", zipfile.ZIP_DEFLATED) as stream:
         for path in sorted(destination.rglob("*")):

@@ -1,0 +1,33 @@
+{
+  "baseline_file": "results/baseline_eval/EVAL-libero_spatial-openvla-2026_10_16-04_49_56--baseline.episodes.jsonl",
+  "packaged_file": "results/packaged_eval/EVAL-libero_spatial-openvla-2026_10_16-18_33_31--packaged.episodes.jsonl",
+  "paired_episodes": 500,
+  "hash_matches": 500,
+  "baseline_successes": 490,
+  "packaged_successes": 490,
+  "baseline_success_rate": 0.98,
+  "packaged_success_rate": 0.98,
+  "success_rate_delta_percentage_points": 0.0,
+  "paired_outcomes": {
+    "both_success": 482,
+    "packaged_only_success": 8,
+    "baseline_only_success": 8,
+    "both_fail": 2
+  },
+  "baseline_episode_averaged_inference_ms": 323.42766692316684,
+  "packaged_episode_averaged_inference_ms": 79.08907279922934,
+  "inference_speedup": 4.089410274718992,
+  "latency_reduction_pct": 75.54659638378504,
+  "device_mismatch_pairs": 350,
+  "baseline_device_counts": {
+    "cuda:6": 250,
+    "cuda:7": 200,
+    "cuda:1": 50
+  },
+  "packaged_device_counts": {
+    "cuda:6": 200,
+    "cuda:7": 150,
+    "cuda:3": 100,
+    "cuda:1": 50
+  }
+}

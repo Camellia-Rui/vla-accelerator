@@ -1,0 +1,69 @@
+{
+  "source_sha256": "dfe8c469e814dc60616f0f84f5bd3ad9b9a648c14b27fb9f3e61df57bafdca14",
+  "paired_episodes": 6,
+  "baseline_successes": 6,
+  "packaged_successes": 6,
+  "paired_outcomes": {
+    "baseline_True_packaged_True": 6
+  },
+  "descriptive_query_median_ms": {
+    "baseline": 230.71000701747835,
+    "packaged": 145.11655701790005
+  },
+  "pairs": [
+    {
+      "task": 0,
+      "trial": 0,
+      "baseline_success": true,
+      "packaged_success": true,
+      "baseline_episode_seconds": 4.420377467991784,
+      "packaged_episode_seconds": 3.476115445024334
+    },
+    {
+      "task": 0,
+      "trial": 1,
+      "baseline_success": true,
+      "packaged_success": true,
+      "baseline_episode_seconds": 4.298731201910414,
+      "packaged_episode_seconds": 3.2633355889702216
+    },
+    {
+      "task": 0,
+      "trial": 2,
+      "baseline_success": true,
+      "packaged_success": true,
+      "baseline_episode_seconds": 4.309378824080341,
+      "packaged_episode_seconds": 3.3671335480175912
+    },
+    {
+      "task": 1,
+      "trial": 0,
+      "baseline_success": true,
+      "packaged_success": true,
+      "baseline_episode_seconds": 6.660265379003249,
+      "packaged_episode_seconds": 6.025049199000932
+    },
+    {
+      "task": 1,
+      "trial": 1,
+      "baseline_success": true,
+      "packaged_success": true,
+      "baseline_episode_seconds": 5.87434622796718,
+      "packaged_episode_seconds": 4.630841003963724
+    },
+    {
+      "task": 1,
+      "trial": 2,
+      "baseline_success": true,
+      "packaged_success": true,
+      "baseline_episode_seconds": 6.255104215932079,
+      "packaged_episode_seconds": 4.9827700309688225
+    }
+  ],
+  "restored": true,
+  "parameters_preserved": true,
+  "modules_restored": true,
+  "quality_decision": "INCONCLUSIVE",
+  "formal_speedup_accepted": false,
+  "note": "Small smoke sample; query counts/trajectories may differ. Not fixed-observation paired speed evidence."
+}

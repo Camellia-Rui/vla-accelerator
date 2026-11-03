@@ -11,7 +11,7 @@ description: Inspect a user's VLA model workspace, select compatible acceleratio
 
 在工具箱根目录使用 `python -m core doctor --workspace <实际目录> --output <独立新报告目录>`，再阅读用户的原生加载及推理入口。检查输出是源码线索，不能作为兼容性证明。明确 checkpoint、processor、归一化统计、动作头、视图数、动作维度与 chunk、decoder 结构、KV cache、依赖版本和已有 patch。
 
-- LightVLA：有 CPU 验证的封装；读 [方法说明](methods/lightvla/README.md) 和 [来源](methods/lightvla/provenance.json)。原方法含微调，不标为完全免训练。真实模型兼容和效果待验证。
+- LightVLA：已验证 Spatial/H20 接入及当前封装 4 任务 20 对闭环，两种模式均 20/20 成功；读 [方法说明](methods/lightvla/README.md)、[服务器结果](docs/LIGHTVLA_SERVER_RESULT.md) 和 [来源](methods/lightvla/provenance.json)。原方法含微调，不标为完全免训练。小规模闭环不等于正式质量验收，历史 500 对记录也不能替代当前版本验收。
 - VLA-Pruner：读 [接口说明](methods/vla_pruner/INTEGRATION.md)，必须核实固定官方 backend；普通 PyPI Transformers 不替代该 backend。
 
 已验证的窄范围：OpenVLA-OFT LIBERO-Object、连续 L1 动作头、双视图、8D 本体、8×7 动作块、H20，自定义 Transformers 4.47.0。在 3 个任务各一个初始输入上完成关闭剪枝对照、实际裁剪、卸载恢复。复现入口见 [服务器对比说明](docs/SERVER_PRUNER_PAIR.md)；结果见 [多输入验证](docs/MULTITASK_RESULT.md)。此证据不迁移为任意 checkpoint 支持或闭环质量承诺。

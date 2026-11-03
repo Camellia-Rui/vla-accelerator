@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "closed_loop_tested": false,
+  "formal_benchmark_valid": false,
+  "quality_decision": "INCONCLUSIVE",
+  "records": [],
+  "error": "MUJOCO_EGL_DEVICE_ID needs to be set to one of the device id specified in CUDA_VISIBLE_DEVICES"
+}

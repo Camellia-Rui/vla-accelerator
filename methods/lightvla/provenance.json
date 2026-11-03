@@ -7,7 +7,7 @@
   "upstream_source_commit": null,
   "note": "The inherited packaged implementation has not been verified as a byte-identical official source snapshot.",
   "checkpoint_example": "TTJiang/LightVLA-libero-spatial",
-  "historical_results": "EXPERIMENTS.md; raw evidence not bundled",
+  "historical_results": "EXPERIMENTS.md; 500 paired episode records archived under docs/server-evidence/2026-11-03/lightvla-historical",
   "user_provided_report": "README(5).md; corresponding historical experiment report",
-  "current_validation_scope": "toolbox lifecycle and CPU synthetic decoder tests; not full VLA/GPU/closed-loop validation"
+  "current_validation_scope": "CPU lifecycle tests, H20 Spatial input check and unified run, current-adapter 4-task 20-pair closed-loop smoke (20/20 both modes); formal quality and speed acceptance pending"
 }

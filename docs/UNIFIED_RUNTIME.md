@@ -2,6 +2,8 @@
 
 统一入口现在为 `python -m core run` 和 `python -m core evaluate`。支持真实执行的 run 方法是 `lightvla`、`vla_pruner`；evaluate 当前支持 `vla_pruner`。SpecPrune 未完成统一恢复接口，VLA-Cache 已隔离，不伪装成可运行选项。
 
+LightVLA 的实际 Spatial 权重工厂、隔离启动命令和真实验证结果见 [LightVLA 接入](LIGHTVLA_SERVER_RESULT.md)，成对仿真闭环使用 [闭环入口](LIGHTVLA_CLOSED_LOOP.md)。
+
 ## VLA-Pruner 内置 OFT 加载器
 
 此加载器只针对当前固定官方 OFT 后端，不是任意 VLA 自动加载器。无需修改用户原项目或在原环境执行 pip install。在工具箱根目录使用原模型环境的 Python：

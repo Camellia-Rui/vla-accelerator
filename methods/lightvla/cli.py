@@ -111,6 +111,13 @@ def main(argv=None):
                   "output_shape": list(output.shape) if hasattr(output, "shape") else None,
                   "config": acc.describe()["config"],
                   "stats": acc.get_stats()}
+        # Preserve complete robot action chunks when the factory exposes them.
+        if getattr(output, "ndim", None) == 2 and output.shape[-1] == 7:
+            from methods.vla_pruner.evaluation import actions_array
+            value = output.detach().cpu().numpy() if hasattr(output, "detach") else output
+            report["actions"] = actions_array(value).tolist()
+        if "provenance" in bundle:
+            report["provenance"] = bundle["provenance"]
         # Restoration is part of success; do it before reporting success.
         acc.detach()
         report["detached"] = True

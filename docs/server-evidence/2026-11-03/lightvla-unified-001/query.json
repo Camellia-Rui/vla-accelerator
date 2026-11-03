@@ -1,0 +1,123 @@
+{
+  "check": "user-factory-query",
+  "output_type": "ndarray",
+  "output_shape": [
+    8,
+    7
+  ],
+  "config": {
+    "mode": "packaged",
+    "patch_start": 1,
+    "patch_count": null,
+    "score_context": "suffix",
+    "noise_scale": null,
+    "allow_existing_pruner": true
+  },
+  "stats": {
+    "method": "lightvla",
+    "attached": true,
+    "enabled": true,
+    "mode": "packaged",
+    "pruned_forward_count": 1,
+    "bypassed_forward_count": 0,
+    "last_input_sequence_length": 605,
+    "last_output_sequence_length": 192,
+    "last_patch_keep_counts": [
+      99
+    ],
+    "decoder_class": "PrunedLlamaModel",
+    "pruner_class": "DifferentiableTokenPruner",
+    "patch_count": 512,
+    "patch_start": 1,
+    "score_context": "suffix"
+  },
+  "actions": [
+    [
+      0.09373694575345903,
+      0.08005611070295615,
+      0.04342457976765679,
+      0.004607406725881905,
+      0.013171210512324671,
+      0.007425810100907676,
+      0.9927616119384766
+    ],
+    [
+      0.1879687406646574,
+      0.15548840846057232,
+      0.07159189075627781,
+      0.013424674668293612,
+      0.011176262393275016,
+      0.0032979815193758533,
+      1.0018550157546997
+    ],
+    [
+      0.3423763607869418,
+      0.28691167311499044,
+      0.13269812490919253,
+      0.012313321155298915,
+      0.011760700023833448,
+      0.0022454057857475007,
+      0.9984374046325684
+    ],
+    [
+      0.5567749793790676,
+      0.36848976793271104,
+      0.15137703973065375,
+      0.019691517327813407,
+      0.02465173021111461,
+      0.005454116416856336,
+      0.9967889785766602
+    ],
+    [
+      0.732625711502446,
+      0.44851333707262797,
+      0.13919181011374682,
+      0.015561265856112727,
+      0.019745202203583806,
+      0.003815860660719095,
+      0.9993166923522949
+    ],
+    [
+      0.8240993497439552,
+      0.493695113160201,
+      0.10462999498545877,
+      0.019926162542965198,
+      0.01647371865824504,
+      0.0016390530837767647,
+      0.9989163875579834
+    ],
+    [
+      0.8737585082999452,
+      0.5135334377860477,
+      0.1168323862697731,
+      0.0018566693355615838,
+      0.00609714432694497,
+      0.0001141528478476872,
+      0.9974908828735352
+    ],
+    [
+      0.9045128755389463,
+      0.4898833498493145,
+      0.10570727965317395,
+      -0.0026353252702266405,
+      0.005764195720998011,
+      0.00022272867147241082,
+      0.9948766231536865
+    ]
+  ],
+  "provenance": {
+    "workspace": "/home/wxy/daisy_work/lightvla_clean",
+    "checkpoint": "/home/wxy/daisy_work/lightvla_clean/checkpoints/lightvla_spatial_official",
+    "task": 0,
+    "trial": 0,
+    "seed": 7,
+    "unnorm_key": "libero_spatial_no_noops",
+    "source_sha256": {
+      "/home/wxy/daisy_work/lightvla_clean/experiments/robot/openvla_utils.py": "46322c96a3ff1155f65ce89c584fe616c9bf205cec7cca323223ecd4da6196c2",
+      "/home/wxy/Rui_work/toolbox-native-check/lightvla-unified-001/cache/huggingface/modules/transformers_modules/lightvla_spatial_official/modeling_prismatic.py": "f2b06332aa544fa7abc4dfffbedf3b490e414f02ed515e32b85fa9271de77792",
+      "/home/wxy/daisy_work/lightvla_clean/checkpoints/lightvla_spatial_official/config.json": "2e697288d5f8d6e7956915101d94ac0e5ab5b8e97fa3ff557d95abd48c84832f",
+      "/home/wxy/daisy_work/lightvla_clean/checkpoints/lightvla_spatial_official/dataset_statistics.json": "3f8b7854c8634ea6ccfd6ef6b8f983e3b30b067c2cdaf690b152c0899d5d9282"
+    }
+  },
+  "detached": true
+}

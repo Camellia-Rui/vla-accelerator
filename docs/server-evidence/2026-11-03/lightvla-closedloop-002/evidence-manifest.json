@@ -1,0 +1,193 @@
+{
+  "source": "Direct SSH/SCP; current LightVLA adapter four-task closed-loop smoke",
+  "files": [
+    {
+      "path": "0-0-baseline.json",
+      "sha256": "3438930c3dfb30b41f26429b1843d39866d7bcea2f9af7728bacf0228e57601b"
+    },
+    {
+      "path": "0-0-packaged.json",
+      "sha256": "df7050079b38276b1e029d1986204be2ede288d299baefad82b6793abeba97a8"
+    },
+    {
+      "path": "0-1-baseline.json",
+      "sha256": "66dbb18ee3646257e0ca91b610bac5b6ba39c50ae3a0c5179ac1f64b3f3361d2"
+    },
+    {
+      "path": "0-1-packaged.json",
+      "sha256": "87519b2ebe7957d8700f712003f032a82d2945ab2232c52db227b77c72c70c0d"
+    },
+    {
+      "path": "0-2-baseline.json",
+      "sha256": "eedec67c3cac4c47e239e4e3f4ab027c8ddf006a743b809408215584a9d417b1"
+    },
+    {
+      "path": "0-2-packaged.json",
+      "sha256": "632d0af9358c770b8d0f53ccebd17915c385755d3d1b76a5cd6fb4447652c07e"
+    },
+    {
+      "path": "0-3-baseline.json",
+      "sha256": "7bb32f5ad55b7c6f7b6e8d755bd372e7d73f11eccbf0096a696672ec84b4ac37"
+    },
+    {
+      "path": "0-3-packaged.json",
+      "sha256": "6d1c56e58b4b5d55d5c043ed80716b49569b6214ed42ffd395a785d8f87fff64"
+    },
+    {
+      "path": "0-4-baseline.json",
+      "sha256": "f46a5cb244248c21df9fee28c19a3c4bf6f1837b351e20846b83625f6b7b65f9"
+    },
+    {
+      "path": "0-4-packaged.json",
+      "sha256": "05c1525088c6adeb2f8782d755fa3bef0f1dc2b74316259b41c1bb75727dc1af"
+    },
+    {
+      "path": "1-0-baseline.json",
+      "sha256": "2dc8aa25d5b0ee64a1fe129347f18facf9dc5f330dcf5bf35f96f24e0d54a1ef"
+    },
+    {
+      "path": "1-0-packaged.json",
+      "sha256": "dfe2f10d4fb949eadcd921ee9973944d1a2e5ccdd7c763da3579bee50e7ef060"
+    },
+    {
+      "path": "1-1-baseline.json",
+      "sha256": "5608ccd07d680b626032ef085089450c89dc2bd9e3affdd3bafb34cb8e3832cb"
+    },
+    {
+      "path": "1-1-packaged.json",
+      "sha256": "206a7dc7b5bba70de6124244a613eec623c531b072bb1dc7f018fbf75d6c5cdc"
+    },
+    {
+      "path": "1-2-baseline.json",
+      "sha256": "be6a00ebe0f707d93df329b2148a61d58f0c9ae9fe930230f66f8f6afae26bec"
+    },
+    {
+      "path": "1-2-packaged.json",
+      "sha256": "6533cdb34ab73b54c0b93118227d382c66e781edbfa2b1386af711ebf45fef28"
+    },
+    {
+      "path": "1-3-baseline.json",
+      "sha256": "0204dfe61eeda92550a5438fde9a1147fe6493d4d89620b4773df9ee4e823809"
+    },
+    {
+      "path": "1-3-packaged.json",
+      "sha256": "463467160550246647c1b407c9393f5e72af188f48b1ee8b554512e406331158"
+    },
+    {
+      "path": "1-4-baseline.json",
+      "sha256": "3ada1985bdea618b443d5e9ed36047a8eb6ab9a2d71f6d1775a0c8f8415b9bb9"
+    },
+    {
+      "path": "1-4-packaged.json",
+      "sha256": "e374ede372fa1f3d28a9d0effd1f332fea8cca2ecd19fa4744e18ec74f8d543b"
+    },
+    {
+      "path": "2-0-baseline.json",
+      "sha256": "68305a54609933426c89b2ac5aaa87418b9cdcf33690685f468a80a946bf0b83"
+    },
+    {
+      "path": "2-0-packaged.json",
+      "sha256": "f118b3b4a33295fba2a80dab5f97f809997010d9f1b27b32300150d644cd2fc2"
+    },
+    {
+      "path": "2-1-baseline.json",
+      "sha256": "81cc04011cbc5611ae45589c8b926bb7a980799e68209b5d55df7c6b40dd2b07"
+    },
+    {
+      "path": "2-1-packaged.json",
+      "sha256": "e4fa5393926550b43b309636626de0a792c6b8232cb2e88c9c537b5971993961"
+    },
+    {
+      "path": "2-2-baseline.json",
+      "sha256": "df169039f1c389549310203b62950424e7f892d4366205670a55fab898dfc3e1"
+    },
+    {
+      "path": "2-2-packaged.json",
+      "sha256": "26e396a59c701cadc86fc9f70ad941ac3242d57593445b2b09bcd449fc6b47f7"
+    },
+    {
+      "path": "2-3-baseline.json",
+      "sha256": "d2495a005f671aa580fc8e49fce2c6a4532edef0249c4bc9006617835172bbc4"
+    },
+    {
+      "path": "2-3-packaged.json",
+      "sha256": "49bf6004d4aff624275a1fa8e1d06614afdd9c5c174472772702b5c77fcb6529"
+    },
+    {
+      "path": "2-4-baseline.json",
+      "sha256": "53743aa81204fbbdb15fb1c99bc9d06eb453d0f64fcffe324641a9c350662ad5"
+    },
+    {
+      "path": "2-4-packaged.json",
+      "sha256": "a2ba349cccd182ba1e69ff9ecdbf7e132df8bbb6a7df29957554f592ebf238e6"
+    },
+    {
+      "path": "3-0-baseline.json",
+      "sha256": "55918199757391c3c303705e892a04483d126b8d6067d62ac9d37c2461ee213d"
+    },
+    {
+      "path": "3-0-packaged.json",
+      "sha256": "24272d600f139c6bc538d00574edc2b720af4f2f0c8c2a8bbfeba98447ffb747"
+    },
+    {
+      "path": "3-1-baseline.json",
+      "sha256": "df1b0299ade194f069030779157c329debfb8b889a52afcacbbdac9ab222f81a"
+    },
+    {
+      "path": "3-1-packaged.json",
+      "sha256": "f70513a2899b7431204a6935da4eb20932b11b4b04121d79ec51bcdbc420c250"
+    },
+    {
+      "path": "3-2-baseline.json",
+      "sha256": "28c4fb5e973dad626cfd10d68811d8879e591423c7577ac6477d7b351b415f1a"
+    },
+    {
+      "path": "3-2-packaged.json",
+      "sha256": "ed64875b8d702d26d253af2c6c11cdddc2ca0a4da80961e8d66a2ca2d23e5a7e"
+    },
+    {
+      "path": "3-3-baseline.json",
+      "sha256": "717bebace345a6f30afdb99e52173c41a87893f96c1ec4c160156ac82d28649c"
+    },
+    {
+      "path": "3-3-packaged.json",
+      "sha256": "659ab7703e15369c4667a6bf7ab7ee05bd1d9c6383d0ea883d60ab1fd8fed58a"
+    },
+    {
+      "path": "3-4-baseline.json",
+      "sha256": "1e9eac1742ab753bbe45eb5a1b7893c4432c7b99ef36cead4e019795a8f08ba6"
+    },
+    {
+      "path": "3-4-packaged.json",
+      "sha256": "8d9bf9591f79cc404e18805e8e6a82c160791867196aa27d92089090101e356d"
+    },
+    {
+      "path": "audit.json",
+      "sha256": "0cc11d132b337b3213ba3b2a9cf071e063b53ee99df938e81d96cffde8f0f86a"
+    },
+    {
+      "path": "process.json",
+      "sha256": "8f0c1c520d4343f54805dcdaa74287fb690f4d610186020a9343b1407654bdbd"
+    },
+    {
+      "path": "process.log",
+      "sha256": "64c831b02230c12b05c2c1cb5832222463deb142485fb99de6ec00d18f53e59c"
+    },
+    {
+      "path": "progress.json",
+      "sha256": "2f5fd6bb22b9ae07c51bcb2abdbee4bafde7ba43a92468df0025b598afc04383"
+    },
+    {
+      "path": "report.json",
+      "sha256": "87dbd378b8f0f5de16b9cc43c3f86653d6b9f4fd7c0c23a4207424ffbad571e7"
+    },
+    {
+      "path": "run-config.json",
+      "sha256": "8adf00d669b8bcaabc18c4d7fb10ff90b39d1058c9e510713746d8ad07563b9b"
+    },
+    {
+      "path": "source-manifest.json",
+      "sha256": "4f7252a2ecb3aeaa07680b2be9568d1ffcbb352bc9d88e164b176b24344cdfd9"
+    }
+  ]
+}

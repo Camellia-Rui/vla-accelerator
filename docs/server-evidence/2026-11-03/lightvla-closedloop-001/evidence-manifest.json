@@ -1,0 +1,81 @@
+{
+  "source": "Direct SSH/SCP; current LightVLA adapter closed-loop smoke",
+  "files": [
+    {
+      "path": "0-0-baseline.json",
+      "sha256": "68fe6a80f64f5b993159959615ca670b0a5d661cf454362c77f35c6633149c6a"
+    },
+    {
+      "path": "0-0-packaged.json",
+      "sha256": "c919d622a5a9b76e98aa61c69396fbebd4973c338270b35b9de6a0fbc8ab727e"
+    },
+    {
+      "path": "0-1-baseline.json",
+      "sha256": "533850887ee51a82e4d1abe857083d70416d7723637a8d97d70623d4cd832b67"
+    },
+    {
+      "path": "0-1-packaged.json",
+      "sha256": "9b0b1e5ef44054647ffaf45f6d8ace458f479cd325683a25627efca0a194f685"
+    },
+    {
+      "path": "0-2-baseline.json",
+      "sha256": "3968e5ffecf59b94315dbfaf6ee772e07b18807ec46b8c79031ec5f619dff4cd"
+    },
+    {
+      "path": "0-2-packaged.json",
+      "sha256": "01f095ff0379a83781d569f02b8248908b98aec3c9847a9c70012f739c04610e"
+    },
+    {
+      "path": "1-0-baseline.json",
+      "sha256": "d7121c210e223983dcd1f2abb249caacb9f9cfa1e6fae6b2d5c8edb549c5eb9d"
+    },
+    {
+      "path": "1-0-packaged.json",
+      "sha256": "e676a6bc3a8a82c9cddb55b2636dc46a2ae5441c1f50fb1d1b6f501d0e1b3808"
+    },
+    {
+      "path": "1-1-baseline.json",
+      "sha256": "47fcef53e090c0bc8cd18f042bcdfaf74c1424a7468d4d56f34b527b6ff2c5b8"
+    },
+    {
+      "path": "1-1-packaged.json",
+      "sha256": "bd6dcc10e42a9e2d2a1546ba58f57b74eceae85847ea657416077c33c3ff0942"
+    },
+    {
+      "path": "1-2-baseline.json",
+      "sha256": "d5b8cc3cdcac6014f164f36ec83454acef83bd98098429e934de74a6e54070e8"
+    },
+    {
+      "path": "1-2-packaged.json",
+      "sha256": "ea34b8a1c9adb3e3118d5dc9fb70de5dd7286f443bb76a6565c10eb375cd712f"
+    },
+    {
+      "path": "audit.json",
+      "sha256": "ba3fe735987944036f1f754a9b21d89000897771f8d1ea5e2241c3179572c25f"
+    },
+    {
+      "path": "process.json",
+      "sha256": "8f0c1c520d4343f54805dcdaa74287fb690f4d610186020a9343b1407654bdbd"
+    },
+    {
+      "path": "process.log",
+      "sha256": "2790c5a45f01f4e852be46a8e89e7aee2d31386a2c143e276c02d3b90d332e05"
+    },
+    {
+      "path": "progress.json",
+      "sha256": "fb4255eea04d1f132805b33901ad1681c54e848fcfc8ac0a2355e96ec0cc59c4"
+    },
+    {
+      "path": "report.json",
+      "sha256": "dfe8c469e814dc60616f0f84f5bd3ad9b9a648c14b27fb9f3e61df57bafdca14"
+    },
+    {
+      "path": "run-config.json",
+      "sha256": "617c5827342f7ede4efc064e06e11093a3e2da419029e7dd51e8e189e994b3cf"
+    },
+    {
+      "path": "source-manifest.json",
+      "sha256": "94e49d878247ceb23ddebf7c312f73f153992d3fe80a4a545dad073e9e7a44c3"
+    }
+  ]
+}

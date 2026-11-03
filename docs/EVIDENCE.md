@@ -2,6 +2,8 @@
 
 ## 当前证据
 
+LightVLA 新增实际 Spatial/H20 输入及统一调用验证，历史 500 对闭环原始记录已找回并重算；两类证据不能混为当前版本闭环验收。见 [LightVLA 结果](LIGHTVLA_SERVER_RESULT.md)。以下旧段落中的“未提供原始记录”仅反映当时状态。
+
 2026-11-03：统一 `core run/evaluate` 已直接执行真实 OFT 模型，原始报告归档在 `server-evidence/2026-11-03/`。3 个已有输入共 12 对，接入检查通过，质量结论 INCONCLUSIVE；见 [最新结果](UNIFIED_RUNTIME_RESULT.md)。以下为此前阶段记录。
 
 0.2.0-rc2 已增加另外两个任务初始输入，合计三个真实输入、18 对调用，均通过接入检查。见 [多输入结果](MULTITASK_RESULT.md)。新增原始文件同样由 Codex 直接从服务器下载并核对；不作为闭环成功率证据。

@@ -1,0 +1,13 @@
+{
+  "expected_records": 12,
+  "valid_records": 12,
+  "error_records": 0,
+  "successes": {
+    "baseline": 6,
+    "packaged": 6
+  },
+  "execution_complete": true,
+  "quality_decision": "INCONCLUSIVE",
+  "formal_benchmark_valid": false,
+  "reason": "Small smoke sample; no user quality tolerance or statistical acceptance supplied"
+}

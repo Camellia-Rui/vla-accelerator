@@ -311,6 +311,18 @@ class ModelTests(unittest.TestCase):
         self.assertNotIn("forward", vars(self.decoder))
         self.assertFalse(hasattr(self.model, "_lightvla_toolbox_session"))
 
+    def test_cli_keeps_complete_action_chunk_and_rejects_nan(self):
+        actions = torch.arange(56,dtype=torch.float32).reshape(8,7)
+        module = SimpleNamespace(create=lambda: {"model":self.model,"run":lambda:actions})
+        output=io.StringIO()
+        with patch("methods.lightvla.cli.importlib.import_module",return_value=module), redirect_stdout(output):
+            self.assertEqual(main(["--factory","user:create"]),0)
+        self.assertEqual(json.loads(output.getvalue())["actions"],actions.tolist())
+        actions[0,0]=float("nan")
+        with patch("methods.lightvla.cli.importlib.import_module",return_value=module), redirect_stderr(io.StringIO()):
+            self.assertEqual(main(["--factory","user:create"]),2)
+        self.assertIs(self.model.language_model.model,self.decoder)
+
 
 if __name__ == "__main__":
     unittest.main()

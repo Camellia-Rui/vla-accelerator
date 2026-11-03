@@ -1,0 +1,15 @@
+{
+  "workspace": "/home/wxy/daisy_work/lightvla_clean",
+  "checkpoint": "/home/wxy/daisy_work/lightvla_clean/checkpoints/lightvla_spatial_official",
+  "gpu": "2",
+  "tasks": [
+    0,
+    1
+  ],
+  "trials": [
+    0,
+    1,
+    2
+  ],
+  "seed": 7
+}

@@ -10,7 +10,7 @@ import sys
 from datetime import datetime, timezone
 
 CATALOG = {
-    "lightvla": {"status": "conditional", "label": "有封装与 CPU 验证，真实模型待验收",
+    "lightvla": {"status": "conditional", "label": "Spatial/H20 接入及 4 任务 20 对闭环通过；正式质量与性能验收待完成",
                  "guide": "methods/lightvla/README.md"},
     "vla_pruner": {"status": "conditional", "label": "OFT/H20 三个真实初始输入接入验证通过；闭环待验收，需匹配固定后端",
                    "guide": "methods/vla_pruner/INTEGRATION.md"},

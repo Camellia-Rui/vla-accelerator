@@ -2,7 +2,7 @@
 
 给 VLA 研究者和机器人开发者使用的 Codex 加速接入工具箱。把本目录和模型工作目录添加给 Codex，说明要加速的模型，它将检查源码、选择候选方法、说明环境与权重需求，并根据实际加载接口生成接入代码和评估方案。
 
-**0.3.0a1 提供统一的实际推理与输入级评估入口。** VLA-Pruner 已通过 H20 / OpenVLA-OFT / LIBERO-Object 的真实运行验证；LightVLA 支持用户加载工厂。闭环任务质量和正式速度验收仍待完成，不能将它称为四种方法均可一键加速的正式版。
+**0.3.0a2 提供实际推理与评估代码。** VLA-Pruner 已通过 H20 / OpenVLA-OFT / LIBERO-Object 的真实输入验证；LightVLA 已验证实际 Spatial 权重接入、统一调用及小规模闭环。充分的任务质量和正式速度验收仍待完成，不能将它称为四种方法均可一键加速的正式版。
 
 主要交付是源码、Codex 指令、运行入口及可追溯证据。最新真实运行结果见 [统一入口验证](docs/UNIFIED_RUNTIME_RESULT.md)。
 
@@ -32,7 +32,7 @@ python -m core demo --output "runs/first-demo"
 
 | 方法 | 现在能做什么 | 尚未完成什么 |
 |---|---|---|
-| LightVLA | 生命周期封装、真实 CPU 张量测试、用户工厂单次调用、合成演示 | 指定真实 checkpoint 的原生与加速成对测试、闭环证据及来源核验 |
+| LightVLA | Spatial/H20 实际接入、统一调用、4 任务 20 对闭环，两模式各 20/20 成功；另有历史 500 对记录 | 更充分的质量验收、正式性能及来源核验，见 [结果](docs/LIGHTVLA_SERVER_RESULT.md) |
 | VLA-Pruner | 固定后端挂载、启停、reset、卸载；OFT/H20 三个真实输入的对照、实际裁剪与恢复验证 | 多初始状态、attention 路径核对、闭环质量和正式性能验收 |
 | SpecPrune | 历史实验实现、运行前资源检查和评估公共组件 | 完整统一接入及卸载、真实实验、再分发来源核验 |
 | VLA-Cache | 隔离历史证据供分析 | 不属于当前部署路线 |
@@ -67,7 +67,7 @@ python -m core evaluate --method vla_pruner --help
 ```bash
 python -B -m unittest discover -s tests -v
 python scripts/build_product.py
-python -B scripts/verify_product.py "dist/vla-express-toolbox-0.3.0a1"
+python -B scripts/verify_product.py "dist/vla-express-toolbox-0.3.0a2"
 ```
 
 构建包含白名单源码和已归档的小型验收证据，不包含本地虚拟环境、模型权重、训练数据、临时运行目录或 Git。校验文件用于检查发布包完整性，不是第三方签名。正式公开版仍需完成闭环质量、独立用户验收和来源/许可证审查。
