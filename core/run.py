@@ -8,8 +8,9 @@ def main(argv=None, evaluate=False):
     args, rest = parser.parse_known_args(argv)
     if args.method == "lightvla":
         if evaluate:
-            parser.error("LightVLA unified evaluation is not implemented; use its documented evaluator")
-        from methods.lightvla.cli import main as execute
+            from methods.lightvla.evaluate import main as execute
+        else:
+            from methods.lightvla.cli import main as execute
     else:
         from methods.vla_pruner.cli import main as execute
         if evaluate:

@@ -2,6 +2,8 @@
 
 ## 当前证据
 
+2026-11-04 新增同一 OFT Object 权重三模式对照：原生 6/6，VLA-Pruner 50% 为 6/6，LightVLA 风格推理干预 1/6；配对与恢复检查通过。见 [同权重结果](OFT_METHOD_CHOICES.md)。此结果不与专用 LightVLA Spatial 权重混算。
+
 LightVLA 新增实际 Spatial/H20 输入及统一调用验证，历史 500 对闭环原始记录已找回并重算；两类证据不能混为当前版本闭环验收。见 [LightVLA 结果](LIGHTVLA_SERVER_RESULT.md)。以下旧段落中的“未提供原始记录”仅反映当时状态。
 
 2026-11-03：统一 `core run/evaluate` 已直接执行真实 OFT 模型，原始报告归档在 `server-evidence/2026-11-03/`。3 个已有输入共 12 对，接入检查通过，质量结论 INCONCLUSIVE；见 [最新结果](UNIFIED_RUNTIME_RESULT.md)。以下为此前阶段记录。
@@ -40,3 +42,6 @@ python -B scripts/compare_methods.py 实际manifest.json --pretty
 两条命令消费已有 schema 3 证据，不执行模型、不凭空计算缺失数据。schema 模板和字段语义以评估 Skill 为准；原始路径相对 manifest 文件所在目录。校验通过只是格式及已定义门槛通过，仍需核对原始记录确实支撑摘要；manifest 中的指标不等于重新计算出的独立证明。材料缺失应标记 INCONCLUSIVE，不补造结果。
 
 详细原始文件哈希见 `workbench/EVIDENCE_INDEX.json`。`workbench/evaluator/common/` 提供成对匹配、统计、原子记录、hook 形状跟踪和采样参数检查；公共组件完成不等于每个方法完整 evaluator 已完成。
+# LightVLA 新统一入口证据
+
+2026-11-04 的固定输入与闭环回归见 [报告](LIGHTVLA_UNIFIED_RESULT.md)，原始记录分别位于 `server-evidence/2026-11-04/lightvla-unified-pair` 与 `lightvla-unified-loop`。新闭环样本与已有 20 对记录重叠，不合并计算独立样本数。

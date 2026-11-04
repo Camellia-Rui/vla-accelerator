@@ -2,7 +2,7 @@
 
 这是统一工具箱入口；`workbench/` 是评估组件和历史交接资料，旧文档中的“当前任务”不会自动成为用户任务。
 
-成品入口是 `python -m core doctor`、`python -m core run` 和 `python -m core evaluate`。操作步骤见 `docs/UNIFIED_RUNTIME.md`，真实运行结果见 `docs/UNIFIED_RUNTIME_RESULT.md`；闭环质量尚未验证。
+成品入口是 `python -m core doctor`、`python -m core run` 和 `python -m core evaluate`。可执行测试步骤见 [README_TESTING.md](README_TESTING.md)，接口见 `docs/UNIFIED_RUNTIME.md`。OFT Object 与专用 LightVLA Spatial 已有小规模闭环记录；正式质量与性能验收仍未完成，证据见 `docs/EVIDENCE.md`。
 
 1. 读根目录 `README.md` 和 `SKILL.md`，确认本次目标与方法状态。
 2. 在工具箱根目录运行 `python -m core doctor --workspace "实际用户目录" --output "runs/新检查目录"`。它只读检查源码，不启动模型或 GPU。

@@ -15,6 +15,13 @@ def build(workspace, checkpoint, task_id=0, trial=0, seed=7):
     root, checkpoint = Path(workspace).resolve(), Path(checkpoint).resolve()
     if not root.is_dir() or not checkpoint.is_dir():
         raise ValueError("Existing local workspace and checkpoint required")
+    # Fail before allocating GPU memory for an incompatible normalization target.
+    stats = json.loads((checkpoint / "dataset_statistics.json").read_text())
+    unnorm_key = next((key for key in ("libero_spatial_no_noops", "libero_spatial") if key in stats), None)
+    if unnorm_key is None:
+        raise ValueError("This loader requires dedicated LightVLA LIBERO-Spatial weights and statistics")
+    if type(task_id) is not int or not 0 <= task_id < 10 or type(trial) is not int or trial < 0:
+        raise ValueError("Spatial task_id must be 0..9 and trial must be nonnegative")
     sys.path[:0] = [str(root), str(root / "LIBERO")]
     from experiments.robot import openvla_utils as vu
     from experiments.robot.libero import libero_utils as lu
@@ -27,7 +34,7 @@ def build(workspace, checkpoint, task_id=0, trial=0, seed=7):
         num_images_in_input=2, use_proprio=True, num_open_loop_steps=8, lora_rank=32,
         center_crop=True, task_suite_name="libero_spatial", load_in_8bit=False,
         load_in_4bit=False, num_diffusion_steps_train=50, num_diffusion_steps_inference=50,
-        unnorm_key="libero_spatial_no_noops")
+        unnorm_key=unnorm_key)
     set_seed_everywhere(seed)
     # Do not call get_vla: that upstream helper can rewrite the original checkpoint.
     model = AutoModelForVision2Seq.from_pretrained(str(checkpoint), trust_remote_code=True,
@@ -36,11 +43,6 @@ def build(workspace, checkpoint, task_id=0, trial=0, seed=7):
     cache_config = model.language_model.config
     cache_config.reusable_patches = None
     cache_config.proportion_attn_var = None
-    stats = json.loads((checkpoint / "dataset_statistics.json").read_text())
-    if cfg.unnorm_key not in stats:
-        cfg.unnorm_key = "libero_spatial"
-    if cfg.unnorm_key not in stats:
-        raise ValueError("Checkpoint lacks LIBERO-Spatial normalization statistics")
     model.norm_stats = stats
     processor = vu.get_processor(cfg)
     head = vu.get_action_head(cfg, model.llm_dim).to("cuda:0").eval()

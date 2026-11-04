@@ -2,6 +2,8 @@
 
 2026-11-03：已使用 daisy 的实际 Spatial 权重验证当前封装、完整动作输出及恢复；历史 500 对闭环原始记录已归档。使用命令和可信范围见 [服务器接入结果](../../docs/LIGHTVLA_SERVER_RESULT.md)。
 
+2026-11-04：同一普通 OFT Object 权重上也已接通，但 LightVLA 风格剪枝在 6 个状态中仅成功 1 次，原生和 VLA-Pruner 均成功 6 次。因此不推荐直接迁移此配置，见 [同权重对照](../../docs/OFT_METHOD_CHOICES.md)。
+
 本目录提供已有模型上的视觉 token 裁剪封装，支持统一注册、模式切换、reset 和
 卸载恢复，不加载或修改 checkpoint，不执行机器人动作。
 
@@ -182,7 +184,7 @@ cached decode 必须使用后端实际返回的 cache，按裁剪后的长度构
 它们作为已验证性能，也不能推断对未适配模型的动作精度和闭环成功率。
 
 当前验证分层记录：配置与生命周期契约、CPU 张量裁剪、微型 LLaMA 前向与 cache 测试；
-用户 checkpoint 的 GPU 推理、闭环和真机表现仍需在目标环境测量。
+专用 Spatial 权重已有 GPU 与 20 对闭环记录；新用户 checkpoint 和真机表现仍需在目标环境测量。
 只有同一输入、同一设备、适当预热与同步的配对测量，才能报告实际加速比。
 
 ```bash
@@ -191,3 +193,5 @@ python -m unittest tests.test_lightvla -v
 
 没有 torch/Transformers 的环境仅执行轻量配置测试，张量测试会明确标为 skipped；
 完整 CPU 测试使用已安装的 `.[lightvla]` 环境。
+
+真实 Spatial 的统一入口现为 `python -m core evaluate --method lightvla`；加 `--closed-loop` 运行配对任务。完整环境、命令、成功判据和适用边界见 [使用指南](../../docs/LIGHTVLA_QUICKSTART.md)。评估实现随 Python 包交付，不依赖 scripts 目录才能运行。

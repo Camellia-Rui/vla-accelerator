@@ -8,14 +8,14 @@ import zipfile
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    version = "0.3.0a2"
+    version = "0.3.0a4"
     name = "vla-express-toolbox-" + version
     destination = root / "dist" / name
     archive = destination.parent / (name + ".zip")
     if destination.exists() or archive.exists():
         raise FileExistsError("Release already exists; inspect it before making another version")
     folders = ("core", "pruners", "methods", "configs", "agents", "scripts", "tests", "workbench", "docs")
-    files = ("README.md", "START_HERE.md", "SKILL.md", "LICENSE", "pyproject.toml")
+    files = ("README.md", "README_TESTING.md", "START_HERE.md", "SKILL.md", "LICENSE", "pyproject.toml")
     selected = [root / f for f in files]
     for folder in folders:
         selected.extend(p for p in (root / folder).rglob("*") if p.is_file()

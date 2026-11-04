@@ -1,0 +1,9 @@
+{
+  "expected": 18,
+  "completed": 18,
+  "successes": {
+    "baseline": 6,
+    "lightvla": 1,
+    "vla_pruner": 6
+  }
+}

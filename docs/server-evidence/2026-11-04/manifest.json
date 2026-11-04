@@ -1,0 +1,129 @@
+{
+  "source": "Direct SSH execution and SCP from Rui_work; same OFT Object checkpoint, baseline and two inference interventions",
+  "files": [
+    {
+      "path": "oft-choice-001/process.json",
+      "sha256": "124fd50cb6d223cdd18fedc166d00af7254199b6e6dedf9be82f71db87af6d01"
+    },
+    {
+      "path": "oft-choice-001/process.log",
+      "sha256": "3db9fa79da71632e8b14e5fa355fe12903994972c09365c515e97a535e541c22"
+    },
+    {
+      "path": "oft-choice-001/report.json",
+      "sha256": "8f609ed93fd54dd3f4b0a81400b03bda2914cc8b68bd0625771030810d9b047a"
+    },
+    {
+      "path": "oft-choice-002/process.json",
+      "sha256": "124fd50cb6d223cdd18fedc166d00af7254199b6e6dedf9be82f71db87af6d01"
+    },
+    {
+      "path": "oft-choice-002/process.log",
+      "sha256": "055cda00f264917de441e5f5574bc148229adf70b05e3a9351f692ee05d2bf15"
+    },
+    {
+      "path": "oft-choice-002/report.json",
+      "sha256": "53d8a5df8ea874373390a67d2e2e0bd8ded36615b328e3ed96be328f5164093f"
+    },
+    {
+      "path": "oft-choice-002/source-manifest.json",
+      "sha256": "d535eacef7c03f80c4c548f1f46cf32dd2c8ff2a6da1292edd89aa510c97d2d0"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-0-baseline.json",
+      "sha256": "bfbf611ae3cd5369b7d165d857d62ef277da0e4e4d42f02b3a27f11a7c9e1ada"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-0-lightvla.json",
+      "sha256": "c24a2b9ccccdb41419c60d72b0bb1429d12d09df916674801ad7877be975bf77"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-0-vla_pruner.json",
+      "sha256": "8ca79199a6f285875628c154aec1a52244461d5333be14fbd7e7315bb0e89fcb"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-1-baseline.json",
+      "sha256": "ca8d684a75990468e9cf3ff362c6cd818285356c517f475d916acd66e011c1a8"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-1-lightvla.json",
+      "sha256": "134e462db20fe8b40f3f4c9d313a94b246319b1ae877bdcc1b97e34cba70f5fc"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-1-vla_pruner.json",
+      "sha256": "f9a433a4600962120bc255e404d7a4b01b52436b976bc6c8639c4e0ce0fafb5e"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-2-baseline.json",
+      "sha256": "cc9c61ff86ada3bf62ef0dd91638358ef2eebae17858085774f00ff69a8fb5d5"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-2-lightvla.json",
+      "sha256": "5717bb8fad49be6d880010f426952673bfeb87f9f8d3c3eee5a7a703a4c10231"
+    },
+    {
+      "path": "oft-choice-closedloop-001/0-2-vla_pruner.json",
+      "sha256": "e69971b10df32c7f6b0d94e4666d3d57e74f8ce4d77fa3f1d8122729a5778ed8"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-0-baseline.json",
+      "sha256": "1a301ca3143ed49106d7142dcd3c352fbb708e9acfbca19e0d768f75cb2e0b89"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-0-lightvla.json",
+      "sha256": "5d21102db8fc88605d684ee7ffb0b770729fab3b44ff64ca644995f5a422c455"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-0-vla_pruner.json",
+      "sha256": "29d2798c82d79a1463f49a09f22aaa97a3fed9f4b4257cd69c9779f4794c7e4f"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-1-baseline.json",
+      "sha256": "fe3b2f92b49857507ee9a2689ac471f22d2790b1d5da59a422008be8a959766f"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-1-lightvla.json",
+      "sha256": "14685f95ab252ee4c8513cf22cea5baae53a8e36a65bfcd1556526952a7f7ccb"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-1-vla_pruner.json",
+      "sha256": "a8b391dd88c37087a202aed442b8d6a045248b82aaf73736d6de1f123a23cfad"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-2-baseline.json",
+      "sha256": "cdb0933e9b0611279e659effac9dbb6f6b1370de962fa4d05756bb05569cc565"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-2-lightvla.json",
+      "sha256": "5a448fff723932b875b3034ff4c9a7fd85cfa2f8379cc86601f822ee5adcee11"
+    },
+    {
+      "path": "oft-choice-closedloop-001/1-2-vla_pruner.json",
+      "sha256": "f8db2c1849871d23d3cb022e3751c7439ddbaea573f669b34f8214c26397a13f"
+    },
+    {
+      "path": "oft-choice-closedloop-001/audit.json",
+      "sha256": "b324f2498df7989ca78a925cef455d4ea9fa2afc9208d2fe073d73c2836237b1"
+    },
+    {
+      "path": "oft-choice-closedloop-001/process.json",
+      "sha256": "124fd50cb6d223cdd18fedc166d00af7254199b6e6dedf9be82f71db87af6d01"
+    },
+    {
+      "path": "oft-choice-closedloop-001/process.log",
+      "sha256": "a2405830e118b3ae388d7712ff61f9a450af257773ea8fd89054681b1989f386"
+    },
+    {
+      "path": "oft-choice-closedloop-001/progress.json",
+      "sha256": "93eea2dac67eed46754fe08e8204c06d780169e018e18aefc7855bdd5de161e9"
+    },
+    {
+      "path": "oft-choice-closedloop-001/report.json",
+      "sha256": "be6863ab341afeffe0c31cb6b6e54ffc2436da499477aba520bf37c97013342d"
+    },
+    {
+      "path": "oft-choice-closedloop-001/source-manifest.json",
+      "sha256": "d535eacef7c03f80c4c548f1f46cf32dd2c8ff2a6da1292edd89aa510c97d2d0"
+    }
+  ]
+}

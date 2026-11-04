@@ -20,11 +20,15 @@ description: Inspect a user's VLA model workspace, select compatible acceleratio
 
 无可验证的兼容方法时直接说明缺口，不强行分配方法。环境按所选模型与后端分别配置，不将本工具箱的 CPU 测试环境推广到真实 VLA。权重从用户已有记录或核实的上游取得；检查模型和任务变体及归一化键，不编造下载地址或公开可用性。
 
+同一普通 OFT LIBERO-Object 权重的最新对照见 [双方法验证](docs/OFT_METHOD_CHOICES.md)：原生与 VLA-Pruner 50% 各 6/6，LightVLA 风格推理干预 1/6。不推荐把该 LightVLA 配置作为此权重的稳定选择；它与专用 LightVLA Spatial 训练权重的 20/20 是不同目标。用户明确做实验时可用对应工厂或 OFTChoice 接口，并保留失败结果。
+
 ## 执行与报告
 
 使用 [统一运行指南](docs/UNIFIED_RUNTIME.md) 中的 `python -m core run --method lightvla|vla_pruner`。固定 OFT 后端可直接用 VLA-Pruner 内置加载器；其他兼容项目根据原生入口在独立目录编写真实加载工厂，避免修改原权重。VLA-Pruner 输入级对照使用 `python -m core evaluate --method vla_pruner`。保持原生 action API，在 `finally` 卸载并检查恢复。工厂导入会执行用户代码，先阅读其行为。
 
 `report.json` 的 passed/integration_passed 只代表运行或接入检查通过。必须另读 input_screen 和 closed_loop_tested；缺少用户质量门槛时 INCONCLUSIVE，不能自行指定阈值冒充用户验收。输入级报告不是 schema 3 正式验收清单，不能直接提交正式 admission 工具。
+
+LightVLA 专用 Spatial 统一评估使用 `python -m core evaluate --method lightvla`，闭环增加 `--closed-loop`；环境与完整命令见 [LightVLA 使用指南](docs/LIGHTVLA_QUICKSTART.md)。其 report 使用 quality_decision，不套用 VLA-Pruner 的 input_screen 字段或阈值参数。
 
 给用户完整回答：选哪个方法及依据、适用环境、权重来源、按实际路径填好的命令、成功输出、实测效果与可信范围。无法完成的项指出实际阻塞资源。不得把带占位符的命令描述为已能直接运行。
 

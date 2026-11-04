@@ -1,0 +1,29 @@
+{
+  "source_sha256": "d58ce08b8627fd4783307586e2741817a8d180c64d791c197f0c66e1b2dd170d",
+  "paired_episodes": 1,
+  "baseline_successes": 1,
+  "packaged_successes": 1,
+  "paired_outcomes": {
+    "baseline_True_packaged_True": 1
+  },
+  "descriptive_query_median_ms": {
+    "baseline": 749.8578545637429,
+    "packaged": 413.1720574805513
+  },
+  "pairs": [
+    {
+      "task": 0,
+      "trial": 0,
+      "baseline_success": true,
+      "packaged_success": true,
+      "baseline_episode_seconds": 15.058585681021214,
+      "packaged_episode_seconds": 11.500434843939729
+    }
+  ],
+  "restored": true,
+  "parameters_preserved": true,
+  "modules_restored": true,
+  "quality_decision": "INCONCLUSIVE",
+  "formal_speedup_accepted": false,
+  "note": "Small smoke sample; query counts/trajectories may differ. Not fixed-observation paired speed evidence."
+}

@@ -10,9 +10,9 @@ import sys
 from datetime import datetime, timezone
 
 CATALOG = {
-    "lightvla": {"status": "conditional", "label": "Spatial/H20 接入及 4 任务 20 对闭环通过；正式质量与性能验收待完成",
+    "lightvla": {"status": "conditional", "label": "专用 Spatial 权重 20/20；普通 OFT Object 剪枝干预 1/6，不推荐迁移",
                  "guide": "methods/lightvla/README.md"},
-    "vla_pruner": {"status": "conditional", "label": "OFT/H20 三个真实初始输入接入验证通过；闭环待验收，需匹配固定后端",
+    "vla_pruner": {"status": "conditional", "label": "固定 OFT Object/H20 两任务六对闭环 6/6；正式质量和性能验收待完成",
                    "guide": "methods/vla_pruner/INTEGRATION.md"},
     "specprune": {"status": "experimental", "label": "实验实现；统一生命周期及真实模型验收未完成",
                   "guide": "workbench/evaluator/specprune/README-ZH.md"},

@@ -1,8 +1,10 @@
-# 0.3.0a2 开发预览状态
+# 0.3.0a4 开发预览状态
 
-新增统一 `core run/evaluate`、VLA-Pruner 内置加载器和用户工厂契约、完整动作保存、可设置门槛的输入级评估，以及子进程缓存隔离。2026-11-03 已在 H20 实际通过单次运行与 3 输入 / 12 对评估，详见 [最新结果](UNIFIED_RUNTIME_RESULT.md)。质量结论仍为 INCONCLUSIVE，未完成闭环验收。
+提供统一 `core run/evaluate`、固定后端加载器、用户工厂、完整动作和可追溯评估。最新同权重 Object 闭环中，原生和 VLA-Pruner 各 6/6，LightVLA 风格推理干预 1/6；后者不推荐用于该权重，详见 [同权重结果](OFT_METHOD_CHOICES.md)。正式质量和性能验收仍未完成。
 
 ## 已完成
+
+- LightVLA 专用 Spatial 的固定输入与闭环评估进入 `core evaluate --method lightvla`，实现随 Python 包交付；旧服务器脚本保留兼容。使用说明见 `LIGHTVLA_QUICKSTART.md`。
 
 - H20 / OFT / LIBERO-Object 三个真实任务初始输入、共 18 对调用的接入验证：对照一致、实际裁剪、卸载恢复通过。
 - 历史离线展示保留在源码工作目录，当前发布包和主入口聚焦代码运行、评估与原始证据。
@@ -15,7 +17,7 @@
 
 ## 未完成的公开版门槛
 
-1. **真实 VLA 验收**：已配置 SSH 并直接完成 H20 上的 VLA-Pruner 三个初始输入接入对比。原生对照、实际裁剪、卸载恢复通过；原始输入与结果已下载归档。仍需更多初始状态、attention 路径审计和成对闭环验收，见 `MULTITASK_RESULT.md`。本地没有真实 checkpoint。
+1. **真实 VLA 验收**：VLA-Pruner 已完成三个输入接入验证和 Object 两任务六对闭环，原生及 50% 剪枝均 6/6。仍需更多任务、attention 路径审计和正式质量验收。同权重 LightVLA 风格剪枝仅 1/6，不列为该权重的稳定选择，见 `OFT_METHOD_CHOICES.md`。
 2. **LightVLA**：已找回并重算历史 500 对记录，当前封装完成 Spatial/H20 单输入对照、统一调用和 4 任务 20 对闭环，两模式各 20/20 成功。仍需更充分的任务覆盖、用户质量门槛和正式性能验收，见 `LIGHTVLA_SERVER_RESULT.md`。
 3. **SpecPrune**：统一 attach/资源传入/卸载恢复及原生前向尚不完整，不列为正式支持。
 4. **来源和许可证**：LightVLA 继承实现未核实为官方逐字快照；SpecPrune 来源/许可记录不完整，公开再分发前需核对。根 LICENSE 不自动覆盖第三方代码和权重。

@@ -1,8 +1,10 @@
 # 统一推理和输入级评估
 
-统一入口现在为 `python -m core run` 和 `python -m core evaluate`。支持真实执行的 run 方法是 `lightvla`、`vla_pruner`；evaluate 当前支持 `vla_pruner`。SpecPrune 未完成统一恢复接口，VLA-Cache 已隔离，不伪装成可运行选项。
+统一入口现在为 `python -m core run` 和 `python -m core evaluate`。run 与 evaluate 均支持 `lightvla`、`vla_pruner`。LightVLA 的固定输入/闭环参数见 [实际使用指南](LIGHTVLA_QUICKSTART.md)，下文的加载契约与质量阈值参数针对 VLA-Pruner。SpecPrune 未完成统一恢复接口，VLA-Cache 已隔离，不伪装成可运行选项。
 
 LightVLA 的实际 Spatial 权重工厂、隔离启动命令和真实验证结果见 [LightVLA 接入](LIGHTVLA_SERVER_RESULT.md)，成对仿真闭环使用 [闭环入口](LIGHTVLA_CLOSED_LOOP.md)。
+
+同一普通 OFT 权重上的两方法实验入口见 [方法选择](OFT_METHOD_CHOICES.md)。LightVLA 风格剪枝虽能运行，但当前 Object 闭环为 1/6，不能作为稳定二选一方案；该结果与专用 Spatial 权重分开判定。
 
 ## VLA-Pruner 内置 OFT 加载器
 

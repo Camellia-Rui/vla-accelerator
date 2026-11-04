@@ -1,0 +1,67 @@
+{
+  "initial_states": 6,
+  "episodes": 18,
+  "successes": {
+    "baseline": 6,
+    "lightvla": 1,
+    "vla_pruner": 6
+  },
+  "baseline_only_successes": {
+    "lightvla": 5,
+    "vla_pruner": 0
+  },
+  "method_only_successes": {
+    "lightvla": 0,
+    "vla_pruner": 0
+  },
+  "contrasts": [
+    {
+      "task": 0,
+      "trial": 0,
+      "baseline": true,
+      "lightvla": false,
+      "vla_pruner": true
+    },
+    {
+      "task": 0,
+      "trial": 1,
+      "baseline": true,
+      "lightvla": false,
+      "vla_pruner": true
+    },
+    {
+      "task": 0,
+      "trial": 2,
+      "baseline": true,
+      "lightvla": false,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 0,
+      "baseline": true,
+      "lightvla": false,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 1,
+      "baseline": true,
+      "lightvla": false,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 2,
+      "baseline": true,
+      "lightvla": true,
+      "vla_pruner": true
+    }
+  ],
+  "restored": true,
+  "parameters_preserved": true,
+  "modules_restored": true,
+  "quality_decision": "INCONCLUSIVE",
+  "formal_speedup_accepted": false,
+  "source_sha256": "be6863ab341afeffe0c31cb6b6e54ffc2436da499477aba520bf37c97013342d"
+}
