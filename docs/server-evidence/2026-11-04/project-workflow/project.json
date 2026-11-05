@@ -1,0 +1,1 @@
+{"schema_version":1,"profile":"lightvla_spatial","workspace":"/home/wxy/daisy_work/lightvla_clean","checkpoint":"/home/wxy/daisy_work/lightvla_clean/checkpoints/lightvla_spatial_official","python":"/home/wxy/miniconda3/envs/daisy_openvla/bin/python","gpu":"3","observation_dirs":[],"output_root":"/home/wxy/Rui_work/toolbox-native-check/project-workflow-20261104"}

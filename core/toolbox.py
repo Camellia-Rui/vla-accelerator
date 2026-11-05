@@ -164,6 +164,9 @@ def write_report(report, directory):
 
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
+    if argv and argv[0] == "project":
+        from core.project import main as project
+        return project(argv[1:])
     if argv and argv[0] in ("run", "evaluate"):
         from core.run import main as run
         return run(argv[1:], evaluate=argv[0] == "evaluate")
@@ -175,6 +178,7 @@ def main(argv=None):
     demo = commands.add_parser("demo", help="tiny LLaMA CPU 接入/卸载演示")
     demo.add_argument("--output", required=True, type=Path)
     commands.add_parser("methods", help="方法状态目录")
+    commands.add_parser("project", help="项目配置：init/check/execute")
     commands.add_parser("run", help="执行真实推理：--method lightvla 或 vla_pruner")
     commands.add_parser("evaluate", help="原生/关闭剪枝/加速/恢复的输入级评估")
     try:

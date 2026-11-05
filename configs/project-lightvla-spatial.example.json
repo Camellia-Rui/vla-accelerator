@@ -1,0 +1,1 @@
+{"schema_version":1,"profile":"lightvla_spatial","workspace":"/path/to/lightvla-source","checkpoint":"/path/to/lightvla-spatial-checkpoint","python":"/path/to/model-env/bin/python","gpu":"0","observation_dirs":[],"output_root":"/path/to/your-results"}

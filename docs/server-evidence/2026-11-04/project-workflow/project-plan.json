@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "profile": "lightvla_spatial",
+  "candidate_method": "lightvla",
+  "status": "EVALUATION_FINISHED",
+  "blockers": [],
+  "compatibility_verified": false,
+  "quality_decision": "INCONCLUSIVE",
+  "reason": "Explicit profile plus resource checks; runtime backend, structure and restoration checks remain mandatory",
+  "alternatives": {
+    "lightvla_on_ordinary_oft": "NOT_RECOMMENDED: observed Object quality failure"
+  },
+  "command": [
+    "/home/wxy/miniconda3/envs/daisy_openvla/bin/python3.10",
+    "-B",
+    "-m",
+    "core",
+    "evaluate",
+    "--method",
+    "lightvla",
+    "--workspace",
+    "/home/wxy/daisy_work/lightvla_clean",
+    "--checkpoint",
+    "/home/wxy/daisy_work/lightvla_clean/checkpoints/lightvla_spatial_official",
+    "--gpu",
+    "3",
+    "--output",
+    "/home/wxy/Rui_work/toolbox-native-check/project-workflow-20261104/lightvla-001"
+  ],
+  "output": "/home/wxy/Rui_work/toolbox-native-check/project-workflow-20261104/lightvla-001",
+  "environment": {
+    "python": "3.10.20 (main, Mar 11 2026, 17:46:40) [GCC 14.3.0]",
+    "executable": "/home/wxy/miniconda3/envs/daisy_openvla/bin/python3.10",
+    "packages": {
+      "torch": "2.3.0+cu121",
+      "transformers": "4.40.1",
+      "tokenizers": "0.19.1",
+      "numpy": "1.26.4",
+      "timm": "0.9.10",
+      "Pillow": "12.1.1"
+    },
+    "missing": [],
+    "runtime_imports_verified": false
+  },
+  "exit_code": 0,
+  "integration_passed": true,
+  "input_screen": null,
+  "closed_loop_tested": false
+}

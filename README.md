@@ -30,6 +30,8 @@
 
 ## 开始使用
 
+新增项目配置入口：`python -m core project init/check/execute`，集中管理模型路径、环境与评估命令，检查不通过时阻止执行。具体用法与当前边界见 [项目工作流](docs/PROJECT_WORKFLOW.md)。
+
 ### 1. 获取源码
 
 ```bash

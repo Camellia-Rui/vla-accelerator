@@ -1,0 +1,1 @@
+{"schema_version":1,"profile":"oft_object","workspace":"/path/to/VLA-Pruner/src/openvla-oft","checkpoint":"/path/to/openvla-oft-object","python":"/path/to/model-env/bin/python","gpu":"0","observation_dirs":["/path/to/captured-observation"],"output_root":"/path/to/your-results"}
