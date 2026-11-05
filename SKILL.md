@@ -15,7 +15,7 @@ description: Inspect a user's VLA model workspace, select compatible acceleratio
 - VLA-Pruner：读 [接口说明](methods/vla_pruner/INTEGRATION.md)，必须核实固定官方 backend；普通 PyPI Transformers 不替代该 backend。
 
 已验证的窄范围：OpenVLA-OFT LIBERO-Object、连续 L1 动作头、双视图、8D 本体、8×7 动作块、H20，自定义 Transformers 4.47.0。在 3 个任务各一个初始输入上完成关闭剪枝对照、实际裁剪、卸载恢复。复现入口见 [服务器对比说明](docs/SERVER_PRUNER_PAIR.md)；结果见 [多输入验证](docs/MULTITASK_RESULT.md)。此证据不迁移为任意 checkpoint 支持或闭环质量承诺。
-- SpecPrune：实验路线，不承诺完整统一接入；读 [开发评估说明](workbench/evaluator/specprune/README-ZH.md)。
+- SpecPrune：已有实验 evaluate、事务式安装/卸载、Object 两任务三个初始状态的闭环验证；尚未完成正式部署验收。读 [当前接入说明](docs/SPECPRUNE_WORKFLOW.md)，旧开发资料不能替代本次结果。
 - VLA-Cache：隔离，不提供集成或部署建议。AutoPrune 已退出项目，不恢复旧路线。
 
 无可验证的兼容方法时直接说明缺口，不强行分配方法。环境按所选模型与后端分别配置，不将本工具箱的 CPU 测试环境推广到真实 VLA。权重从用户已有记录或核实的上游取得；检查模型和任务变体及归一化键，不编造下载地址或公开可用性。

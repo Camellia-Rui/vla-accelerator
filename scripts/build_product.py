@@ -8,7 +8,7 @@ import zipfile
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    version = "0.3.0a4"
+    version = "0.3.0a6"
     name = "vla-express-toolbox-" + version
     destination = root / "dist" / name
     archive = destination.parent / (name + ".zip")

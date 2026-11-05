@@ -1,6 +1,6 @@
 # 统一推理和输入级评估
 
-统一入口现在为 `python -m core run` 和 `python -m core evaluate`。run 与 evaluate 均支持 `lightvla`、`vla_pruner`。LightVLA 的固定输入/闭环参数见 [实际使用指南](LIGHTVLA_QUICKSTART.md)，下文的加载契约与质量阈值参数针对 VLA-Pruner。SpecPrune 未完成统一恢复接口，VLA-Cache 已隔离，不伪装成可运行选项。
+统一入口现在为 `python -m core run` 和 `python -m core evaluate`。run 与 evaluate 均支持 `lightvla`、`vla_pruner`。LightVLA 的固定输入/闭环参数见 [实际使用指南](LIGHTVLA_QUICKSTART.md)，下文的加载契约与质量阈值参数针对 VLA-Pruner。SpecPrune 已接入实验 evaluate，支持 Object 固定输入和配对闭环，见 [SpecPrune 使用说明](SPECPRUNE_WORKFLOW.md)。VLA-Cache 保留历史证据。
 
 LightVLA 的实际 Spatial 权重工厂、隔离启动命令和真实验证结果见 [LightVLA 接入](LIGHTVLA_SERVER_RESULT.md)，成对仿真闭环使用 [闭环入口](LIGHTVLA_CLOSED_LOOP.md)。
 

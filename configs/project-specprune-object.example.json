@@ -1,0 +1,1 @@
+{"schema_version":1,"profile":"specprune_object","workspace":"/path/to/SpecPrune-VLA/openvla-oft","checkpoint":"/path/to/openvla-oft-object","python":"/path/to/specprune-env/bin/python","gpu":"0","observation_dirs":["/path/to/captured-observation"],"output_root":"/path/to/your-results"}

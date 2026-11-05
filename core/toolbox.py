@@ -14,8 +14,8 @@ CATALOG = {
                  "guide": "methods/lightvla/README.md"},
     "vla_pruner": {"status": "conditional", "label": "固定 OFT Object/H20 两任务六对闭环 6/6；正式质量和性能验收待完成",
                    "guide": "methods/vla_pruner/INTEGRATION.md"},
-    "specprune": {"status": "experimental", "label": "实验实现；统一生命周期及真实模型验收未完成",
-                  "guide": "workbench/evaluator/specprune/README-ZH.md"},
+    "specprune": {"status": "experimental", "label": "Object 两任务三个初始状态，原生与加速各 3/3；支持实验 evaluate，正式质量验收待完成",
+                  "guide": "docs/SPECPRUNE_WORKFLOW.md"},
     "vla_cache": {"status": "quarantined", "label": "隔离，仅保留历史证据，不提供部署建议",
                   "guide": "workbench/PROJECT_STATUS.md"},
 }

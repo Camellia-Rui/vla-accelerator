@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vla-express-toolbox"
-version = "0.3.0a4"
+version = "0.3.0a6"
 description = "Lifecycle adapters and evaluation utilities for VLA inference acceleration"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -26,3 +26,4 @@ include = ["core*", "pruners*", "methods*"]
 [tool.setuptools.package-data]
 "methods.vla_pruner" = ["*.md", "*.json"]
 "methods.lightvla" = ["*.md", "*.json"]
+"methods.specprune" = ["*.md", "*.json"]

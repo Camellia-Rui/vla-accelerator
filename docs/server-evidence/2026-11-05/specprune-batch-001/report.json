@@ -1,0 +1,74 @@
+{
+  "execution_complete": true,
+  "paired_initial_states": 2,
+  "successes": {
+    "baseline": 2,
+    "accelerated": 2
+  },
+  "records": [
+    {
+      "task": 0,
+      "trial": 1,
+      "directory": "/home/wxy/Rui_work/toolbox-native-check/specprune-batch-20261105-001/0-1",
+      "audit": {
+        "source_sha256": "614721cdecee05877ab07290595fc42e9f4eb97ce9735fd410fef472b956b418",
+        "timing_pairs": 4,
+        "median_ms": {
+          "baseline": 773.7187629682012,
+          "accelerated": 477.33661951497197
+        },
+        "quality_decision": "INCONCLUSIVE",
+        "deployment_accepted": false,
+        "episodes": [
+          {
+            "mode": "accelerated",
+            "success": true,
+            "environment_steps": 153,
+            "task": 0,
+            "trial": 1
+          },
+          {
+            "mode": "baseline",
+            "success": true,
+            "environment_steps": 128,
+            "task": 0,
+            "trial": 1
+          }
+        ]
+      }
+    },
+    {
+      "task": 1,
+      "trial": 1,
+      "directory": "/home/wxy/Rui_work/toolbox-native-check/specprune-batch-20261105-001/1-1",
+      "audit": {
+        "source_sha256": "f7d518caee369138f6cdccd62168c00b5420fc4fe875a93c9aafed68f4629c7c",
+        "timing_pairs": 4,
+        "median_ms": {
+          "baseline": 771.8954459996894,
+          "accelerated": 449.2404614575207
+        },
+        "quality_decision": "INCONCLUSIVE",
+        "deployment_accepted": false,
+        "episodes": [
+          {
+            "mode": "baseline",
+            "success": true,
+            "environment_steps": 170,
+            "task": 1,
+            "trial": 1
+          },
+          {
+            "mode": "accelerated",
+            "success": true,
+            "environment_steps": 127,
+            "task": 1,
+            "trial": 1
+          }
+        ]
+      }
+    }
+  ],
+  "quality_decision": "INCONCLUSIVE",
+  "deployment_accepted": false
+}

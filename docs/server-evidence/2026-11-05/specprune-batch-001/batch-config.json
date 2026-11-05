@@ -1,0 +1,440 @@
+{
+  "workspace": "/home/wxy/cloris_work/SpecPrune-VLA/openvla-oft",
+  "checkpoint": "/home/wxy/cloris_work/models/openvla-7b-oft-finetuned-libero-object",
+  "observation": "/home/wxy/Rui_work/toolbox-native-check/capture-001",
+  "tasks": [
+    0,
+    1
+  ],
+  "trials": [
+    1
+  ],
+  "gpu": "4",
+  "python": "/home/wxy/cloris_work/env/bin/python",
+  "source_sha256": {
+    "core/project.py": "d6c21351f29dcaca9186fb552cd560b1dc5e9fe18a01f16fd962520063909e83",
+    "core/toolbox.py": "7b639a63d6f45e6665b956b22b8d3573255534af1661629e869424cabbc8a1f2",
+    "core/runtime_env.py": "9ae3c3410503ff999ede3fa5158a3288b8f0502004eb6ba3f3702c0c0fb794d5",
+    "core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/hook.py": "7dcbb88982fb4572201dc7569fe3a3c9d7bc1113dcde62a63311e0345de48333",
+    "core/run.py": "81d338aa35ad0c5330cfee78eb0d92456037643df9e187691936a8513269b762",
+    "core/__main__.py": "34efbe3a49405f067c6de7439cc5a9f762a25eadf7d948f722123c4e4a8ab248",
+    "core/project_checks.py": "6a22bda75ac1d428e682e79c1dcc370cddfd14b90ca5c74d26891c6296ad4e26",
+    "core/budget.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/state.py": "6986e189d0932fdd50a53498746bfdc8b9450af2519b5ad4f8d95e9200b474c6",
+    "methods/specprune/accelerator.py": "e387ce4357958011909efce1fc43bef8c388a4a82519b6257c8d3712eec5dcee",
+    "methods/specprune/evaluation.py": "4259c753f5bfc2889db858ba781cd98af1a91d1cbbdeb87096767f0d21161e58",
+    "methods/specprune/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "methods/specprune/lifecycle.py": "d63628174117c2797e22de8987d4e24339c1eec8939df68509162373407d5eb7",
+    "scripts/batch_specprune.py": "56c768ff1ad798504dd4fd1faaf504d136b1a4f1ca6c53171695a3a36000dcef",
+    "scripts/audit_specprune.py": "23fa631b6028cda5425b13093550701beb53f190689e7ce568745a70e944e9cd"
+  },
+  "environment": {
+    "python": "3.10.14 (main, May  6 2024, 19:42:50) [GCC 11.2.0]",
+    "executable": "/home/wxy/cloris_work/env/bin/python",
+    "packages": {
+      "torch": "2.6.0",
+      "transformers": "4.40.1",
+      "tokenizers": "0.19.1",
+      "numpy": "1.26.4",
+      "timm": "0.9.10",
+      "Pillow": "12.3.0"
+    },
+    "missing": [],
+    "runtime_imports_verified": false
+  },
+  "checkpoint_inventory": {
+    "proprio_projector--150000_checkpoint.pt": [
+      67275256,
+      1790591410153515130
+    ],
+    "config.json.back.20261006_103842": [
+      60711,
+      1791218457744529470
+    ],
+    "config.json.back.20261005_191330": [
+      60711,
+      1791197254019128062
+    ],
+    "config.json.back.20261012_183651": [
+      60711,
+      1791254322522943964
+    ],
+    "tokenizer_config.json": [
+      1192,
+      1790585830016383888
+    ],
+    "config.json.back.20260928_184141": [
+      60711,
+      1790592054832933020
+    ],
+    "config.json.back.20261012_234913": [
+      60711,
+      1791804655891000000
+    ],
+    "tokenizer.json": [
+      1842976,
+      1790591657131067978
+    ],
+    "config.json.back.20260929_115427": [
+      60711,
+      1790653985634974285
+    ],
+    "added_tokens.json": [
+      21,
+      1790585690233479657
+    ],
+    "config.json.back.20260929_115857": [
+      60711,
+      1790654067983355051
+    ],
+    "dataset_statistics.json": [
+      3022,
+      1790585688867470820
+    ],
+    "config.json.back.20260928_184054": [
+      60711,
+      1790591715574651244
+    ],
+    "model-00001-of-00004.safetensors": [
+      4925122448,
+      1790587078110454708
+    ],
+    "config.json.back.20261002_132053": [
+      60711,
+      1790655238077091182
+    ],
+    "configuration_prismatic.py": [
+      6005,
+      1786796881000000000
+    ],
+    "config.json.back.20260928_182850": [
+      60712,
+      1790585689207473019
+    ],
+    "config.json.back.20261012_184636": [
+      60711,
+      1791801411652000000
+    ],
+    "tokenizer.model": [
+      499723,
+      1790591659251089253
+    ],
+    "model-00003-of-00004.safetensors": [
+      4947417456,
+      1790586940675566095
+    ],
+    "config.json": [
+      60711,
+      1791835777117000000
+    ],
+    "config.json.back.20261006_004057": [
+      60711,
+      1791218310773362021
+    ],
+    "model-00002-of-00004.safetensors": [
+      4947392496,
+      1790587005984988367
+    ],
+    "processing_prismatic.py": [
+      12965,
+      1790591561650099647
+    ],
+    "generation_config.json": [
+      136,
+      1790585688795470354
+    ],
+    "modeling_prismatic.py": [
+      53078,
+      1786796881000000000
+    ],
+    "action_head--150000_checkpoint.pt": [
+      302242674,
+      1790586001984496165
+    ],
+    "config.json.back.20261012_192131": [
+      60711,
+      1791801996033000000
+    ],
+    "config.json.back.20261013_040937": [
+      60711,
+      1791820153319000000
+    ],
+    "README.md": [
+      2897,
+      1790585689412474346
+    ],
+    "config.json.back.20261006_003830": [
+      60711,
+      1791218054998147588
+    ],
+    "config.json.back.20260929_115305": [
+      60711,
+      1790599010024776403
+    ],
+    "config.json.back.20261012_193055": [
+      60711,
+      1791804091796000000
+    ],
+    "config.json.back.20260928_203650": [
+      60711,
+      1790592101913226355
+    ],
+    "model-00004-of-00004.safetensors": [
+      262668432,
+      1790585926753009591
+    ],
+    "preprocessor_config.json": [
+      1650,
+      1790591654311039663
+    ],
+    "config.json.back.20260928_183118": [
+      60711,
+      1790591330154648974
+    ],
+    "config.json.back.20261006_003414": [
+      60711,
+      1791198810993306555
+    ],
+    ".gitattributes": [
+      674,
+      1790585689378474126
+    ],
+    "configuration_prismatic.py.back.20260928_182850": [
+      5865,
+      1790585689364474035
+    ],
+    "config.json.back.20260928_183515": [
+      60711,
+      1790591478359236678
+    ],
+    "model.safetensors.index.json": [
+      94764,
+      1790589170067102062
+    ],
+    "special_tokens_map.json": [
+      552,
+      1790585828473373907
+    ],
+    "config.json.back.20261005_184734": [
+      60711,
+      1790918453526956226
+    ],
+    "processor_config.json": [
+      130,
+      1790591655366050258
+    ],
+    "config.json.back.20260929_121358": [
+      60711,
+      1790654337262633473
+    ],
+    "lora_adapter/adapter_model.safetensors": [
+      484458600,
+      1790586001809495033
+    ],
+    "lora_adapter/README.md": [
+      5034,
+      1790585824639349107
+    ],
+    "lora_adapter/adapter_config.json": [
+      813,
+      1790585824182346151
+    ],
+    ".cache/huggingface/.gitignore": [
+      1,
+      1790585687908464616
+    ],
+    ".cache/huggingface/download/proprio_projector--150000_checkpoint.pt.lock": [
+      0,
+      1790591410158515184
+    ],
+    ".cache/huggingface/download/model.safetensors.index.json.metadata": [
+      101,
+      1790589170068102067
+    ],
+    ".cache/huggingface/download/model-00004-of-00004.safetensors.lock": [
+      0,
+      1790585926756009610
+    ],
+    ".cache/huggingface/download/action_head--150000_checkpoint.pt.metadata": [
+      125,
+      1790586001991496210
+    ],
+    ".cache/huggingface/download/action_head--150000_checkpoint.pt.lock": [
+      0,
+      1790586001991496210
+    ],
+    ".cache/huggingface/download/model-00003-of-00004.safetensors.metadata": [
+      125,
+      1790586940688566180
+    ],
+    ".cache/huggingface/download/generation_config.json.metadata": [
+      101,
+      1790585688797470367
+    ],
+    ".cache/huggingface/download/tokenizer.model.lock": [
+      0,
+      1790591659253089273
+    ],
+    ".cache/huggingface/download/tokenizer.json.metadata": [
+      100,
+      1790591657133067998
+    ],
+    ".cache/huggingface/download/added_tokens.json.lock": [
+      0,
+      1790585690234479663
+    ],
+    ".cache/huggingface/download/README.md.metadata": [
+      101,
+      1790585689413474352
+    ],
+    ".cache/huggingface/download/dataset_statistics.json.lock": [
+      0,
+      1790585688869470833
+    ],
+    ".cache/huggingface/download/README.md.lock": [
+      0,
+      1790585689413474352
+    ],
+    ".cache/huggingface/download/configuration_prismatic.py.lock": [
+      0,
+      1790585689365474042
+    ],
+    ".cache/huggingface/download/processing_prismatic.py.lock": [
+      0,
+      1790585824962351197
+    ],
+    ".cache/huggingface/download/model-00001-of-00004.safetensors.lock": [
+      0,
+      1790587078116454747
+    ],
+    ".cache/huggingface/download/config.json.lock": [
+      0,
+      1790585689208473026
+    ],
+    ".cache/huggingface/download/model-00001-of-00004.safetensors.metadata": [
+      125,
+      1790587078116454747
+    ],
+    ".cache/huggingface/download/model-00003-of-00004.safetensors.lock": [
+      0,
+      1790586940688566180
+    ],
+    ".cache/huggingface/download/model-00004-of-00004.safetensors.metadata": [
+      124,
+      1790585926756009610
+    ],
+    ".cache/huggingface/download/tokenizer.model.metadata": [
+      101,
+      1790591659253089273
+    ],
+    ".cache/huggingface/download/preprocessor_config.json.metadata": [
+      98,
+      1790591654312039674
+    ],
+    ".cache/huggingface/download/dataset_statistics.json.metadata": [
+      101,
+      1790585688869470833
+    ],
+    ".cache/huggingface/download/proprio_projector--150000_checkpoint.pt.metadata": [
+      125,
+      1790591410158515184
+    ],
+    ".cache/huggingface/download/model-00002-of-00004.safetensors.lock": [
+      0,
+      1790587005991988413
+    ],
+    ".cache/huggingface/download/model.safetensors.index.json.lock": [
+      0,
+      1790589170068102067
+    ],
+    ".cache/huggingface/download/.gitattributes.lock": [
+      0,
+      1790585689379474132
+    ],
+    ".cache/huggingface/download/special_tokens_map.json.metadata": [
+      101,
+      1790585828474373914
+    ],
+    ".cache/huggingface/download/processor_config.json.metadata": [
+      101,
+      1790591655368050278
+    ],
+    ".cache/huggingface/download/tokenizer_config.json.metadata": [
+      100,
+      1790585830017383895
+    ],
+    ".cache/huggingface/download/tokenizer.json.lock": [
+      0,
+      1790591657133067998
+    ],
+    ".cache/huggingface/download/configuration_prismatic.py.metadata": [
+      101,
+      1790585689365474042
+    ],
+    ".cache/huggingface/download/preprocessor_config.json.lock": [
+      0,
+      1790591654312039674
+    ],
+    ".cache/huggingface/download/modeling_prismatic.py.lock": [
+      0,
+      1790585824642349127
+    ],
+    ".cache/huggingface/download/config.json.metadata": [
+      101,
+      1790585689208473026
+    ],
+    ".cache/huggingface/download/model-00002-of-00004.safetensors.metadata": [
+      125,
+      1790587005992988419
+    ],
+    ".cache/huggingface/download/processor_config.json.lock": [
+      0,
+      1790591655368050278
+    ],
+    ".cache/huggingface/download/tokenizer_config.json.lock": [
+      0,
+      1790585830017383895
+    ],
+    ".cache/huggingface/download/generation_config.json.lock": [
+      0,
+      1790585688796470360
+    ],
+    ".cache/huggingface/download/added_tokens.json.metadata": [
+      101,
+      1790585690234479663
+    ],
+    ".cache/huggingface/download/special_tokens_map.json.lock": [
+      0,
+      1790585828474373914
+    ],
+    ".cache/huggingface/download/.gitattributes.metadata": [
+      101,
+      1790585689379474132
+    ],
+    ".cache/huggingface/download/lora_adapter/adapter_config.json.lock": [
+      0,
+      1790585824185346171
+    ],
+    ".cache/huggingface/download/lora_adapter/adapter_config.json.metadata": [
+      125,
+      1790585824185346171
+    ],
+    ".cache/huggingface/download/lora_adapter/adapter_model.safetensors.metadata": [
+      125,
+      1790586001814495066
+    ],
+    ".cache/huggingface/download/lora_adapter/README.md.metadata": [
+      125,
+      1790585824641349120
+    ],
+    ".cache/huggingface/download/lora_adapter/README.md.lock": [
+      0,
+      1790585824641349120
+    ],
+    ".cache/huggingface/download/lora_adapter/adapter_model.safetensors.lock": [
+      0,
+      1790586001813495059
+    ]
+  }
+}

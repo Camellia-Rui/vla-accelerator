@@ -1,0 +1,12 @@
+{
+  "method": "SpecPrune-VLA",
+  "implementation_kind": "inherited engineering wrapper with new transactional lifecycle",
+  "historical_source": "/home/wxy/cloris_work/spec_prune_accelerator.py",
+  "historical_source_sha256": "ae33cd4d40e83003a20a0a7f7bb312ece2b1fa5a1892e68b0073e585c4a3be4a",
+  "comparison": "Inherited toolbox source at a91c9e5 matches historical source after CRLF normalization",
+  "upstream_repository_claimed_by_historical_readme": "https://github.com/alexwhz-sjtu/SpecPrune-VLA",
+  "upstream_revision_verified": false,
+  "license_audit_complete": false,
+  "new_validation": "2026-11-05 Object real input: retain-all parity, observed shortening, restoration and sampled parameters passed; see docs/server-evidence/2026-11-05",
+  "deployment_accepted": false
+}

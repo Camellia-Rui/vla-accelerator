@@ -1,6 +1,6 @@
 # VLA 工具箱测试说明
 
-适用于 0.3.0a4。先确定测试对象，再选择命令；不要把普通 OpenVLA-OFT 和 LightVLA 专用训练权重混为一类。本文包含项目现有服务器的路径，外部用户需替换并重新检查资源。
+适用于 0.3.0a6。先确定测试对象，再选择命令；不要把普通 OpenVLA-OFT 和 LightVLA 专用训练权重混为一类。本文包含项目现有服务器的路径，外部用户需替换并重新检查资源。
 
 ## 1. 选择测试路线
 
@@ -27,10 +27,10 @@ python -m core methods
 
 下面 GPU 命令在 Linux Bash 执行。先查看 `nvidia-smi`，选择自己有权使用且资源足够的 GPU。示例 GPU 2 不是预留资源。服务器上所有新增代码、缓存和结果放在 `/home/wxy/Rui_work`，其他目录只读；不得杀死其他成员的进程。
 
-源码方式：进入自己拉取的工具箱根目录。现有服务器发布包方式：
+从仓库运行时，进入自己拉取的仓库根目录即可。若已解压 0.3.0a6 发布包，在解压目录执行完整性校验：
 
 ```bash
-cd /home/wxy/Rui_work/vla-express-toolbox-0.3.0a4
+cd /实际解压位置/vla-express-toolbox-0.3.0a6
 /home/wxy/miniconda3/envs/daisy_openvla/bin/python -B scripts/verify_product.py
 ```
 
@@ -144,6 +144,10 @@ bash scripts/launch_lightvla_closed_loop.sh "$PYTHON" "$WORKSPACE" "$CHECKPOINT"
 ```
 
 LightVLA 使用 quality_decision 字段，不使用 VLA-Pruner 的 input_screen 阈值参数。当前小规模评估保持 INCONCLUSIVE；成功率、质量门槛和正式统计需要另行审查。
+
+## SpecPrune 实验评估
+
+使用匹配的 SpecPrune Object 后端和模型环境。运行 `python -m core evaluate --method specprune --help` 查看入口，单回合使用 `--closed-loop`，批量和续跑使用 `scripts/batch_specprune.py`。服务器资源路径、实际命令与三个已测初始状态见 [SpecPrune 使用说明](docs/SPECPRUNE_WORKFLOW.md)。
 
 ## 5. 常见问题
 

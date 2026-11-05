@@ -6,7 +6,7 @@
 python -m core project init --project toolbox-project-run.json
 ```
 
-编辑生成的 JSON。所有相对路径都相对 JSON 所在目录；python 填模型环境解释器文件，output_root 填有写权限的独立结果根目录。profile 目前支持 oft_object 和 lightvla_spatial，其他值明确阻止执行。OFT 需要 observation_dirs；LightVLA 专用 Spatial 使用内置采集流程。
+编辑生成的 JSON。所有相对路径都相对 JSON 所在目录；python 填模型环境解释器文件，output_root 填有写权限的独立结果根目录。profile 目前支持 oft_object、lightvla_spatial 和 specprune_object，其他值明确阻止执行。specprune_object 需要一个采集目录；oft_object 需要 observation_dirs；LightVLA 专用 Spatial 使用内置采集流程。
 
 ```bash
 python -m core project check --project toolbox-project-run.json --name evaluation-001

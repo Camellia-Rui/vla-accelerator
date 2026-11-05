@@ -1,0 +1,26 @@
+{
+  "source_sha256": "05b56304912951fd173465b6ae3890180d640744ff358b38bb6e912d79994827",
+  "timing_pairs": 4,
+  "median_ms": {
+    "baseline": 775.7468915078789,
+    "accelerated": 451.1503730318509
+  },
+  "quality_decision": "INCONCLUSIVE",
+  "deployment_accepted": false,
+  "episodes": [
+    {
+      "mode": "baseline",
+      "success": true,
+      "environment_steps": 155,
+      "task": 0,
+      "trial": 0
+    },
+    {
+      "mode": "accelerated",
+      "success": true,
+      "environment_steps": 132,
+      "task": 0,
+      "trial": 0
+    }
+  ]
+}

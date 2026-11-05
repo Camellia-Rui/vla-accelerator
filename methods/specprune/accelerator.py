@@ -762,12 +762,13 @@ def _inject_pruning(model) -> None:
                 new_attn = LlamaAttention(layer.self_attn.config, layer.self_attn.layer_idx)
                 new_attn.load_state_dict(layer.self_attn.state_dict())
                 new_attn = new_attn.to(layer.self_attn.q_proj.weight.device, layer.self_attn.q_proj.weight.dtype)
+                new_attn.train(layer.self_attn.training)
                 layer.self_attn = new_attn
                 replaced += 1
         if replaced:
             print(f"[spec_prune] 已把 {replaced} 层 self_attn 替换为 eager LlamaAttention（剪枝需要）。")
     except Exception as e:  # pragma: no cover
-        print(f"[spec_prune] [WARN] 强制 eager 失败（{e}），若模型非 eager 可能影响正确性。")
+        raise RuntimeError("SpecPrune eager attention conversion failed") from e
 
     required = ["_prepare_input_for_action_prediction", "_prepare_labels_for_action_prediction",
                 "_process_vision_features", "_process_proprio_features",
@@ -864,10 +865,34 @@ class SpecPruneAccelerator:
         config: Optional[AcceleratorConfig] = None,
     ) -> "SpecPruneAccelerator":
         """将剪枝路径注入已加载模型。"""
-        _inject_pruning(model)
-        return cls(model, processor, action_head=action_head,
-                   proprio_projector=proprio_projector,
-                   noisy_action_projector=noisy_action_projector, config=config)
+        from .lifecycle import ModelSnapshot
+        if getattr(model, "_toolbox_specprune_owner", None) is not None:
+            raise RuntimeError("SpecPrune already attached")
+        snapshot = ModelSnapshot(model)
+        try:
+            snapshot.isolate()
+            _inject_pruning(model)
+            adapter = cls(model, processor, action_head=action_head,
+                          proprio_projector=proprio_projector,
+                          noisy_action_projector=noisy_action_projector, config=config)
+            adapter._snapshot = snapshot
+            model._toolbox_specprune_owner = adapter
+            return adapter
+        except BaseException:
+            snapshot.restore()
+            raise
+
+    def detach(self):
+        """Restore saved callables, state references and original attention modules."""
+        snapshot = getattr(self, "_snapshot", None)
+        if snapshot is not None:
+            snapshot.restore()
+            if getattr(self.model, "_toolbox_specprune_owner", None) is self:
+                delattr(self.model, "_toolbox_specprune_owner")
+            self._snapshot = None
+
+    def reset(self):
+        self.start_episode()
 
     def start_episode(self) -> None:
         """重置跨帧注意力状态和动态重要性缓存。"""

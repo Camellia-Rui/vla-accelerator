@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-PROFILES = {"oft_object": "vla_pruner", "lightvla_spatial": "lightvla"}
+PROFILES = {"oft_object": "vla_pruner", "lightvla_spatial": "lightvla", "specprune_object": "specprune"}
 
 
 def read_project(path):
@@ -57,7 +57,7 @@ def plan(data, name):
             raise ValueError("Normalization statistics must be an object")
     except (OSError, ValueError, AttributeError) as exc:
         issues.append(f"Cannot inspect checkpoint metadata: {exc}")
-    key = "libero_object_no_noops" if profile == "oft_object" else "libero_spatial_no_noops"
+    key = "libero_object_no_noops" if profile in ("oft_object", "specprune_object") else "libero_spatial_no_noops"
     if profile == "lightvla_spatial" and key not in stats:
         key = "libero_spatial"
     if key not in stats:
@@ -68,12 +68,14 @@ def plan(data, name):
         issues.append("No local weight files found")
     if not (Path(data["workspace"]) / "experiments/robot/openvla_utils.py").is_file():
         issues.append("Missing native model utilities")
-    if profile == "oft_object":
+    if profile in ("oft_object", "specprune_object"):
         if not data["observation_dirs"]:
             issues.append("OFT evaluation requires captured observations")
         for p in data["observation_dirs"]:
             if not all((Path(p) / n).is_file() for n in ("report.json", "observation.npz")):
                 issues.append(f"Incomplete captured input: {p}")
+        if profile == "specprune_object" and len(data["observation_dirs"]) != 1:
+            issues.append("SpecPrune experimental evaluation requires exactly one captured observation")
     output = Path(data["output_root"]) / name
     if output.exists():
         issues.append("Output already exists; choose a new run name")
@@ -84,6 +86,8 @@ def plan(data, name):
         command += ["--unnorm-key", key, "--prune-ratio", "0.5", "--prefer-env-cuda"]
         for p in data["observation_dirs"]:
             command += ["--observation-dir", p]
+    elif profile == "specprune_object" and len(data["observation_dirs"]) == 1:
+        command += ["--observation", data["observation_dirs"][0]]
     return dict(schema_version=1, profile=profile, candidate_method=method,
                 status="BLOCKED" if issues else "READY_FOR_RUNTIME_CHECK", blockers=issues,
                 compatibility_verified=False, quality_decision="INCONCLUSIVE",
