@@ -1,0 +1,35 @@
+{
+  "status": "completed",
+  "method": "fastv",
+  "checkpoint": "/home/wxy/Rui_work/fastv-adapter-smoke-1109/selected-oft/measurement/checkpoint",
+  "task_suite": "libero_spatial",
+  "task_ids": [
+    0
+  ],
+  "trials_per_task": 1,
+  "seed": 7,
+  "attention": "eager",
+  "precision": "bfloat16",
+  "use_cache": false,
+  "num_images": 2,
+  "use_proprio": true,
+  "actions_per_chunk": 8,
+  "fastv_k": 2,
+  "prune_ratio": 0.5,
+  "physical_gpu": 2,
+  "torch_version": "2.2.0+cu121",
+  "cublas_override": "12.4.5.8",
+  "timing_scope": "evaluation.get_action, including policy preprocessing; excluding prepare_observation, env.step and video",
+  "excluded_initial_calls": 5,
+  "save_videos": false,
+  "source_sha256": {
+    "experiments/robot/openvla_utils.py": "f3099ba7b4c2067b76e74a74275a5fb754e07645f14b0a71c80ef71ad7343c67",
+    "experiments/robot/libero/run_libero_eval.py": "9997a8144533cd15aa910d0d17151cb9a230cd100bc82d1e1bd9c7d141cc817a",
+    "experiments/robot/fastv_oft.py": "1298c16aa435e37ce29c33792b3f2e7d50ba7dc274af488855934ecfedfb0607",
+    "prismatic/extern/hf/modeling_prismatic.py": "4fa683859a64392828834b208b9d977ca24bafcd0e1898a92388da11a09b5b4f",
+    "toolbox_runner": "fe78bfb454adb1e90fe604e1483566ce0f81bb125cf6c4ae59202a86f112af5c"
+  },
+  "LD_PRELOAD": "/data2/wxy/openvla_oft_runtime/cublas-12.4.5.8/nvidia/cublas/lib/libcublasLt.so.12:/data2/wxy/openvla_oft_runtime/cublas-12.4.5.8/nvidia/cublas/lib/libcublas.so.12",
+  "LD_LIBRARY_PATH": "/data2/wxy/VLA-Adapter/conda_envs/openvla-oft/lib/python3.10/site-packages/cv2/../../lib64:/data2/wxy/openvla_oft_runtime/cublas-12.4.5.8/nvidia/cublas/lib:/data2/wxy/VLA-Adapter/conda_envs/openvla-oft/lib/python3.10/site-packages/nvidia/cudnn/lib:/data2/wxy/VLA-Adapter/conda_envs/openvla-oft/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data2/wxy/VLA-Adapter/conda_envs/openvla-oft/lib:",
+  "gpu_name": "NVIDIA H20"
+}

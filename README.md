@@ -2,7 +2,7 @@
 
 面向 VLA 研究者、机器人开发者和科研团队的 **Codex 推理加速工具箱**。将工具箱和模型工作目录交给 Codex，可以检查模型资源、筛选兼容方法、配置运行入口，并执行推理对照、闭环测试和结果审查。
 
-**当前版本：0.3.0a6（研究预览版）**。已提供真实模型运行代码和可追溯实验记录；支持范围以具体模型、权重和后端为准，不承诺任意 VLA 模型自动加速或无损精度。
+**当前版本：0.3.0a7（研究预览版）**。已提供真实模型运行代码和可追溯实验记录；支持范围以具体模型、权重和后端为准，不承诺任意 VLA 模型自动加速或无损精度。
 
 [测试说明](README_TESTING.md) · [Codex 入口](START_HERE.md) · [使用与协作](docs/USER_GUIDE.md) · [发布状态](docs/RELEASE_STATUS.md) · [实验依据](docs/EVIDENCE.md)
 
@@ -23,13 +23,13 @@
 | OpenVLA-OFT / LIBERO-Object + VLA-Pruner | H20 上真实推理、生命周期恢复、两任务六对闭环；原生与 50% 剪枝各 6/6 | 固定官方 OFT 后端、双视图、连续 L1 动作头、8D 本体、8×7 动作块；更广质量与正式性能验收待完成 |
 | LightVLA 专用 LIBERO-Spatial 权重 + LightVLA | 统一推理及固定输入/闭环评估；四任务二十对闭环，两模式各 20/20 | 需要专用训练权重与已检查的后端；不是任意 OFT 权重的通用插件 |
 | 普通 OFT Object 权重 + LightVLA 风格推理干预 | 已实现实验接口并保留失败结果，闭环仅 1/6 | 当前不推荐该组合 |
-| 原始 OpenVLA | 资源与接口接入工作尚未完成 | 不能套用 OFT 支持结论 |
+| 原始 OpenVLA / OpenVLA-OFT + FastV | Spatial 工程支持基线和剪枝的配对闭环评估 | 需要对应的 FastV 后端和 Spatial 检查点 |
 | SpecPrune | 新增实验 evaluate、可恢复安装、Object 两任务、三个初始状态，原生与加速各 3/3 | 正式质量与更广任务验收待完成；见 [使用说明](docs/SPECPRUNE_WORKFLOW.md) |
 | VLA-Cache | 隔离历史证据 | 不属于当前部署路线 |
 
 小规模闭环结果不是准确率保证；共享 GPU 的观测延迟不是稳定加速承诺。最新依据见 [OFT 同权重对照](docs/OFT_METHOD_CHOICES.md)、[LightVLA 闭环](docs/LIGHTVLA_CLOSED_LOOP.md) 和 [LightVLA 统一入口回归](docs/LIGHTVLA_UNIFIED_RESULT.md)。
 
-当前由 Codex 核对模型并确认项目配置，再执行评估。跨方法自动测速和质量排名仍待实现。FastV 列为待验证候选。
+FastV 的 Spatial 双后端可通过统一入口运行。[FastV 命令与证据](docs/FASTV_RESULTS.md)。Codex 核对项目配置后，`core select` 会运行该后端支持的候选方案，按用户指定的最低成功率、相对基线可接受的下降和最低配对数筛选，再选择实测平均推理延迟最低的一项。[自动选择与中期演示](docs/METHOD_SELECTION.md)
 
 ## 开始使用
 
@@ -119,7 +119,7 @@ report 的 passed 只表示对应执行/接入检查通过。INCONCLUSIVE 表示
 ```bash
 python -B -m unittest discover -s tests -v
 python scripts/build_product.py
-python -B scripts/verify_product.py dist/vla-express-toolbox-0.3.0a6
+python -B scripts/verify_product.py dist/vla-express-toolbox-0.3.0a7
 ```
 
 构建脚本拒绝覆盖同版本包。发布包使用逐文件哈希检查完整性；源码 checkout 没有 product-manifest.json，不能直接进行发布包校验。ZIP 不包含权重、虚拟环境和临时运行结果。

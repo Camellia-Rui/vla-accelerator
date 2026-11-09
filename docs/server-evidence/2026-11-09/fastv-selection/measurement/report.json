@@ -1,0 +1,57 @@
+{
+  "backend": "oft",
+  "checkpoint": "/data2/wxy/openvla_oft_checkpoints/openvla-7b-oft-finetuned-libero-spatial",
+  "workspace": "/home/wxy/daisy_work/openvla-oft",
+  "integration_passed": true,
+  "closed_loop_tested": true,
+  "seed": 7,
+  "trials_per_task": 1,
+  "tasks": [
+    0
+  ],
+  "k": 2,
+  "prune_ratio": 0.5,
+  "quality_decision": "INCONCLUSIVE",
+  "results": {
+    "baseline": {
+      "method": "baseline",
+      "episodes": 1,
+      "successes": 1,
+      "success_rate": 1.0,
+      "raw_latency": {
+        "count": 10,
+        "mean_ms": 181.94338048342615,
+        "median_ms": 132.54262239206582,
+        "p95_ms": 404.30342842591875
+      },
+      "latency_excluding_first_5_calls": {
+        "count": 5,
+        "mean_ms": 132.90329445153475,
+        "median_ms": 132.23952916450799,
+        "p95_ms": 135.61771176755428
+      },
+      "peak_torch_allocated_gib": 14.71864652633667
+    },
+    "fastv": {
+      "method": "fastv",
+      "episodes": 1,
+      "successes": 1,
+      "success_rate": 1.0,
+      "raw_latency": {
+        "count": 10,
+        "mean_ms": 191.8913578381762,
+        "median_ms": 110.60290352907032,
+        "p95_ms": 565.897382318507
+      },
+      "latency_excluding_first_5_calls": {
+        "count": 5,
+        "mean_ms": 101.52795687317848,
+        "median_ms": 101.51521698571742,
+        "p95_ms": 102.26548733189702
+      },
+      "peak_torch_allocated_gib": 14.604096412658691
+    }
+  },
+  "success_rate_change_pp": 0.0,
+  "mean_inference_speedup": 1.3090315076225567
+}

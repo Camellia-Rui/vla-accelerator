@@ -1,0 +1,19 @@
+{
+  "method": "fastv",
+  "episodes": 1,
+  "successes": 1,
+  "success_rate": 1.0,
+  "raw_latency": {
+    "count": 10,
+    "mean_ms": 191.8913578381762,
+    "median_ms": 110.60290352907032,
+    "p95_ms": 565.897382318507
+  },
+  "latency_excluding_first_5_calls": {
+    "count": 5,
+    "mean_ms": 101.52795687317848,
+    "median_ms": 101.51521698571742,
+    "p95_ms": 102.26548733189702
+  },
+  "peak_torch_allocated_gib": 14.604096412658691
+}

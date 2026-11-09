@@ -1,6 +1,6 @@
 # VLA 工具箱测试说明
 
-适用于 0.3.0a6。先确定测试对象，再选择命令；不要把普通 OpenVLA-OFT 和 LightVLA 专用训练权重混为一类。本文包含项目现有服务器的路径，外部用户需替换并重新检查资源。
+适用于 0.3.0a7。先确定测试对象，再选择命令；不要把普通 OpenVLA-OFT 和 LightVLA 专用训练权重混为一类。本文包含项目现有服务器的路径，外部用户需替换并重新检查资源。
 
 ## 1. 选择测试路线
 
@@ -8,9 +8,10 @@
 |---|---|
 | 匹配已锁定后端的 OpenVLA-OFT Object，连续 L1 动作头 | VLA-Pruner 原生基线 → 固定输入对照 → 目标任务闭环 |
 | LightVLA 专用 Spatial 权重及匹配代码 | LightVLA 固定输入 → 配对闭环 |
-| 其他 OFT 变体、基础 OpenVLA、其他 VLA | 先 doctor 和源码审查，不能直接承诺兼容 |
+| FastV 版原始 OpenVLA 或 OFT，Spatial 权重 | 见 [FastV 配对评测](docs/FASTV_RESULTS.md)，需要带有该入口的工具箱源码 |
+| 其他 OFT 变体和其他 VLA | 先 doctor 和源码审查，不能直接承诺兼容 |
 
-普通 OFT Object 直接使用 LightVLA 风格推理干预已有 1/6 的失败结果，不作为默认加速推荐。原始 OpenVLA 接入尚未完成。
+普通 OFT Object 直接使用 LightVLA 风格推理干预已有 1/6 的结果，不作为默认加速推荐。
 
 ## 2. 开始前准备
 
@@ -27,10 +28,10 @@ python -m core methods
 
 下面 GPU 命令在 Linux Bash 执行。先查看 `nvidia-smi`，选择自己有权使用且资源足够的 GPU。示例 GPU 2 不是预留资源。服务器上所有新增代码、缓存和结果放在 `/home/wxy/Rui_work`，其他目录只读；不得杀死其他成员的进程。
 
-从仓库运行时，进入自己拉取的仓库根目录即可。若已解压 0.3.0a6 发布包，在解压目录执行完整性校验：
+从仓库运行时，进入自己拉取的仓库根目录即可。若已解压 0.3.0a7 发布包，在解压目录执行完整性校验：
 
 ```bash
-cd /实际解压位置/vla-express-toolbox-0.3.0a6
+cd /实际解压位置/vla-express-toolbox-0.3.0a7
 /home/wxy/miniconda3/envs/daisy_openvla/bin/python -B scripts/verify_product.py
 ```
 

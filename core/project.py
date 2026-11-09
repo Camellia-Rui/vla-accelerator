@@ -6,6 +6,8 @@ import subprocess
 import sys
 
 PROFILES = {"oft_object": "vla_pruner", "lightvla_spatial": "lightvla", "specprune_object": "specprune"}
+FASTV_BACKENDS = {"fastv_openvla_spatial": "openvla", "fastv_oft_spatial": "oft"}
+PROFILES.update(dict.fromkeys(FASTV_BACKENDS, "fastv"))
 
 
 def read_project(path):
@@ -14,9 +16,14 @@ def read_project(path):
     if not isinstance(data, dict) or data.get("schema_version") != 1:
         raise ValueError("Expected project schema_version=1")
     allowed = {"schema_version", "profile", "workspace", "checkpoint", "python", "gpu", "observation_dirs", "output_root"}
+    if data.get("profile") in FASTV_BACKENDS:
+        allowed.add("cublas_dir")
     if data.keys() - allowed:
         raise ValueError("Unknown project fields: " + str(sorted(data.keys() - allowed)))
-    for key in ("workspace", "checkpoint", "python", "output_root"):
+    paths = ["workspace", "checkpoint", "python", "output_root"]
+    if "cublas_dir" in data:
+        paths.append("cublas_dir")
+    for key in paths:
         value = data.get(key)
         if not isinstance(value, str) or not value.strip():
             raise ValueError(f"Missing project field: {key}")
@@ -58,7 +65,7 @@ def plan(data, name):
     except (OSError, ValueError, AttributeError) as exc:
         issues.append(f"Cannot inspect checkpoint metadata: {exc}")
     key = "libero_object_no_noops" if profile in ("oft_object", "specprune_object") else "libero_spatial_no_noops"
-    if profile == "lightvla_spatial" and key not in stats:
+    if (profile == "lightvla_spatial" or profile in FASTV_BACKENDS) and key not in stats:
         key = "libero_spatial"
     if key not in stats:
         issues.append(f"Missing normalization key: {key}")
@@ -82,7 +89,15 @@ def plan(data, name):
     command = [data["python"], "-B", "-m", "core", "evaluate", "--method", method or "unsupported",
                "--workspace", data["workspace"], "--checkpoint", data["checkpoint"],
                "--gpu", str(data["gpu"]), "--output", str(output)]
-    if profile == "oft_object":
+    if profile in FASTV_BACKENDS:
+        backend = FASTV_BACKENDS[profile]
+        marker = "fastv_oft.py" if backend == "oft" else "fastv_openvla.py"
+        if not (Path(data["workspace"]) / "experiments/robot" / marker).is_file():
+            issues.append(f"Missing FastV backend: {marker}")
+        command += ["--backend", backend]
+        if data.get("cublas_dir"):
+            command += ["--cublas-dir", data["cublas_dir"]]
+    elif profile == "oft_object":
         command += ["--unnorm-key", key, "--prune-ratio", "0.5", "--prefer-env-cuda"]
         for p in data["observation_dirs"]:
             command += ["--observation-dir", p]

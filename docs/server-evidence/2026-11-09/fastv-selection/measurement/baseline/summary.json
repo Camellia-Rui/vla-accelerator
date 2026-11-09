@@ -1,0 +1,19 @@
+{
+  "method": "baseline",
+  "episodes": 1,
+  "successes": 1,
+  "success_rate": 1.0,
+  "raw_latency": {
+    "count": 10,
+    "mean_ms": 181.94338048342615,
+    "median_ms": 132.54262239206582,
+    "p95_ms": 404.30342842591875
+  },
+  "latency_excluding_first_5_calls": {
+    "count": 5,
+    "mean_ms": 132.90329445153475,
+    "median_ms": 132.23952916450799,
+    "p95_ms": 135.61771176755428
+  },
+  "peak_torch_allocated_gib": 14.71864652633667
+}

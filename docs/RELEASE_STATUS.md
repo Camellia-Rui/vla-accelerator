@@ -1,8 +1,10 @@
-# 0.3.0a6 开发预览状态
+# 0.3.0a7 开发预览状态
 
 提供统一 `core run/evaluate`、固定后端加载器、用户工厂、完整动作和可追溯评估。最新同权重 Object 闭环中，原生和 VLA-Pruner 各 6/6，LightVLA 风格推理干预 1/6；后者不推荐用于该权重，详见 [同权重结果](OFT_METHOD_CHOICES.md)。正式质量和性能验收仍未完成。
 
 ## 已完成
+
+- FastV 支持原始 OpenVLA 和 OFT 的 Spatial 闭环配对；`core select` 支持按用户门槛运行项目或复核同一比较中的样本。详见 [选择器](METHOD_SELECTION.md)。
 
 - LightVLA 专用 Spatial 的固定输入与闭环评估进入 `core evaluate --method lightvla`，实现随 Python 包交付；旧服务器脚本保留兼容。使用说明见 `LIGHTVLA_QUICKSTART.md`。
 

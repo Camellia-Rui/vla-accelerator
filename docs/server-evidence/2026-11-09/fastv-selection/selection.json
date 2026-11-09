@@ -1,0 +1,59 @@
+{
+  "selected": "fastv",
+  "candidates": {
+    "baseline": {
+      "successes": 1,
+      "episodes": 1,
+      "success_pct": 100.0,
+      "mean_ms": 132.90329445153475,
+      "speedup": 1.0,
+      "exclusions": []
+    },
+    "fastv": {
+      "successes": 1,
+      "episodes": 1,
+      "success_pct": 100.0,
+      "mean_ms": 101.52795687317848,
+      "speedup": 1.3090315076225567,
+      "exclusions": []
+    }
+  },
+  "scope": "observed paired sample",
+  "policy": {
+    "min_success_pct": 100.0,
+    "min_pairs": 1,
+    "max_drop_pp": 0.0
+  },
+  "report": "/home/wxy/Rui_work/fastv-adapter-smoke-1109/selected-oft/measurement/report.json",
+  "command": [
+    "/data2/wxy/VLA-Adapter/conda_envs/openvla-oft/bin/python3.10",
+    "-B",
+    "-m",
+    "core",
+    "evaluate",
+    "--method",
+    "fastv",
+    "--workspace",
+    "/home/wxy/daisy_work/openvla-oft",
+    "--checkpoint",
+    "/data2/wxy/openvla_oft_checkpoints/openvla-7b-oft-finetuned-libero-spatial",
+    "--gpu",
+    "2",
+    "--output",
+    "/home/wxy/Rui_work/fastv-adapter-smoke-1109/selected-oft/measurement",
+    "--backend",
+    "oft",
+    "--cublas-dir",
+    "/data2/wxy/openvla_oft_runtime/cublas-12.4.5.8/nvidia/cublas/lib",
+    "--trials",
+    "1",
+    "--tasks",
+    "0"
+  ],
+  "checkpoint": "/data2/wxy/openvla_oft_checkpoints/openvla-7b-oft-finetuned-libero-spatial",
+  "configuration": {
+    "backend": "oft",
+    "k": 2,
+    "prune_ratio": 0.5
+  }
+}

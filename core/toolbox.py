@@ -10,6 +10,8 @@ import sys
 from datetime import datetime, timezone
 
 CATALOG = {
+    "fastv": {"status": "experimental", "label": "LIBERO-Spatial: OpenVLA / OpenVLA-OFT paired evaluation",
+              "guide": "docs/FASTV_RESULTS.md"},
     "lightvla": {"status": "conditional", "label": "专用 Spatial 权重 20/20；普通 OFT Object 剪枝干预 1/6，不推荐迁移",
                  "guide": "methods/lightvla/README.md"},
     "vla_pruner": {"status": "conditional", "label": "固定 OFT Object/H20 两任务六对闭环 6/6；正式质量和性能验收待完成",
@@ -75,10 +77,14 @@ def inspect_workspace(workspace):
               "加速效果尚未由本报告测量；需要相同输入和配置的原生/加速成对测试。"]
     if not checkpoint_info["exists"]:
         issues.append("未确认可访问的模型权重路径。")
-    if not config.get("factory"):
+    has_fastv = any((root / "experiments/robot" / name).is_file()
+                    for name in ("fastv_oft.py", "fastv_openvla.py"))
+    if not config.get("factory") and not has_fastv:
         issues.append("未提供模型加载工厂；Codex 需根据原项目加载代码编写接入文件。")
     # Discovery is a lead for review, never automatic compatibility admission.
     candidates = ["lightvla", "vla_pruner"] if "openvla" in hits else []
+    if has_fastv:
+        candidates.append("fastv")
     return {"schema_version": 1, "check": "read-only-source-discovery", "workspace": str(root),
             "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
             "python": sys.executable, "python_version": platform.python_version(),
@@ -164,6 +170,9 @@ def write_report(report, directory):
 
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
+    if argv and argv[0] == "select":
+        from core.select_method import main as select
+        return select(argv[1:])
     if argv and argv[0] == "project":
         from core.project import main as project
         return project(argv[1:])
@@ -178,6 +187,7 @@ def main(argv=None):
     demo = commands.add_parser("demo", help="tiny LLaMA CPU 接入/卸载演示")
     demo.add_argument("--output", required=True, type=Path)
     commands.add_parser("methods", help="方法状态目录")
+    commands.add_parser("select", help="运行或读取同模型闭环比较，按成功率门槛筛选并按延迟选择")
     commands.add_parser("project", help="项目配置：init/check/execute")
     commands.add_parser("run", help="执行真实推理：--method lightvla 或 vla_pruner")
     commands.add_parser("evaluate", help="原生/关闭剪枝/加速/恢复的输入级评估")

@@ -35,3 +35,5 @@ LightVLA 专用 Spatial 统一评估使用 `python -m core evaluate --method lig
 `python -m core demo` 只展示 tiny LLaMA CPU 的 8→5→8 生命周期；不是速度基准或真实 VLA 成功率。真实性标准见 [证据说明](docs/EVIDENCE.md)。需要评估真实模型时读 [评估 Skill](workbench/skill/vla-acceleration-evaluator/SKILL.md) 并使用其 schema 3 校验器；旧根目录 evaluator 是历史版本。
 
 工作目录与其他成员并行时按 [协作规则](docs/USER_GUIDE.md) 回传源码差异、环境、命令、原始记录和校验值，不覆盖他人成果。用户的新指令优先于历史交接包的任务。
+- 若用户有 FastV 版 OpenVLA 或 OpenVLA-OFT 工程及匹配的 Spatial 权重，按 [FastV 指南](docs/FASTV_RESULTS.md) 调用统一 evaluate，先做小样本配对。普通 OpenVLA 工程需先补齐该后端。
+- 用户要“选出最快且成功率达标的方法”时，确认项目 profile、最低成功率、最多下降百分点及最少配对数，用 [core select](docs/METHOD_SELECTION.md) 运行。引用 selection.json 中的筛除理由、样本量、延迟与对应模型。
