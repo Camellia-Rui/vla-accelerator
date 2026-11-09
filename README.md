@@ -33,6 +33,8 @@ FastV 的 Spatial 双后端可通过统一入口运行。[FastV 命令与证据]
 
 ## 开始使用
 
+复现 FastV 时，先按[工具箱运行指南](docs/FASTV_RESULTS.md)选择后端和权重。需要逐任务成功数、环境版本或 FLOPs 统计命令时，查阅[团队完整实验记录](docs/README-OpenVLA-OFT-FastV.md)。
+
 新增项目配置入口：`python -m core project init/check/execute`，集中管理模型路径、环境与评估命令，检查不通过时阻止执行。具体用法与当前边界见 [项目工作流](docs/PROJECT_WORKFLOW.md)。
 
 ### 1. 获取源码
