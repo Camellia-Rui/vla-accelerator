@@ -1,11 +1,16 @@
 # LightVLA 工具箱接入
 
-2026-11-03：已使用 daisy 的实际 Spatial 权重验证当前封装、完整动作输出及恢复；历史 500 对闭环原始记录已归档。使用命令和可信范围见 [服务器接入结果](../../docs/LIGHTVLA_SERVER_RESULT.md)。
+使用 LightVLA 专用 Spatial 训练权重时，选择项目 profile `lightvla_spatial`。工具箱在相同权重上比较关闭裁剪和启用裁剪，四个任务、二十对初始状态均为 **20/20**。在普通 OFT Object 权重上直接使用类似裁剪，六个状态只成功一次。选择路线时应先核对权重。[Spatial 闭环记录](../../docs/LIGHTVLA_CLOSED_LOOP.md) · [Object 对照](../../docs/OFT_METHOD_CHOICES.md)
 
-2026-11-04：同一普通 OFT Object 权重上也已接通，但 LightVLA 风格剪枝在 6 个状态中仅成功 1 次，原生和 VLA-Pruner 均成功 6 次。因此不推荐直接迁移此配置，见 [同权重对照](../../docs/OFT_METHOD_CHOICES.md)。
+## 首次闭环测试
 
-本目录提供已有模型上的视觉 token 裁剪封装，支持统一注册、模式切换、reset 和
-卸载恢复，不加载或修改 checkpoint，不执行机器人动作。
+进入工具箱根目录并激活专用模型环境。将 `WORKSPACE`、`CHECKPOINT` 和 `GPU` 分别设为匹配的 LightVLA 工程、Spatial 权重目录和设备编号，准备 LIBERO 的资产、任务和初始状态，使用新的输出目录：
+
+```bash
+python -m core evaluate --method lightvla --closed-loop --workspace "$WORKSPACE" --checkpoint "$CHECKPOINT" --gpu "$GPU" --tasks 0 --trials 0 --seed 7 --output runs/lightvla-001
+```
+
+检查 `report.json` 中两种模式的回合完成情况、成功数和卸载恢复结果。单个状态适合验证流程；比较任务成功率时增加配对数。[固定输入测试与闭环命令](../../docs/LIGHTVLA_QUICKSTART.md)
 
 ## 适用范围与方法来源
 
@@ -180,7 +185,7 @@ cached decode 必须使用后端实际返回的 cache，按裁剪后的长度构
 ## 效果和可信度
 
 历史服务器记录保留在 [EXPERIMENTS.md](EXPERIMENTS.md)。其中 1.73×/2.02× 等数字
-对应原服务器、原权重与原脚本，原始证据没有随当前仓库交付。本次封装修改不能继承
+对应原服务器、原权重与原脚本。归档范围与复核结果见[服务器实验说明](../../docs/LIGHTVLA_SERVER_RESULT.md)。本次封装修改不能继承
 它们作为已验证性能，也不能推断对未适配模型的动作精度和闭环成功率。
 
 当前验证分层记录：配置与生命周期契约、CPU 张量裁剪、微型 LLaMA 前向与 cache 测试；
