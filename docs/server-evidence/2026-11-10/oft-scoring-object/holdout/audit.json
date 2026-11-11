@@ -1,0 +1,434 @@
+{
+  "initial_states": 50,
+  "episodes": 150,
+  "successes": {
+    "baseline": 50,
+    "fastv_scoring": 49,
+    "vla_pruner": 50
+  },
+  "baseline_only_successes": {
+    "fastv_scoring": 1,
+    "vla_pruner": 0
+  },
+  "method_only_successes": {
+    "fastv_scoring": 0,
+    "vla_pruner": 0
+  },
+  "contrasts": [
+    {
+      "task": 0,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 0,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 0,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 0,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 0,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 2,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 2,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 2,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 2,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 2,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 3,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 3,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 3,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 3,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 3,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 4,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 4,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 4,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 4,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 4,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 5,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 5,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 5,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 5,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 5,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 6,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 6,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 6,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 6,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 6,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 7,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 7,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 7,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 7,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 7,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 8,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 8,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": false,
+      "vla_pruner": true
+    },
+    {
+      "task": 8,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 8,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 8,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 9,
+      "trial": 5,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 9,
+      "trial": 6,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 9,
+      "trial": 7,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 9,
+      "trial": 8,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 9,
+      "trial": 9,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    }
+  ],
+  "restored": true,
+  "parameters_preserved": true,
+  "modules_restored": true,
+  "quality_decision": "INCONCLUSIVE",
+  "formal_speedup_accepted": false,
+  "by_mode": {
+    "baseline": {
+      "task_successes": {
+        "0": 5,
+        "1": 5,
+        "2": 5,
+        "3": 5,
+        "4": 5,
+        "5": 5,
+        "6": 5,
+        "7": 5,
+        "8": 5,
+        "9": 5
+      },
+      "mean_query_ms": 176.62656970677708,
+      "median_query_ms": 130.2134559955448,
+      "mean_policy_ms_per_episode": 2988.521559438668,
+      "policy_calls": 846,
+      "executed_actions": 6611
+    },
+    "fastv_scoring": {
+      "task_successes": {
+        "0": 5,
+        "1": 5,
+        "2": 5,
+        "3": 5,
+        "4": 5,
+        "5": 5,
+        "6": 5,
+        "7": 5,
+        "8": 4,
+        "9": 5
+      },
+      "mean_query_ms": 126.47690040547776,
+      "median_query_ms": 101.70293599367142,
+      "mean_policy_ms_per_episode": 2228.5229851445183,
+      "policy_calls": 881,
+      "executed_actions": 6889
+    },
+    "vla_pruner": {
+      "task_successes": {
+        "0": 5,
+        "1": 5,
+        "2": 5,
+        "3": 5,
+        "4": 5,
+        "5": 5,
+        "6": 5,
+        "7": 5,
+        "8": 5,
+        "9": 5
+      },
+      "mean_query_ms": 152.25561202516752,
+      "median_query_ms": 112.73929290473461,
+      "mean_policy_ms_per_episode": 2615.751414592378,
+      "policy_calls": 859,
+      "executed_actions": 6684
+    }
+  },
+  "source_sha256": "f8718929cb462e873fd310f229639d71a02a608042052dc210725df3ec5809d9"
+}

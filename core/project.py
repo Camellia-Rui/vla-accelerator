@@ -16,7 +16,7 @@ def read_project(path):
     if not isinstance(data, dict) or data.get("schema_version") != 1:
         raise ValueError("Expected project schema_version=1")
     allowed = {"schema_version", "profile", "workspace", "checkpoint", "python", "gpu", "observation_dirs", "output_root"}
-    if data.get("profile") in FASTV_BACKENDS:
+    if data.get("profile") in FASTV_BACKENDS or data.get("profile") == "oft_object":
         allowed.add("cublas_dir")
     if data.keys() - allowed:
         raise ValueError("Unknown project fields: " + str(sorted(data.keys() - allowed)))
@@ -99,6 +99,8 @@ def plan(data, name):
             command += ["--cublas-dir", data["cublas_dir"]]
     elif profile == "oft_object":
         command += ["--unnorm-key", key, "--prune-ratio", "0.5", "--prefer-env-cuda"]
+        if data.get("cublas_dir"):
+            command += ["--cublas-dir", data["cublas_dir"]]
         for p in data["observation_dirs"]:
             command += ["--observation-dir", p]
     elif profile == "specprune_object" and len(data["observation_dirs"]) == 1:

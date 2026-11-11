@@ -27,6 +27,7 @@ def parser():
     p.add_argument("--cache-dir", type=Path, help="all supported caches/temp dirs; default output/cache")
     p.add_argument("--gpu", help="single physical GPU index; otherwise preserve caller visibility")
     p.add_argument("--prefer-env-cuda", action="store_true", help="Linux: prioritize current environment cuDNN/cuBLAS")
+    p.add_argument("--cublas-dir", type=Path, help="override cuBLAS for this child only")
     p.add_argument("--evaluate", action="store_true")
     p.add_argument("--pairs", type=int, default=6)
     p.add_argument("--warmup", type=int, default=3)
@@ -153,7 +154,7 @@ def main(argv=None):
         # Reserve output before importing user code or loading the model.
         args.output.mkdir(parents=True, exist_ok=False)
         from core.runtime_env import runtime_environment
-        env = runtime_environment(args.cache_dir or args.output / "cache", args.gpu, args.prefer_env_cuda)
+        env = runtime_environment(args.cache_dir or args.output / "cache", args.gpu, args.prefer_env_cuda, args.cublas_dir)
         package_root = str(Path(__file__).resolve().parents[2])
         env["PYTHONPATH"] = os.pathsep.join([package_root, env.get("PYTHONPATH", "")])
         command = [sys.executable, "-u", "-B", "-m", "methods.vla_pruner", *argv, "--_worker"]

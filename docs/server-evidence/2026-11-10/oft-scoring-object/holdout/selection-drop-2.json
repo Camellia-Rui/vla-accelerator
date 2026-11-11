@@ -1,0 +1,35 @@
+{
+  "selected": "fastv_scoring",
+  "candidates": {
+    "baseline": {
+      "successes": 50,
+      "episodes": 50,
+      "success_pct": 100.0,
+      "mean_ms": 176.62656970677708,
+      "speedup": 1.0,
+      "exclusions": []
+    },
+    "fastv_scoring": {
+      "successes": 49,
+      "episodes": 50,
+      "success_pct": 98.0,
+      "mean_ms": 126.47690040547776,
+      "speedup": 1.3965124788836722,
+      "exclusions": []
+    },
+    "vla_pruner": {
+      "successes": 50,
+      "episodes": 50,
+      "success_pct": 100.0,
+      "mean_ms": 152.25561202516752,
+      "speedup": 1.1600660715059954,
+      "exclusions": []
+    }
+  },
+  "scope": "observed paired sample",
+  "policy": {
+    "min_success_pct": 90,
+    "min_pairs": 50,
+    "max_drop_pp": 2
+  }
+}

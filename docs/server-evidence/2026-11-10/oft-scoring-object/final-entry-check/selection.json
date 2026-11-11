@@ -1,0 +1,88 @@
+{
+  "selected": "fastv_scoring",
+  "candidates": {
+    "baseline": {
+      "successes": 1,
+      "episodes": 1,
+      "success_pct": 100.0,
+      "mean_ms": 133.06398519004384,
+      "speedup": 1.0,
+      "exclusions": []
+    },
+    "fastv_scoring": {
+      "successes": 1,
+      "episodes": 1,
+      "success_pct": 100.0,
+      "mean_ms": 102.16119026558266,
+      "speedup": 1.3024905528618542,
+      "exclusions": []
+    },
+    "vla_pruner": {
+      "successes": 1,
+      "episodes": 1,
+      "success_pct": 100.0,
+      "mean_ms": 125.31776278806122,
+      "speedup": 1.061812645148183,
+      "exclusions": []
+    }
+  },
+  "scope": "observed paired sample",
+  "policy": {
+    "min_success_pct": 90.0,
+    "min_pairs": 1,
+    "max_drop_pp": 0.0
+  },
+  "report": "/home/wxy/Rui_work/scoring-1110/final-entry-check/measurement/report.json",
+  "report_sha256": "4054d914ba71951f950047fb1419e63d3cfe87069e834caa7eb1af9e219b3fba",
+  "command": [
+    "/data2/wxy/VLA-Adapter/conda_envs/openvla-oft/bin/python3.10",
+    "-B",
+    "/home/wxy/Rui_work/scoring-1110/final-entry/scripts/server_oft_compare.py",
+    "--workspace",
+    "/home/wxy/Rui_work/VLA-Pruner/VLA-Pruner/src/openvla-oft",
+    "--checkpoint",
+    "/home/wxy/Rui_work/openvla-7b-oft-libero-object",
+    "--gpu",
+    "0",
+    "--output",
+    "/home/wxy/Rui_work/scoring-1110/final-entry-check/measurement",
+    "--unnorm-key",
+    "libero_object_no_noops",
+    "--prune-ratio",
+    "0.5",
+    "--cublas-dir",
+    "/data2/wxy/openvla_oft_runtime/cublas-12.4.5.8/nvidia/cublas/lib",
+    "--observation-dir",
+    "/home/wxy/Rui_work/toolbox-native-check/capture-001",
+    "--closed-loop",
+    "--tasks",
+    "0",
+    "--trials",
+    "0",
+    "--scoring"
+  ],
+  "checkpoint": "/home/wxy/Rui_work/openvla-7b-oft-libero-object",
+  "configuration": {
+    "checkpoint": "/home/wxy/Rui_work/openvla-7b-oft-libero-object",
+    "task_suite_name": "libero_object",
+    "unnorm_key": "libero_object_no_noops",
+    "use_vla_pruner": true,
+    "fastv_k": 3,
+    "fastv_r": 0.5,
+    "vla_pruner_layer": 15,
+    "vla_pruner_mode": "fastv",
+    "vla_pruner_av_hist_w": 3,
+    "vla_pruner_av_decay": 0.8,
+    "vla_pruner_action_horizon": 0,
+    "vla_pruner_semantic_weight": 0.5,
+    "vla_pruner_action_weight": 0.5,
+    "use_proprio": true,
+    "num_images_in_input": 2,
+    "num_open_loop_steps": 8,
+    "center_crop": true,
+    "use_film": false,
+    "load_in_8bit": false,
+    "load_in_4bit": false,
+    "lora_rank": 32
+  }
+}

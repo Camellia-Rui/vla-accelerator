@@ -1,0 +1,102 @@
+{
+  "initial_states": 6,
+  "episodes": 18,
+  "successes": {
+    "baseline": 6,
+    "fastv_scoring": 6,
+    "vla_pruner": 6
+  },
+  "baseline_only_successes": {
+    "fastv_scoring": 0,
+    "vla_pruner": 0
+  },
+  "method_only_successes": {
+    "fastv_scoring": 0,
+    "vla_pruner": 0
+  },
+  "contrasts": [
+    {
+      "task": 0,
+      "trial": 0,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 0,
+      "trial": 1,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 0,
+      "trial": 2,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 0,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 1,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    },
+    {
+      "task": 1,
+      "trial": 2,
+      "baseline": true,
+      "fastv_scoring": true,
+      "vla_pruner": true
+    }
+  ],
+  "restored": true,
+  "parameters_preserved": true,
+  "modules_restored": true,
+  "quality_decision": "INCONCLUSIVE",
+  "formal_speedup_accepted": false,
+  "by_mode": {
+    "baseline": {
+      "task_successes": {
+        "0": 3,
+        "1": 3
+      },
+      "mean_query_ms": 173.5250730851984,
+      "median_query_ms": 132.31008499860764,
+      "mean_policy_ms_per_episode": 3210.2138520761705,
+      "policy_calls": 111,
+      "executed_actions": 875
+    },
+    "fastv_scoring": {
+      "task_successes": {
+        "0": 3,
+        "1": 3
+      },
+      "mean_query_ms": 166.01124575910424,
+      "median_query_ms": 143.5075659537688,
+      "mean_policy_ms_per_episode": 3098.876587503279,
+      "policy_calls": 112,
+      "executed_actions": 881
+    },
+    "vla_pruner": {
+      "task_successes": {
+        "0": 3,
+        "1": 3
+      },
+      "mean_query_ms": 188.81018819663217,
+      "median_query_ms": 160.81758053041995,
+      "mean_policy_ms_per_episode": 3587.393575736011,
+      "policy_calls": 114,
+      "executed_actions": 888
+    }
+  },
+  "source_sha256": "1d13750e0caf57eb91a7531750edace7af8231b8003c0474846b4773f3967e0c"
+}

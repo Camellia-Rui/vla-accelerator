@@ -1,8 +1,13 @@
 """Exclusive, reversible inference choices for an audited pinned OFT bundle."""
+from dataclasses import replace
+
+
 class OFTChoice:
     modes=("baseline","lightvla","vla_pruner")
 
-    def __init__(self,bundle,config):
+    def __init__(self,bundle,config,scoring=False):
+        if scoring:
+            self.modes = ("baseline", "fastv_scoring", "vla_pruner")
         self.bundle,self.config=bundle,config
         self.adapter=None
         self.mode="baseline"
@@ -15,9 +20,10 @@ class OFTChoice:
         if mode=="lightvla":
             from methods.lightvla import LightVLAAccelerator
             self.adapter=LightVLAAccelerator.install(model,mode="packaged")
-        elif mode=="vla_pruner":
+        elif mode in ("vla_pruner", "fastv_scoring"):
             from methods.vla_pruner.accelerator import VLAPrunerAccelerator
-            self.adapter=VLAPrunerAccelerator.install(model,config=self.config,
+            config = replace(self.config, vla_pruner_mode="fastv") if mode == "fastv_scoring" else self.config
+            self.adapter=VLAPrunerAccelerator.install(model,config=config,
                 **{k:self.bundle[k] for k in ("processor","action_head","proprio_projector")})
         self.mode=mode
         self.reset()
@@ -28,7 +34,7 @@ class OFTChoice:
 
     def query(self,observation):
         from methods.vla_pruner.evaluation import actions_array,query
-        if self.mode=="vla_pruner":return query(self.adapter,observation)
+        if self.mode in ("vla_pruner", "fastv_scoring"):return query(self.adapter,observation)
         return actions_array(self.bundle["native_query"](observation))
 
     def stats(self):

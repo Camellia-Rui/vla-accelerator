@@ -24,3 +24,11 @@ class SelectionTests(unittest.TestCase):
     def test_no_benefit_retains_native(self):
         scores = {"baseline": (2, 2, 10), "alternative": (2, 2, 11)}
         self.assertEqual(decide(scores, 100, 2, 0)["selected"], "baseline")
+
+    def test_scoring_run_distinguishes_backend_modes_and_sample_size(self):
+        path = (Path(__file__).resolve().parents[1] / "docs/server-evidence/2026-11-10"
+                / "oft-scoring-object/pilot/report.json")
+        scores = metrics(path)
+        self.assertEqual(set(scores), {"baseline", "vla_pruner", "fastv_scoring"})
+        self.assertTrue(all((wins, n) == (6, 6) for wins, n, _ in scores.values()))
+        self.assertIsNone(decide(scores, 90, 50, 0)["selected"])

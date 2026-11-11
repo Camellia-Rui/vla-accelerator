@@ -5,7 +5,7 @@ import sysconfig
 import sys
 
 
-def runtime_environment(cache_dir, gpu=None, prefer_env_cuda=False):
+def runtime_environment(cache_dir, gpu=None, prefer_env_cuda=False, cublas_dir=None):
     root = Path(cache_dir).resolve()
     root.mkdir(parents=True, exist_ok=True)
     env = os.environ.copy()
@@ -33,4 +33,11 @@ def runtime_environment(cache_dir, gpu=None, prefer_env_cuda=False):
             raise ValueError("Current Python environment lacks expected NVIDIA libraries")
         env.pop("LD_PRELOAD", None)
         env["LD_LIBRARY_PATH"] = os.pathsep.join(map(str, libraries))
+    if cublas_dir is not None:
+        libs = Path(cublas_dir).resolve()
+        preload = [libs / name for name in ("libcublasLt.so.12", "libcublas.so.12")]
+        if os.name != "posix" or not all(p.is_file() for p in preload):
+            raise ValueError("Expected a Linux cuBLAS directory with both .so.12 libraries")
+        env["LD_PRELOAD"] = os.pathsep.join(map(str, preload))
+        env["LD_LIBRARY_PATH"] = os.pathsep.join(filter(None, (str(libs), env.get("LD_LIBRARY_PATH"))))
     return env

@@ -1,5 +1,7 @@
 # 选择成功率达标且平均推理延迟最低的配置
 
+最新的 [Object 同模型评分对照](OFT_OBJECT_SCORING.md)包含 50 对留出状态，支持直接读取压缩原始报告。零成功率下降选 VLA-Pruner，允许下降两百分点选同后端 FastV 评分。旧 LightVLA 风格对照仍按其原协议保留。
+
 在工具箱根目录运行。第一次演示可直接复用仓库随附的真实 H20 对照记录，无需模型或 GPU：
 
 ```bash
@@ -16,7 +18,7 @@ python -B -m core select --project project.json --tasks 0 1 --trials-per-task 3 
 
 | 项目 profile | 同一次评测中的候选 | 计时口径 |
 |---|---|---|
-| oft_object | 原生、同权重 LightVLA 风格干预、VLA-Pruner | 闭环模型查询 |
+| oft_object | 原生、同后端 FastV 评分、VLA-Pruner 语义＋动作评分；可用 `--oft-comparison lightvla-style` 复现旧候选组合 | 闭环模型查询 |
 | lightvla_spatial | 专用训练权重关闭剪枝、启用 LightVLA | 闭环模型查询 |
 | fastv_openvla_spatial / fastv_oft_spatial | 原生、FastV K=2 剪枝 50% | 闭环单动作 / 8 动作块，剔除各模式开头五次预测 |
 | specprune_object | 原生、SpecPrune | 同输入配对的动作块推理；质量来自同初始状态闭环 |

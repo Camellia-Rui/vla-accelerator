@@ -36,3 +36,15 @@ class OFTChoiceTests(unittest.TestCase):
     def test_baseline_preserves_complete_action_chunk(self):
         self.bundle["native_query"].return_value=[[float(i)]*7 for i in range(8)]
         self.assertEqual(self.choice.query({}).shape,(8,7))
+
+    def test_scoring_switch_preserves_layer_ratio_and_original_config(self):
+        from methods.vla_pruner.accelerator import AcceleratorConfig
+        config = AcceleratorConfig(fastv_k=3, fastv_r=0.5)
+        choice = OFTChoice(self.bundle,config,scoring=True)
+        with patch("methods.vla_pruner.accelerator.VLAPrunerAccelerator.install") as install:
+            for mode, expected in (("fastv_scoring", "fastv"), ("vla_pruner", "semantic_action")):
+                choice.select(mode)
+                active = install.call_args.kwargs["config"]
+                self.assertEqual((active.vla_pruner_mode, active.fastv_k, active.fastv_r),
+                                 (expected, 3, 0.5))
+            self.assertEqual(config.vla_pruner_mode, "semantic_action")

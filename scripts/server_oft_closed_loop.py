@@ -14,7 +14,7 @@ def worker(args):
     import torch
     from methods.vla_pruner.accelerator import AcceleratorConfig
     from methods.vla_pruner.runtime import load_bundle
-    from methods.vla_pruner.evaluation import difference
+    from methods.vla_pruner.evaluation import difference, trace
     from methods.oft_choices import OFTChoice
     from scripts.server_lightvla_closed_loop import atomic
     report=dict(passed=False,quality_decision="INCONCLUSIVE",records=[],closed_loop_tested=True)
@@ -34,12 +34,19 @@ def worker(args):
         samples={n:p.detach().flatten()[:64].cpu().clone() for n,p in params.items()}
         modules={n:(m,m.forward) for n,m in model.named_modules()}
         native=bundle["native_query"](bundle["observations"][0])
-        session=OFTChoice(bundle,cfg)
+        session=OFTChoice(bundle,cfg,scoring=args.scoring)
         report.update(provenance=bundle["provenance"],vla_pruner_config=asdict(cfg),
             protocol=dict(tasks=args.tasks,trials=args.trials,seed=7,max_steps=280,settle_steps=10,modes=list(session.modes)))
+        report["warmup_lengths"] = {}
         for mode in session.modes:
             session.select(mode)
             for _ in range(3):session.query(bundle["observations"][0])
+            _, lengths = trace(model, lambda: session.query(bundle["observations"][0]))
+            report["warmup_lengths"][mode] = lengths
+            if args.scoring and mode != "baseline":
+                reference = report["warmup_lengths"]["baseline"]
+                if not any(lengths[k][-1] < v[-1] for k,v in reference.items()):
+                    raise ValueError(f"No observed layer shortening for {mode}")
         for task_id in args.tasks:
             task=suite.get_task(task_id)
             states=suite.get_task_init_states(task_id)
@@ -77,7 +84,7 @@ def worker(args):
                             if done:
                                 row["success"]=True
                                 break
-                        row.update(complete=True,control_steps=step+1,episode_seconds=time.perf_counter()-started)
+                        row.update(complete=True,control_steps=step+1,policy_ms=sum(q["ms"] for q in row["queries"]),episode_seconds=time.perf_counter()-started)
                     except Exception as exc:
                         row["error"]=f"{type(exc).__name__}: {exc}"
                         traceback.print_exc()

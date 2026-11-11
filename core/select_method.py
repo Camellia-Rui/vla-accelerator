@@ -1,6 +1,7 @@
 """Choose the lowest measured latency among quality-qualified modes of one paired run."""
 import argparse
 import csv
+import gzip
 import hashlib
 import itertools
 import json
@@ -16,6 +17,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def read(path):
+    if path.suffix == ".gz":
+        with gzip.open(path, "rt", encoding="utf-8") as stream:
+            return json.load(stream)
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
@@ -24,9 +28,9 @@ def paired_metrics(report):
         raise ValueError("Completed closed-loop comparison required")
     protocol = report["protocol"]
     modes = protocol.get("modes", ["baseline", "packaged"])
-    if modes not in (["baseline", "packaged"], ["baseline", "lightvla", "vla_pruner"]):
+    if modes not in (["baseline", "packaged"], ["baseline", "lightvla", "vla_pruner"], ["baseline", "fastv_scoring", "vla_pruner"]):
         raise ValueError("Unknown comparison protocol")
-    if modes == ["baseline", "lightvla", "vla_pruner"]:
+    if "vla_pruner" in modes:
         from scripts.audit_oft_choices import audit
         checks = audit(report)
         if not all(checks[k] for k in ("restored", "parameters_preserved", "modules_restored")):
@@ -155,6 +159,9 @@ def main(argv=None):
     p.add_argument("--min-pairs", required=True, type=int)
     p.add_argument("--trials-per-task", type=int, default=1)
     p.add_argument("--tasks", nargs="+", type=int, help="project task IDs; default all ten")
+    p.add_argument("--oft-cublas-dir", type=Path, help="process-local cuBLAS override for oft_object")
+    p.add_argument("--oft-comparison", choices=("scoring", "lightvla-style"),
+                   help="OFT Object comparison, default scoring")
     args = p.parse_args(argv)
     if not (0 <= args.min_success_pct <= 100 and 0 <= args.max_drop_pp <= 100
             and args.min_pairs >= 1 and 1 <= args.trials_per_task <= 50):
@@ -163,7 +170,7 @@ def main(argv=None):
     tasks = args.tasks or list(range(10))
     if len(tasks) != len(set(tasks)) or not set(tasks) <= set(range(10)):
         p.error("tasks must be distinct IDs in 0..9")
-    if args.report and (args.tasks or args.trials_per_task != 1):
+    if args.report and (args.tasks or args.trials_per_task != 1 or args.oft_cublas_dir or args.oft_comparison):
         p.error("task options are only supported with --project")
     try:
         out.mkdir(parents=True, exist_ok=False)
@@ -177,6 +184,8 @@ def main(argv=None):
                 raise ValueError(str(planned["blockers"]))
             command = planned["command"]
             profile = data["profile"]
+            if profile != "oft_object" and (args.oft_cublas_dir or args.oft_comparison):
+                raise ValueError("OFT comparison options require the oft_object profile")
             trials = [str(i) for i in range(args.trials_per_task)]
             suite = ["--tasks", *map(str, tasks), "--trials", *trials]
             if profile == "oft_object":
@@ -184,6 +193,10 @@ def main(argv=None):
                            *command[7:]]
                 command.remove("--prefer-env-cuda")
                 command += ["--closed-loop", *suite]
+                if args.oft_comparison != "lightvla-style":
+                    command.append("--scoring")
+                if args.oft_cublas_dir:
+                    command += ["--cublas-dir", str(args.oft_cublas_dir.resolve())]
             elif profile == "specprune_object":
                 command = [data["python"], "-B", str(ROOT/"scripts/batch_specprune.py"), *command[7:], *suite]
             elif profile == "lightvla_spatial":
@@ -202,8 +215,10 @@ def main(argv=None):
                       command=command)
         source_report = read(path)
         result["checkpoint"] = source_report.get("checkpoint") or source_report.get("provenance", {}).get("checkpoint")
-        if result["selected"] == "vla_pruner":
-            result["configuration"] = source_report["vla_pruner_config"]
+        if result["selected"] in ("vla_pruner", "fastv_scoring"):
+            result["configuration"] = dict(source_report["vla_pruner_config"])
+            if result["selected"] == "fastv_scoring":
+                result["configuration"]["vla_pruner_mode"] = "fastv"
         elif result["selected"] == "fastv":
             result["configuration"] = {k:source_report[k] for k in ("backend","k","prune_ratio")}
         dest = out / "selection.json"

@@ -1,0 +1,207 @@
+2026-11-10 12:55:39.057355: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-10 12:55:39.130887: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-11-10 12:55:39.130950: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-11-10 12:55:39.133686: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-11-10 12:55:39.145457: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-11-10 12:55:40.054951: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/home/wxy/Rui_work/VLA-Pruner/VLA-Pruner/src/openvla-oft/transformers/src/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+2026-11-10 12:55:44.237396: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2348] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 9.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+11/10 [12:55:54] INFO     | >> Failed to extract font       font_manager.py:1107
+                          properties from                                       
+                          /usr/share/fonts/truetype/noto/No                     
+                          toColorEmoji.ttf: Can not load                        
+                          face (unknown file format; error                      
+                          code 0x2)                                             
+                 INFO     | >> generated new fontManager    font_manager.py:1639
+Instantiating pretrained VLA policy...
+11/10 [12:55:55] WARNING  | >> Expected vendored       modeling_prismatic.py:335
+                          `transformers==4.47.0` and                            
+                          `tokenizers==0.21.1` but got                          
+                          `transformers==4.47.0` and                            
+                          `tokenizers==0.21.4`; there                           
+                          might be inference-time                               
+                          regressions due to                                    
+                          dependency changes. If in                             
+                          doubt, install                                        
+                          `src/openvla-oft/transformer                          
+                          s` first, then install                                
+                          OpenVLA-OFT.                                          
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  4.16it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  5.31it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  5.84it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  6.25it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  5.83it/s]
+[robosuite WARNING] No private macro file found! (macros.py:53)
+11/10 [12:56:03] WARNING  | >> No private macro file found!         macros.py:53
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+                 WARNING  | >> It is recommended to use a private   macros.py:54
+                          macro file                                            
+[robosuite WARNING] To setup, run: python /data2/wxy/VLA-Adapter/conda_envs/openvla-oft/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+                 WARNING  | >> To setup, run: python                macros.py:55
+                          /data2/wxy/VLA-Adapter/conda_envs/openvla             
+                          -oft/lib/python3.10/site-packages/robosui             
+                          te/scripts/setup_macros.py                            
+                 INFO     | >> No OpenGL_accelerate      acceleratesupport.py:24
+                          module loaded: No module named                        
+                          'OpenGL_accelerate'                                   
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+LlamaModel is using LlamaSdpaAttention, but `torch.nn.functional.scaled_dot_product_attention` does not support `output_attentions=True`. Falling back to the manual attention implementation, for this forward pass only.
+FastV/VLA-Pruner full-sequence pruning disables KV cache for correctness.
+task=0 trial=5 mode=baseline success=True error=None
+task=0 trial=5 mode=fastv_scoring success=True error=None
+task=0 trial=5 mode=vla_pruner success=True error=None
+task=0 trial=6 mode=fastv_scoring success=True error=None
+task=0 trial=6 mode=vla_pruner success=True error=None
+task=0 trial=6 mode=baseline success=True error=None
+task=0 trial=7 mode=vla_pruner success=True error=None
+task=0 trial=7 mode=baseline success=True error=None
+task=0 trial=7 mode=fastv_scoring success=True error=None
+task=0 trial=8 mode=baseline success=True error=None
+task=0 trial=8 mode=fastv_scoring success=True error=None
+task=0 trial=8 mode=vla_pruner success=True error=None
+task=0 trial=9 mode=fastv_scoring success=True error=None
+task=0 trial=9 mode=vla_pruner success=True error=None
+task=0 trial=9 mode=baseline success=True error=None
+task=1 trial=5 mode=vla_pruner success=True error=None
+task=1 trial=5 mode=baseline success=True error=None
+task=1 trial=5 mode=fastv_scoring success=True error=None
+task=1 trial=6 mode=baseline success=True error=None
+task=1 trial=6 mode=fastv_scoring success=True error=None
+task=1 trial=6 mode=vla_pruner success=True error=None
+task=1 trial=7 mode=fastv_scoring success=True error=None
+task=1 trial=7 mode=vla_pruner success=True error=None
+task=1 trial=7 mode=baseline success=True error=None
+task=1 trial=8 mode=vla_pruner success=True error=None
+task=1 trial=8 mode=baseline success=True error=None
+task=1 trial=8 mode=fastv_scoring success=True error=None
+task=1 trial=9 mode=baseline success=True error=None
+task=1 trial=9 mode=fastv_scoring success=True error=None
+task=1 trial=9 mode=vla_pruner success=True error=None
+task=2 trial=5 mode=fastv_scoring success=True error=None
+task=2 trial=5 mode=vla_pruner success=True error=None
+task=2 trial=5 mode=baseline success=True error=None
+task=2 trial=6 mode=vla_pruner success=True error=None
+task=2 trial=6 mode=baseline success=True error=None
+task=2 trial=6 mode=fastv_scoring success=True error=None
+task=2 trial=7 mode=baseline success=True error=None
+task=2 trial=7 mode=fastv_scoring success=True error=None
+task=2 trial=7 mode=vla_pruner success=True error=None
+task=2 trial=8 mode=fastv_scoring success=True error=None
+task=2 trial=8 mode=vla_pruner success=True error=None
+task=2 trial=8 mode=baseline success=True error=None
+task=2 trial=9 mode=vla_pruner success=True error=None
+task=2 trial=9 mode=baseline success=True error=None
+task=2 trial=9 mode=fastv_scoring success=True error=None
+task=3 trial=5 mode=baseline success=True error=None
+task=3 trial=5 mode=fastv_scoring success=True error=None
+task=3 trial=5 mode=vla_pruner success=True error=None
+task=3 trial=6 mode=fastv_scoring success=True error=None
+task=3 trial=6 mode=vla_pruner success=True error=None
+task=3 trial=6 mode=baseline success=True error=None
+task=3 trial=7 mode=vla_pruner success=True error=None
+task=3 trial=7 mode=baseline success=True error=None
+task=3 trial=7 mode=fastv_scoring success=True error=None
+task=3 trial=8 mode=baseline success=True error=None
+task=3 trial=8 mode=fastv_scoring success=True error=None
+task=3 trial=8 mode=vla_pruner success=True error=None
+task=3 trial=9 mode=fastv_scoring success=True error=None
+task=3 trial=9 mode=vla_pruner success=True error=None
+task=3 trial=9 mode=baseline success=True error=None
+task=4 trial=5 mode=vla_pruner success=True error=None
+task=4 trial=5 mode=baseline success=True error=None
+task=4 trial=5 mode=fastv_scoring success=True error=None
+task=4 trial=6 mode=baseline success=True error=None
+task=4 trial=6 mode=fastv_scoring success=True error=None
+task=4 trial=6 mode=vla_pruner success=True error=None
+task=4 trial=7 mode=fastv_scoring success=True error=None
+task=4 trial=7 mode=vla_pruner success=True error=None
+task=4 trial=7 mode=baseline success=True error=None
+task=4 trial=8 mode=vla_pruner success=True error=None
+task=4 trial=8 mode=baseline success=True error=None
+task=4 trial=8 mode=fastv_scoring success=True error=None
+task=4 trial=9 mode=baseline success=True error=None
+task=4 trial=9 mode=fastv_scoring success=True error=None
+task=4 trial=9 mode=vla_pruner success=True error=None
+task=5 trial=5 mode=fastv_scoring success=True error=None
+task=5 trial=5 mode=vla_pruner success=True error=None
+task=5 trial=5 mode=baseline success=True error=None
+task=5 trial=6 mode=vla_pruner success=True error=None
+task=5 trial=6 mode=baseline success=True error=None
+task=5 trial=6 mode=fastv_scoring success=True error=None
+task=5 trial=7 mode=baseline success=True error=None
+task=5 trial=7 mode=fastv_scoring success=True error=None
+task=5 trial=7 mode=vla_pruner success=True error=None
+task=5 trial=8 mode=fastv_scoring success=True error=None
+task=5 trial=8 mode=vla_pruner success=True error=None
+task=5 trial=8 mode=baseline success=True error=None
+task=5 trial=9 mode=vla_pruner success=True error=None
+task=5 trial=9 mode=baseline success=True error=None
+task=5 trial=9 mode=fastv_scoring success=True error=None
+task=6 trial=5 mode=baseline success=True error=None
+task=6 trial=5 mode=fastv_scoring success=True error=None
+task=6 trial=5 mode=vla_pruner success=True error=None
+task=6 trial=6 mode=fastv_scoring success=True error=None
+task=6 trial=6 mode=vla_pruner success=True error=None
+task=6 trial=6 mode=baseline success=True error=None
+task=6 trial=7 mode=vla_pruner success=True error=None
+task=6 trial=7 mode=baseline success=True error=None
+task=6 trial=7 mode=fastv_scoring success=True error=None
+task=6 trial=8 mode=baseline success=True error=None
+task=6 trial=8 mode=fastv_scoring success=True error=None
+task=6 trial=8 mode=vla_pruner success=True error=None
+task=6 trial=9 mode=fastv_scoring success=True error=None
+task=6 trial=9 mode=vla_pruner success=True error=None
+task=6 trial=9 mode=baseline success=True error=None
+task=7 trial=5 mode=vla_pruner success=True error=None
+task=7 trial=5 mode=baseline success=True error=None
+task=7 trial=5 mode=fastv_scoring success=True error=None
+task=7 trial=6 mode=baseline success=True error=None
+task=7 trial=6 mode=fastv_scoring success=True error=None
+task=7 trial=6 mode=vla_pruner success=True error=None
+task=7 trial=7 mode=fastv_scoring success=True error=None
+task=7 trial=7 mode=vla_pruner success=True error=None
+task=7 trial=7 mode=baseline success=True error=None
+task=7 trial=8 mode=vla_pruner success=True error=None
+task=7 trial=8 mode=baseline success=True error=None
+task=7 trial=8 mode=fastv_scoring success=True error=None
+task=7 trial=9 mode=baseline success=True error=None
+task=7 trial=9 mode=fastv_scoring success=True error=None
+task=7 trial=9 mode=vla_pruner success=True error=None
+task=8 trial=5 mode=fastv_scoring success=True error=None
+task=8 trial=5 mode=vla_pruner success=True error=None
+task=8 trial=5 mode=baseline success=True error=None
+task=8 trial=6 mode=vla_pruner success=True error=None
+task=8 trial=6 mode=baseline success=True error=None
+task=8 trial=6 mode=fastv_scoring success=False error=None
+task=8 trial=7 mode=baseline success=True error=None
+task=8 trial=7 mode=fastv_scoring success=True error=None
+task=8 trial=7 mode=vla_pruner success=True error=None
+task=8 trial=8 mode=fastv_scoring success=True error=None
+task=8 trial=8 mode=vla_pruner success=True error=None
+task=8 trial=8 mode=baseline success=True error=None
+task=8 trial=9 mode=vla_pruner success=True error=None
+task=8 trial=9 mode=baseline success=True error=None
+task=8 trial=9 mode=fastv_scoring success=True error=None
+task=9 trial=5 mode=baseline success=True error=None
+task=9 trial=5 mode=fastv_scoring success=True error=None
+task=9 trial=5 mode=vla_pruner success=True error=None
+task=9 trial=6 mode=fastv_scoring success=True error=None
+task=9 trial=6 mode=vla_pruner success=True error=None
+task=9 trial=6 mode=baseline success=True error=None
+task=9 trial=7 mode=vla_pruner success=True error=None
+task=9 trial=7 mode=baseline success=True error=None
+task=9 trial=7 mode=fastv_scoring success=True error=None
+task=9 trial=8 mode=baseline success=True error=None
+task=9 trial=8 mode=fastv_scoring success=True error=None
+task=9 trial=8 mode=vla_pruner success=True error=None
+task=9 trial=9 mode=fastv_scoring success=True error=None
+task=9 trial=9 mode=vla_pruner success=True error=None
+task=9 trial=9 mode=baseline success=True error=None

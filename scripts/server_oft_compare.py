@@ -104,21 +104,37 @@ def main():
     p.add_argument("--pairs",type=int,default=3)
     p.add_argument("--warmup",type=int,default=3)
     p.add_argument("--prune-ratio",type=float,default=0.5)
+    p.add_argument("--scoring",action="store_true",help="Compare FastV scoring and semantic-action scoring in closed loop")
+    p.add_argument("--cublas-dir",type=Path,help="Optional process-local cuBLAS library directory")
     p.add_argument("--closed-loop",action="store_true")
     p.add_argument("--tasks",type=int,nargs="+",default=[0,1])
     p.add_argument("--trials",type=int,nargs="+",default=[0,1,2])
     p.add_argument("--worker",action="store_true")
     args=p.parse_args()
+    if args.scoring and not args.closed_loop: p.error("--scoring requires --closed-loop")
     if min(args.pairs,args.warmup)<1:p.error("positive pairs and warmup required")
     args.output=args.output.resolve()
+    if (not set(args.tasks) <= set(range(10)) or len(set(args.tasks)) != len(args.tasks)
+            or not set(args.trials) <= set(range(50)) or len(set(args.trials)) != len(args.trials)):
+        p.error("Expected unique Object task IDs 0..9 and state IDs 0..49")
     if args.worker:return worker(args)
+    worker_args = ["--workspace", str(Path(args.workspace).resolve()),
+                   "--checkpoint", str(Path(args.checkpoint).resolve()), "--gpu", args.gpu,
+                   "--unnorm-key", args.unnorm_key, "--prune-ratio", str(args.prune_ratio),
+                   "--pairs", str(args.pairs), "--warmup", str(args.warmup),
+                   "--tasks", *map(str,args.tasks), "--trials", *map(str,args.trials)]
+    if args.closed_loop: worker_args.append("--closed-loop")
+    if args.scoring: worker_args.append("--scoring")
+    for directory in args.observation_dir:
+        worker_args.extend(["--observation-dir", str(Path(directory).resolve())])
     from core.runtime_env import runtime_environment
     args.output.mkdir(parents=True,exist_ok=False)
-    env=runtime_environment(args.output/"cache",args.gpu,True)
+    env=runtime_environment(args.output/"cache",args.gpu,True,args.cublas_dir)
     if args.closed_loop:
         env.update(MUJOCO_GL="egl",PYOPENGL_PLATFORM="egl",MUJOCO_EGL_DEVICE_ID=str(args.gpu))
     with (args.output/"process.log").open("w") as log:
-        result=subprocess.run([sys.executable,"-u","-B",str(Path(__file__).resolve()),*sys.argv[1:],"--worker"],
+        result=subprocess.run([sys.executable,"-u","-B",str(Path(__file__).resolve()),*worker_args,
+            "--output",str(args.output),"--worker"],
             env=env,stdout=log,stderr=subprocess.STDOUT,cwd=args.output)
     (args.output/"process.json").write_text(json.dumps(dict(exit_code=result.returncode)))
     print("RESULT",args.output,"EXIT",result.returncode)

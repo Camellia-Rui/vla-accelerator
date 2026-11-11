@@ -33,6 +33,8 @@ python -m core doctor --workspace /absolute/path/to/model-project --output runs/
 
 ## 运行评估与自动选择
 
+新增同一份 OFT Object 权重上的 50 对留出对照。FastV 评分成功 49/50、平均查询 126.48 ms；VLA-Pruner 成功 50/50、152.26 ms。允许的成功率下降不同，选择器会给出不同结果。[实验与可复算演示](docs/OFT_OBJECT_SCORING.md)
+
 只测试一种方法时，从上表的 README 进入，按对应的 `core evaluate --method …` 命令操作。要重新比较项目支持的候选方案，先生成配置，填写实际的 profile、模型源码、权重、Python 解释器和输出路径，然后检查：
 
 ```bash
