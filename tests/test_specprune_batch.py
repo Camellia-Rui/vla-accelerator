@@ -13,3 +13,13 @@ class SpecPruneBatchTests(unittest.TestCase):
    with self.assertRaises(ValueError):aggregate(rows,n)
   r=self.row(0,1);r['audit']['episodes'][1]['task']=2
   with self.assertRaises(ValueError):aggregate([r],1)
+ def test_query_latency_is_weighted_by_real_queries(self):
+  rows=[self.row(0,5),self.row(1,5)]
+  for i,row in enumerate(rows):
+   for e in row['audit']['episodes']:
+    e.update(policy_ms=100+100*i,policy_calls=8,environment_steps=7,
+             model_calls=1+2*i,query_policy_ms=80+160*i)
+  r=aggregate(rows,2)
+  self.assertEqual(r['metrics']['accelerated']['mean_query_policy_ms'],80)
+  self.assertEqual(r['metrics']['accelerated']['mean_episode_policy_ms'],150)
+  self.assertEqual(r['metrics']['accelerated']['model_calls'],4)

@@ -130,7 +130,8 @@ def main(argv=None):
       torch.cuda.synchronize(); tick=time.perf_counter()
       with torch.inference_mode(): action,info=active.step(get_libero_image(observation),get_libero_wrist_image(observation),instruction,state)
       torch.cuda.synchronize()
-      row['records'].append(dict(policy_step=policy_step,action=np.asarray(action).tolist(),execute_action=bool(info['execute_action']),ms=(time.perf_counter()-tick)*1000))
+      row['records'].append(dict(policy_step=policy_step,action=np.asarray(action).tolist(),execute_action=bool(info['execute_action']),ms=(time.perf_counter()-tick)*1000,
+          queried=bool(info['queried']),infer_step=int(info['infer_step'])))
       if info['execute_action']:
        observation,_,done,_=env.step(action.tolist()); executed+=1
        if done: row['success']=True; break

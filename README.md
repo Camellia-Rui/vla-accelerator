@@ -9,7 +9,7 @@
 | 原始 OpenVLA 或 OpenVLA-OFT，Spatial 权重，对应的 FastV 工程 | [FastV](methods/fastv/README.md) | 原始模型 421/500 → 434/500；OFT 492/500 → 497/500 |
 | OpenVLA-OFT，Object 权重，固定的 VLA-Pruner 后端 | [VLA-Pruner](methods/vla_pruner/README.md) | 两个任务六对初始状态，50% 剪枝时 6/6 → 6/6 |
 | LightVLA 专用训练权重，Spatial 后端 | [LightVLA](methods/lightvla/README.md) | 四个任务二十对初始状态，20/20 → 20/20 |
-| OpenVLA-OFT，Object 权重，SpecPrune 工程 | [SpecPrune](methods/specprune/README.md) | 两个任务三个初始状态，3/3 → 3/3；提供实验评估入口 |
+| OpenVLA-OFT，Object 权重，SpecPrune 工程 | [SpecPrune](methods/specprune/README.md) | 十个任务五十对初始状态，49/50 → 49/50；查询耗时降低 23.75% |
 | 查看历史缓存实验 | [VLA-Cache](methods/vla_cache/README.md) | 历史对照 14/20 → 0/20；已从可选方案中隔离 |
 
 每行结果只适用于对应的权重、后端和任务。比如在普通 OFT Object 权重上，LightVLA 风格的推理干预仅成功 1/6，与专用 Spatial 权重的 20/20 属于不同实验。[同权重对照](docs/OFT_METHOD_CHOICES.md)

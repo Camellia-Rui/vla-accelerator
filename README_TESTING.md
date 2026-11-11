@@ -148,7 +148,7 @@ LightVLA 使用 quality_decision 字段，不使用 VLA-Pruner 的 input_screen 
 
 ## SpecPrune 实验评估
 
-使用匹配的 SpecPrune Object 后端和模型环境。运行 `python -m core evaluate --method specprune --help` 查看入口，单回合使用 `--closed-loop`，批量和续跑使用 `scripts/batch_specprune.py`。服务器资源路径、实际命令与三个已测初始状态见 [SpecPrune 使用说明](docs/SPECPRUNE_WORKFLOW.md)。
+使用匹配的 SpecPrune Object 后端和模型环境。运行 `python -m core evaluate --method specprune --help` 查看入口，单回合使用 `--closed-loop`，批量和续跑使用 `scripts/batch_specprune.py`。服务器资源路径与实际命令见 [SpecPrune 使用说明](docs/SPECPRUNE_WORKFLOW.md)，最新 50 对闭环、选择器演示与复算见 [展示说明](docs/SPECPRUNE_DISPLAY.md)。
 
 ## 5. 常见问题
 

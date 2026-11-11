@@ -14,6 +14,10 @@ python -m core evaluate --method specprune --workspace "$WORKSPACE" --checkpoint
 
 ## 已验证范围
 
-当前封装在两个 Object 任务、三个不同初始状态下，基线与加速各成功 **3/3**。这个样本用于验证闭环执行。项目选择器使用批量闭环结果筛查成功率，再用同输入动作块配对计时比较速度。[选择口径](../../docs/METHOD_SELECTION.md) · [来源记录](provenance.json)
+当前封装已完成 **10 个 Object 任务、50 对初始状态**的配对闭环，基线与 SpecPrune 均成功 **49/50（98%）**。平均查询策略耗时 275.47 → 210.03 ms，降低 **23.75%**；平均每回合策略耗时 4900.44 → 4301.93 ms，降低 **12.21%**。这是共享 H20、单 seed 下的观测结果，不保证普遍无损加速。[原始记录、区间和展示命令](../../docs/SPECPRUNE_DISPLAY.md)
+
+项目选择器使用批量闭环结果筛查成功率，再用同输入动作块配对计时比较速度；本轮在示例质量门槛下已选出 SpecPrune。固定输入计时与闭环查询耗时分开报告。[选择口径](../../docs/METHOD_SELECTION.md) · [来源记录](provenance.json)
 
 早期独立实验的性能表、Object/Goal 权重清单及开发接口保存在[历史实验记录](HISTORICAL_EXPERIMENTS.md)。其中的 Goal 和大样本结果应按原工程条件引用。
+
+历史 3 对烟雾验证用于追踪接入过程，不与本轮 50 对混合计算成功率。

@@ -40,8 +40,20 @@ def audit(path):
     raise ValueError('Episode file differs from report')
    if sum(x['execute_action'] for x in e['records'])!=e['environment_steps']: raise ValueError('Executed action count mismatch')
    if any(len(x['action'])!=7 or not all(math.isfinite(v) for v in x['action']) for x in e['records']): raise ValueError('Invalid episode action')
+   if any(not math.isfinite(x['ms']) or x['ms']<=0 for x in e['records']): raise ValueError('Invalid policy time')
+   if any('queried' in x or 'infer_step' in x for x in e['records']):
+    queries=0
+    for x in e['records']:
+     if type(x.get('queried')) is not bool: raise ValueError('Missing query flag')
+     queries+=x['queried']
+     if type(x.get('infer_step')) is not int or x['infer_step']!=queries: raise ValueError('Query counter mismatch')
   if not r.get('post_loop_restored',{}).get('matches'): raise ValueError('Post-loop restore failed')
   result['episodes']=[{k:e[k] for k in ('mode','success','environment_steps','task','trial')} for e in episodes]
+  for summary,e in zip(result['episodes'],episodes):
+   summary.update(policy_calls=len(e['records']),policy_ms=sum(x['ms'] for x in e['records']))
+   if all('queried' in x for x in e['records']):
+    summary.update(model_calls=sum(x['queried'] for x in e['records']),
+                   query_policy_ms=sum(x['ms'] for x in e['records'] if x['queried']))
  return result
 
 if __name__=='__main__':

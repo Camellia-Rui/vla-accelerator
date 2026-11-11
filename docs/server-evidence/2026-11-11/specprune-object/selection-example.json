@@ -1,0 +1,31 @@
+{
+  "selected": "specprune",
+  "candidates": {
+    "baseline": {
+      "successes": 49,
+      "episodes": 50,
+      "success_pct": 98.0,
+      "mean_ms": 212.42654863744974,
+      "speedup": 1.0,
+      "exclusions": []
+    },
+    "specprune": {
+      "successes": 49,
+      "episodes": 50,
+      "success_pct": 98.0,
+      "mean_ms": 179.73657382652164,
+      "speedup": 1.1818771445063811,
+      "exclusions": []
+    }
+  },
+  "scope": "observed paired sample",
+  "policy": {
+    "min_success_pct": 90.0,
+    "min_pairs": 50,
+    "max_drop_pp": 0.0
+  },
+  "report": "D:\\\u5927\u521b\\vla-express-toolbox\\docs\\server-evidence\\2026-11-11\\specprune-object\\report.json",
+  "report_sha256": "1fec3244fe3ce1d6d729ee921fcedc09c6cf77ab004c1b127367c0cd37b76bee",
+  "command": null,
+  "checkpoint": null
+}

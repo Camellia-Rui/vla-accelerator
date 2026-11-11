@@ -45,3 +45,7 @@ python -B scripts/compare_methods.py 实际manifest.json --pretty
 # LightVLA 新统一入口证据
 
 2026-11-04 的固定输入与闭环回归见 [报告](LIGHTVLA_UNIFIED_RESULT.md)，原始记录分别位于 `server-evidence/2026-11-04/lightvla-unified-pair` 与 `lightvla-unified-loop`。新闭环样本与已有 20 对记录重叠，不合并计算独立样本数。
+
+## SpecPrune 50 对当前封装证据
+
+2026-11-11 的 Object 十任务、状态 5–9、seed=7 配对闭环全部完成并独立复核，两种模式均成功 49/50。查询策略耗时降低 23.75%，回合策略耗时降低 12.21%。回合加速比 bootstrap 区间包含 1，不作为稳定加速保证。计时口径、失败样本和复算命令见 [展示说明](SPECPRUNE_DISPLAY.md)，原始文件与校验清单位于 `server-evidence/2026-11-11/specprune-object`。

@@ -25,7 +25,17 @@ def aggregate(rows,expected):
   for e in episodes:
    if (e['task'],e['trial'])!=(row['task'],row['trial']):raise ValueError('Task/trial mismatch')
    counts[e['mode']]+=e['success']
- return dict(execution_complete=True,paired_initial_states=expected,successes=counts,records=rows,
+ metrics={}
+ for mode in counts:
+  episodes=[e for row in rows for e in row['audit']['episodes'] if e['mode']==mode]
+  metrics[mode]={'success_pct':100*counts[mode]/expected}
+  if all('policy_ms' in e for e in episodes):
+   metrics[mode].update(mean_episode_policy_ms=sum(e['policy_ms'] for e in episodes)/expected,
+                       policy_calls=sum(e['policy_calls'] for e in episodes),environment_steps=sum(e['environment_steps'] for e in episodes))
+  if all('model_calls' in e for e in episodes):
+   calls=sum(e['model_calls'] for e in episodes)
+   metrics[mode].update(model_calls=calls,mean_query_policy_ms=sum(e['query_policy_ms'] for e in episodes)/calls if calls else None)
+ return dict(execution_complete=True,paired_initial_states=expected,successes=counts,metrics=metrics,records=rows,
              quality_decision='INCONCLUSIVE',deployment_accepted=False)
 
 

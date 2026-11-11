@@ -1,0 +1,46 @@
+{
+  "source_root": "/home/wxy/cloris_work/SpecPrune-VLA/openvla-oft",
+  "precision": "bfloat16",
+  "attention": "eager",
+  "seed": 7,
+  "tasks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "trials": [
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "source_zip_sha256": "933f04b3966b1c39152dfe1bd3908c64f681cd4070eedb21dab7587a755e1768",
+  "gpu": {
+    "exit_code": 0,
+    "stdout": "index, uuid, name, driver_version, memory.free [MiB], utilization.gpu [%]\n0, GPU-e6525e27-676f-6554-a0e8-7b8c1a702509, NVIDIA H20, 570.158.01, 55183 MiB, 0 %\n1, GPU-cac9088e-f576-3efe-2fd5-c8609a091a99, NVIDIA H20, 570.158.01, 81018 MiB, 42 %\n2, GPU-389ced12-b430-4b86-84da-7c22738a3258, NVIDIA H20, 570.158.01, 54719 MiB, 63 %\n3, GPU-f4920dd5-2070-3b92-2929-fcefa07bde84, NVIDIA H20, 570.158.01, 81018 MiB, 0 %\n4, GPU-ad39f5cf-7762-0a33-0b7c-870acd4cd98a, NVIDIA H20, 570.158.01, 54250 MiB, 26 %\n5, GPU-df2e105e-0841-847e-c94f-b5a12eef6c5e, NVIDIA H20, 570.158.01, 78056 MiB, 81 %\n6, GPU-51628529-1058-69be-78a6-03ed66e42fde, NVIDIA H20, 570.158.01, 22602 MiB, 0 %\n7, GPU-2608c188-6418-45e8-7a4e-351e5b6eae92, NVIDIA H20, 570.158.01, 22728 MiB, 0 %\n",
+    "stderr": ""
+  },
+  "source_commit": {
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+  },
+  "source_status": {
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+  },
+  "packages": {
+    "exit_code": 0,
+    "stdout": "absl-py==2.5.0\naccelerate==1.15.0\naiohappyeyeballs==2.6.1\naiohttp==3.13.5\naiosignal==1.4.0\n-e git+https://github.com/tonyzhaozh/aloha.git@06369f03cd8e0a47e16d3a90167853fd33af7557#egg=aloha\nannotated-doc==0.0.5\nannotated-types==0.8.0\nanyio==4.13.0\nargon2-cffi==25.1.0\nargon2-cffi-bindings==25.1.0\narray_record==0.8.1\narrow==1.4.0\nasttokens==3.0.0\nastunparse==1.6.3\nasync-lru==2.3.0\nasync-timeout==5.0.1\nattrs==25.4.0\naudioread==3.0.1\nautopep8==2.3.2\nbabel==2.18.0\nbddl==3.6.0\nbeautifulsoup4==4.14.3\nbitarray==3.3.0\nblack==25.9.0\nbleach==6.3.0\nbokeh==3.8.0\ncertifi==2026.4.22\ncffi==2.1.1\ncharset-normalizer==3.4.7\nclick==8.4.2\ncloudpickle==3.1.2\ncomm==0.2.3\ncontourpy==1.3.2\ncryptography==50.0.1\ncycler==0.12.1\nCython==3.0.12\ndebugpy==1.8.20\ndecorator==5.2.1\ndefusedxml==0.7.1\ndiffusers==0.39.0\ndlimp @ git+https://github.com/moojink/dlimp_openvla@040105d256bd28866cc6620621a3d5f7b6b91b46\ndm-control==1.0.14\ndm-env==1.6\ndm-env-wrappers==0.0.13\ndm-tree==0.1.9\ndraccus==0.8.0\neasydict==1.13\neinops==0.8.2\netils==1.13.0\nevdev==1.9.3\nexceptiongroup==1.3.0\nexecnet==2.1.1\nexecuting==2.2.1\nfastapi==0.141.1\nfastjsonschema==2.21.2\nfilelock==3.30.3\nflatbuffers==25.12.19\nfonttools==4.61.0\nfqdn==1.5.1\nfrozenlist==1.8.0\nfsspec==2026.9.0\nfuture==1.0.0\ngast==0.7.0\ngitdb==4.0.12\nGitPython==3.1.62\nglfw==2.10.2\ngoogle-auth==2.58.1\ngoogle-auth-oauthlib==1.4.1\ngoogle-pasta==0.2.0\ngrpcio==1.84.0\ngym==0.26.2\ngym-notices==0.1.0\nh11==0.16.0\nh5py==3.16.0\nhf-xet==1.5.2\nhttpcore==1.0.9\nhttpx==0.28.1\nhuggingface_hub==0.36.2\nidna==3.4\nImageIO==2.38.0\nimageio-ffmpeg==0.6.0\nimportlib_metadata==9.0.1\nimportlib_resources==7.1.0\niniconfig==2.1.0\nintervaltree==3.1.0\nipykernel==7.2.0\nipython==8.37.0\nipywidgets==8.1.8\nisoduration==20.11.0\njedi==0.19.2\nJinja2==3.1.6\njoblib==1.4.2\njson-numpy==2.1.1\njson5==0.14.0\njsonlines==4.0.0\njsonpointer==3.1.1\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\njupyter==1.1.1\njupyter-console==6.6.3\njupyter-events==0.12.1\njupyter-lsp==2.3.1\njupyter_client==8.8.0\njupyter_core==5.9.1\njupyter_server==2.18.2\njupyter_server_terminals==0.5.4\njupyterlab==4.5.7\njupyterlab_pygments==0.3.0\njupyterlab_server==2.28.0\njupyterlab_widgets==3.0.16\njupytext==1.19.5\nkeras==2.15.0\nkiwisolver==1.4.9\nlabmaze==1.0.6\nlark==1.3.1\nlazy_loader==0.4\nlibclang==18.1.1\n-e git+https://github.com/Lifelong-Robot-Learning/LIBERO.git@8f1084e3132a39270c3a13ebe37270a43ece2a01#egg=libero\nlibrosa==0.11.0\nlightning==2.6.1\nlightning-utilities==0.15.3\nllvmlite==0.45.1\nlxml==5.3.1\nMarkdown==3.10.3\nmarkdown-it-py==4.2.0\nMarkupSafe==3.0.3\nmatplotlib==3.10.9\nmatplotlib-inline==0.1.7\nmdit-py-plugins==0.6.1\nmdurl==0.1.2\nmergedeep==1.3.4\nmido==1.3.3\nmistune==3.2.1\nml-dtypes==0.2.0\nmpmath==1.3.0\nmsgpack==1.1.2\nmujoco==2.3.7\nmujoco-utils==0.0.6\nmultidict==6.7.1\nmypy==1.18.2\nmypy_extensions==1.1.0\nnarwhals==2.8.0\nnbclient==0.10.4\nnbconvert==7.17.1\nnbformat==5.10.4\nnest-asyncio==1.6.0\nnetworkx==3.4.2\nnltk==3.9.4\nnote-seq==0.0.5\nnotebook==7.5.6\nnotebook_shim==0.2.4\nnumba==0.62.1\nnumpy==1.26.4\nnvidia-cublas-cu12==12.4.5.8\nnvidia-cuda-cupti-cu12==12.4.127\nnvidia-cuda-nvrtc-cu12==12.4.127\nnvidia-cuda-runtime-cu12==12.4.127\nnvidia-cudnn-cu12==9.1.0.70\nnvidia-cufft-cu12==11.2.1.3\nnvidia-cufile-cu12==1.13.1.3\nnvidia-curand-cu12==10.3.5.147\nnvidia-cusolver-cu12==11.6.1.9\nnvidia-cusparse-cu12==12.3.1.170\nnvidia-cusparselt-cu12==0.7.1\nnvidia-nccl-cu12==2.21.5\nnvidia-nvjitlink-cu12==12.4.127\nnvidia-nvshmem-cu12==3.4.5\nnvidia-nvtx-cu12==12.4.127\noauthlib==4.0.0\nopencv-python==4.10.0.84\nOpenEXR==3.5.1\n# Editable install with no version control (openvla-oft==0.0.1)\n-e /home/wxy/cloris_work/SpecPrune-VLA/openvla-oft\nopt_einsum==3.4.0\noverrides==7.7.0\npackaging==26.3\npandas==2.3.3\npandocfilters==1.5.1\nparso==0.8.5\npathspec==0.12.1\npeft==0.11.1\npillow==12.3.0\nplatformdirs==4.12.1\npluggy==1.6.0\npooch==1.8.2\nportalocker==3.1.1\npretty-errors==1.2.25\npretty-midi==0.2.11\nprometheus_client==0.25.0\npromise==2.3\nprompt_toolkit==3.0.52\npropcache==0.5.2\nprotobuf==6.31.1\npsutil==7.2.2\npure_eval==0.2.3\npyasn1==0.6.4\npyasn1_modules==0.4.2\nPyAudio==0.2.14\npycodestyle==2.14.0\npycparser==2.22\npydantic==2.13.5\npydantic_core==2.46.5\npydub==0.25.1\npyfluidsynth==1.3.4\nPygments==2.21.0\npynput==1.8.2\nPyOpenGL==3.1.10\npyparsing==3.2.5\npyquaternion==0.9.9\npytest==8.4.2\npytest-xdist==3.8.0\npython-dateutil==2.9.0.post0\npython-json-logger==4.1.0\npython-xlib==0.33\npytokens==0.2.0\npytorch-lightning==2.6.1\nPyVirtualDisplay==3.0\nPyYAML==6.0.3\npyyaml-include==1.4.1\npyzmq==27.1.0\nreferencing==0.37.0\nregex==2026.5.9\nrequests==2.34.1\nrequests-oauthlib==2.0.0\nrfc3339-validator==0.1.4\nrfc3986-validator==0.1.1\nrfc3987-syntax==1.1.0\nrich==15.0.0\nrobosuite==1.4.1\nrpds-py==0.30.0\nruff==0.14.0\nsacrebleu==2.5.1\nsafetensors==0.8.0\nscikit-image==0.22.0\nscikit-learn==1.4.2\nscipy==1.15.3\nseaborn==0.13.2\nSend2Trash==2.1.0\nsentencepiece==0.1.99\nsentry-sdk==2.70.0\nsix==1.17.0\nsmmap==5.0.3\nsortedcontainers==2.4.0\nsoupsieve==2.8.3\nsoxr==1.0.0\nstack-data==0.6.3\nstarlette==1.7.0\nsympy==1.13.1\ntabulate==0.9.0\ntensorboard==2.15.2\ntensorboard-data-server==0.7.2\ntensorboardX==2.6.2.2\ntensorflow==2.15.0\ntensorflow-addons==0.23.0\ntensorflow-datasets==4.9.3\ntensorflow-estimator==2.15.0\ntensorflow-graphics==2021.12.3\ntensorflow-io-gcs-filesystem==0.37.1\ntensorflow-metadata==1.21.0\ntermcolor==3.1.0\nterminado==0.18.1\nthreadpoolctl==3.6.0\ntifffile==2025.5.10\ntimm==0.9.10\ntinycss2==1.4.0\ntokenizers==0.19.1\ntoml==0.10.2\ntomli==2.3.0\ntorch==2.6.0\ntorchaudio==2.6.0\ntorchmetrics==1.9.0\ntorchsummary==1.5.1\ntorchvision==0.21.0\ntornado==6.5.2\ntqdm==4.70.1\ntraitlets==5.14.3\ntransformers @ git+https://github.com/moojink/transformers-openvla-oft.git@bc339d9ad707454c0c115970db43c260067c61ab\ntrimesh==5.1.0\ntriton==3.2.0\ntypeguard==2.13.3\ntyping-inspect==0.9.0\ntyping-inspection==0.4.4\ntyping_extensions==4.16.0\ntzdata==2025.2\nuri-template==1.3.0\nurllib3==1.26.13\nuvicorn==0.54.0\nwandb==0.28.0\nwcwidth==0.2.14\nwebcolors==25.10.0\nwebencodings==0.5.1\nwebsocket-client==1.9.0\nwebsockets==16.1.1\nWerkzeug==3.1.9\nwidgetsnbextension==4.0.15\nwrapt==1.14.2\nxyzservices==2025.4.0\nyarl==1.23.0\nzipp==4.1.0\n",
+    "stderr": ""
+  }
+}
