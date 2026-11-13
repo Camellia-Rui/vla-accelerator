@@ -200,3 +200,7 @@ python -m unittest tests.test_lightvla -v
 完整 CPU 测试使用已安装的 `.[lightvla]` 环境。
 
 真实 Spatial 的统一入口现为 `python -m core evaluate --method lightvla`；加 `--closed-loop` 运行配对任务。完整环境、命令、成功判据和适用边界见 [使用指南](../../docs/LIGHTVLA_QUICKSTART.md)。评估实现随 Python 包交付，不依赖 scripts 目录才能运行。
+
+## 运行与评估一次完成
+
+使用项目配置启动 `python -m core select --project project.json --output runs/new-evaluation`，即可在运行中检查记录、结束后自动生成评估报告，不需要第二条评估指令。未给质量门槛时仅报告证据。检查时机、计时口径和本版验证范围见 [运行中评估](../../docs/LIVE_EVALUATION.md)。

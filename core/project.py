@@ -28,7 +28,10 @@ def read_project(path):
         if not isinstance(value, str) or not value.strip():
             raise ValueError(f"Missing project field: {key}")
         p = Path(value)
-        data[key] = str((p if p.is_absolute() else path.parent / p).resolve())
+        full = p if p.is_absolute() else path.parent / p
+        # venv/bin/python may link to system Python. Dereferencing it loses
+        # pyvenv.cfg discovery and silently selects the wrong environment.
+        data[key] = str(full.absolute() if key == 'python' else full.resolve())
     observations = data.get("observation_dirs", [])
     if not isinstance(observations, list) or any(not isinstance(p, str) for p in observations):
         raise ValueError("observation_dirs must be a list of paths")

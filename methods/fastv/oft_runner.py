@@ -6,7 +6,11 @@ import json
 import os
 import subprocess
 import time
+import sys
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from methods.fastv.live import publish_modes
+from core.live_evaluation import publish
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--mode", choices=["baseline", "fastv"], required=True)
@@ -62,6 +66,8 @@ evaluation.set_seed_everywhere(cfg.seed)
 
 suite = evaluation.benchmark.get_benchmark_dict()[cfg.task_suite_name]()
 task_ids = args.tasks if args.tasks is not None else list(range(suite.n_tasks))
+live_report=dict(protocol=dict(tasks=task_ids,trials=list(range(args.trials)),seed=args.seed,
+                              modes=[args.mode],action_chunk=8),records=[])
 
 if len(set(task_ids)) != len(task_ids):
     raise SystemExit("Duplicate task IDs are not allowed")
@@ -221,6 +227,7 @@ def timed_get_action(*positional, **keywords):
         "call_id": calls,
         "latency_ms": latency,
         "excluded_as_warmup": excluded,
+        "actions":values.tolist(),
     })
     all_latencies.append(latency)
     if not excluded:
@@ -248,11 +255,12 @@ def recorded_run_episode(*positional, **keywords):
         + state.tobytes()
     ).hexdigest()
 
+    started=time.perf_counter()
     try:
         success, images = original_run_episode(*positional, **keywords)
     finally:
         # Write outside the per-call timer, retaining calls on exceptions too.
-        action_writer.writerows(episode_calls)
+        action_writer.writerows({k:v for k,v in r.items() if k!='actions'} for r in episode_calls)
         action_file.flush()
 
     episode_writer.writerow({
@@ -267,6 +275,11 @@ def recorded_run_episode(*positional, **keywords):
         ),
     })
     episode_file.flush()
+    live_report['records'].append(dict(task_id=context['task_id'],trial=context['episode_id'],mode=args.mode,
+        seed=args.seed,initial_state_hash=state_hash,complete=True,error=None,success=bool(success),
+        queries=[dict(ms=r['latency_ms'],actions=r['actions']) for r in episode_calls],
+        policy_ms=sum(r['latency_ms'] for r in episode_calls),episode_seconds=time.perf_counter()-started))
+    publish_modes(output,live_report)
     context["episode_id"] += 1
     return success, images
 
@@ -307,6 +320,7 @@ try:
     expected = len(task_ids) * args.trials
     if total_episodes != expected:
         raise RuntimeError(f"Expected {expected} episodes, got {total_episodes}")
+    publish(output,live_report,final=True)
 
     def latency_stats(values):
         if not values:

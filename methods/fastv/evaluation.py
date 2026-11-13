@@ -93,9 +93,22 @@ def main(argv=None):
             command += ["--gpu", str(args.gpu)]
             if args.tasks:
                 command += ["--tasks", *map(str, args.tasks)]
-        subprocess.run(command, cwd=workspace if oft else directory, check=True,
-                       env=dict(env, FASTV_OUTPUT=str(directory)))
-    summarize(output, args.backend, workspace, checkpoint, args.tasks, args.trials, args.seed)
+        from core.live_evaluation import atomic
+        try:
+            subprocess.run(command, cwd=workspace if oft else directory, check=True,
+                           env=dict(env, FASTV_OUTPUT=str(directory)))
+        except Exception as exc:
+            atomic(output/'assessment.json',dict(status='FAILED',quality_decision='INCONCLUSIVE',error=str(exc)))
+            raise
+    from methods.fastv.live import publish_modes
+    from core.live_evaluation import publish
+    try:
+        combined=publish_modes(output/'fastv',json.loads((output/'fastv/live-episodes.json').read_text()))
+        publish(output,combined,final=True)
+        summarize(output, args.backend, workspace, checkpoint, args.tasks, args.trials, args.seed)
+    except Exception as exc:
+        atomic(output/'assessment.json',dict(status='FAILED',quality_decision='INCONCLUSIVE',error=str(exc)))
+        raise
     print(output / "report.json")
     return 0
 
@@ -120,6 +133,8 @@ def summarize(output, backend, workspace, checkpoint, tasks, trials, seed):
                   integration_passed=True, closed_loop_tested=True,
                   seed=seed, trials_per_task=trials, tasks=tasks or list(range(10)),
                   k=2, prune_ratio=0.5, quality_decision="INCONCLUSIVE", results=results)
+    if all((output/m/'live-episodes.json').is_file() for m in ('baseline','fastv')):
+        report['live_evaluation_version']=1
     base = results["baseline"]
     fast = results["fastv"]
     report["success_rate_change_pp"] = 100 * (fast["success_rate"] - base["success_rate"])

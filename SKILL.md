@@ -24,6 +24,8 @@ description: Inspect a user's VLA model workspace, select compatible acceleratio
 
 ## 执行与报告
 
+用户的一次“加速并测试”指令包含运行和评估。项目资源齐全后使用 `core select --project ... --output ...` 自动串联闭环与评估，不等待第二次“请评估”。质量门槛三项可一起传入；用户未给门槛时可全部省略，自动输出指标与 INCONCLUSIVE，不擅自采用示例门槛。检查运行中的 assessment.json 以及最终报告；四条路线的检查时机与计时口径见 [运行中评估](docs/LIVE_EVALUATION.md)。样本筛选结果不等同于统计非劣或部署验收。
+
 使用 [统一运行指南](docs/UNIFIED_RUNTIME.md) 中的 `python -m core run --method lightvla|vla_pruner`。固定 OFT 后端可直接用 VLA-Pruner 内置加载器；其他兼容项目根据原生入口在独立目录编写真实加载工厂，避免修改原权重。VLA-Pruner 输入级对照使用 `python -m core evaluate --method vla_pruner`。保持原生 action API，在 `finally` 卸载并检查恢复。工厂导入会执行用户代码，先阅读其行为。
 
 `report.json` 的 passed/integration_passed 只代表运行或接入检查通过。必须另读 input_screen 和 closed_loop_tested；缺少用户质量门槛时 INCONCLUSIVE，不能自行指定阈值冒充用户验收。输入级报告不是 schema 3 正式验收清单，不能直接提交正式 admission 工具。

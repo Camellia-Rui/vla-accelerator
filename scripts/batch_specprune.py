@@ -90,7 +90,14 @@ def main(argv=None):
     if result.returncode:raise RuntimeError(f'Pair {task}/{trial} failed; inspect {pair}')
     rows.append(dict(task=task,trial=trial,directory=str(pair),audit=audit(pair/'report.json')))
     atomic(out/'progress.json',dict(completed_pairs=len(rows),expected_pairs=len(args.tasks)*len(args.trials),records=rows))
+    atomic(out/'assessment.json',dict(status='RUNNING',complete_pairs=len(rows),expected_pairs=len(args.tasks)*len(args.trials),
+           quality_decision='INCONCLUSIVE',audit=aggregate(rows,len(rows))))
   atomic(out/'report.json',aggregate(rows,len(args.tasks)*len(args.trials)))
+  atomic(out/'assessment.json',dict(status='AUDITED',quality_decision='INCONCLUSIVE',
+         audit=aggregate(rows,len(args.tasks)*len(args.trials))))
+ except Exception as exc:
+  atomic(out/'assessment.json',dict(status='FAILED',quality_decision='INCONCLUSIVE',error=str(exc)))
+  raise
  finally:lock.unlink()
  return 0
 

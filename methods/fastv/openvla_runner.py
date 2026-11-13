@@ -114,4 +114,12 @@ sys.argv = [
     "--local_log_dir", os.environ["FASTV_OUTPUT"],
 ]
 
-runpy.run_path(sys.argv[0], run_name="__main__")
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from methods.fastv.live import OpenVLARecorder
+recorder=OpenVLARecorder(os.environ['FASTV_OUTPUT'],args.mode,args.trials,args.seed).install()
+completed=False
+try:
+    runpy.run_path(sys.argv[0], run_name="__main__")
+    completed=True
+finally:
+    recorder.close(completed)

@@ -27,6 +27,12 @@ def paired_metrics(report):
     if report.get("passed") is not True or report.get("closed_loop_tested") is not True:
         raise ValueError("Completed closed-loop comparison required")
     protocol = report["protocol"]
+    if 'vla_pruner' not in protocol.get('modes',[]) and not all((
+            report.get('parameters_preserved'),report.get('modules_restored'),
+            report.get('restored_vs_native',{}).get('matches'))):
+        raise ValueError('Missing or failed final restoration evidence')
+    if report.get('mechanism_observed') is False:
+        raise ValueError('Acceleration mechanism was not observed')
     modes = protocol.get("modes", ["baseline", "packaged"])
     if modes not in (["baseline", "packaged"], ["baseline", "lightvla", "vla_pruner"], ["baseline", "fastv_scoring", "vla_pruner"]):
         raise ValueError("Unknown comparison protocol")
@@ -64,6 +70,17 @@ def paired_metrics(report):
 def metrics(path):
     r = read(path)
     if r.get("backend") in ("oft", "openvla") and r.get("k") == 2 and r.get("prune_ratio") == 0.5:
+        if r.get('live_evaluation_version') == 1:
+            from core.live_evaluation import assess_progress
+            live=[read(path.parent/m/'live-episodes.json') for m in ('baseline','fastv')]
+            protocols=[{k:v for k,v in x['protocol'].items() if k!='modes'} for x in live]
+            if protocols[0]!=protocols[1]:raise ValueError('FastV protocols differ')
+            if (protocols[0]['tasks']!=r['tasks'] or protocols[0]['seed']!=r['seed']
+                    or protocols[0]['trials']!=list(range(r['trials_per_task']))):
+                raise ValueError('FastV journal differs from requested protocol')
+            checked=assess_progress(dict(protocol=dict(protocols[0],modes=['baseline','fastv']),
+                                         records=live[0]['records']+live[1]['records']))
+            if checked['checked_episodes']!=checked['expected_episodes']:raise ValueError('Incomplete FastV live evidence')
         from methods.fastv.evaluation import openvla_summary
         result = {}
         keys = None
@@ -98,6 +115,11 @@ def metrics(path):
                     or not all(math.isfinite(t) and t > 0 for t in times)):
                 raise ValueError("Incomplete FastV timing")
             result[mode] = (sum(e["success"] == "True" for e in episodes), n, mean(times[5:]))
+        if r.get('live_evaluation_version') == 1:
+            for mode,(successes,episodes,_) in result.items():
+                observed=checked['metrics'][mode]
+                if (observed['successes'],observed['episodes']) != (successes,episodes):
+                    raise ValueError('FastV journal and original outcomes differ')
         return result
     if r.get("execution_complete") and "paired_initial_states" in r:
         from scripts.audit_specprune import audit
@@ -154,17 +176,20 @@ def main(argv=None):
     source.add_argument("--report", type=Path)
     source.add_argument("--project", type=Path)
     p.add_argument("--output", required=True, type=Path, help="new directory")
-    p.add_argument("--min-success-pct", required=True, type=float)
-    p.add_argument("--max-drop-pp", required=True, type=float)
-    p.add_argument("--min-pairs", required=True, type=int)
+    p.add_argument("--min-success-pct", type=float)
+    p.add_argument("--max-drop-pp", type=float)
+    p.add_argument("--min-pairs", type=int)
     p.add_argument("--trials-per-task", type=int, default=1)
     p.add_argument("--tasks", nargs="+", type=int, help="project task IDs; default all ten")
     p.add_argument("--oft-cublas-dir", type=Path, help="process-local cuBLAS override for oft_object")
     p.add_argument("--oft-comparison", choices=("scoring", "lightvla-style"),
                    help="OFT Object comparison, default scoring")
     args = p.parse_args(argv)
-    if not (0 <= args.min_success_pct <= 100 and 0 <= args.max_drop_pp <= 100
-            and args.min_pairs >= 1 and 1 <= args.trials_per_task <= 50):
+    policy_given = all(x is not None for x in (args.min_success_pct,args.max_drop_pp,args.min_pairs))
+    if any(x is not None for x in (args.min_success_pct,args.max_drop_pp,args.min_pairs)) and not policy_given:
+        p.error('Supply all three policy options, or omit all to report evidence without admission')
+    if not 1 <= args.trials_per_task <= 50 or (policy_given and not (
+            0 <= args.min_success_pct <= 100 and 0 <= args.max_drop_pp <= 100 and args.min_pairs >= 1)):
         p.error("Invalid quality policy or trial count")
     out = args.output.resolve()
     tasks = args.tasks or list(range(10))
@@ -172,8 +197,13 @@ def main(argv=None):
         p.error("tasks must be distinct IDs in 0..9")
     if args.report and (args.tasks or args.trials_per_task != 1 or args.oft_cublas_dir or args.oft_comparison):
         p.error("task options are only supported with --project")
+    created = False
+    command = None
     try:
         out.mkdir(parents=True, exist_ok=False)
+        created = True
+        from scripts.server_lightvla_closed_loop import atomic
+        atomic(out/'assessment.json', dict(status='PRECHECK',quality_decision='INCONCLUSIVE'))
         command = None
         path = args.report
         if args.project:
@@ -207,14 +237,28 @@ def main(argv=None):
                     command += ["--tasks", *map(str, tasks)]
                 elif tasks != list(range(10)):
                     raise ValueError("Original OpenVLA runner evaluates all ten tasks")
-            subprocess.run(command, cwd=ROOT, check=True)
+            from core.project_checks import environment
+            env_check = environment(data['python'])
+            if env_check.get('error') or env_check.get('missing'):
+                raise ValueError('Model environment check failed: '+str(env_check))
+            atomic(out/'assessment.json',dict(status='RUNNING',quality_decision='INCONCLUSIVE',
+                   command=command,environment=env_check,policy=dict(min_success_pct=args.min_success_pct,
+                   max_drop_pp=args.max_drop_pp,min_pairs=args.min_pairs)))
+            from core.assessment import run_monitored
+            run_monitored(command,ROOT,out,read(out/'assessment.json'))
             path = out / "measurement/report.json"
         scores = metrics(path)
-        result = decide(scores, args.min_success_pct, args.min_pairs, args.max_drop_pp)
+        result = (decide(scores, args.min_success_pct, args.min_pairs, args.max_drop_pp) if policy_given else
+                  dict(selected=None,policy=None,scope='observed paired sample',
+                       candidates={m:dict(successes=w,episodes=n,success_pct=100*w/n,mean_ms=ms)
+                                   for m,(w,n,ms) in scores.items()}))
         result.update(report=str(path.resolve()), report_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
                       command=command)
         source_report = read(path)
         result["checkpoint"] = source_report.get("checkpoint") or source_report.get("provenance", {}).get("checkpoint")
+        if result['checkpoint'] is None and source_report.get('execution_complete'):
+            config_path=path.parent/'batch-config.json'
+            if config_path.is_file():result['checkpoint']=read(config_path).get('checkpoint')
         if result["selected"] in ("vla_pruner", "fastv_scoring"):
             result["configuration"] = dict(source_report["vla_pruner_config"])
             if result["selected"] == "fastv_scoring":
@@ -223,9 +267,26 @@ def main(argv=None):
             result["configuration"] = {k:source_report[k] for k in ("backend","k","prune_ratio")}
         dest = out / "selection.json"
         dest.write_text(json.dumps(result, indent=2, allow_nan=False))
+        assessment = dict(status='FINISHED',quality_decision='INCONCLUSIVE',
+                          sample_policy_status=('NOT_SPECIFIED' if not policy_given else
+                                                'SATISFIED' if result['selected'] else 'NOT_SATISFIED'),
+                          selected=result['selected'], policy=result['policy'], candidates=result['candidates'],
+                          report=result['report'],report_sha256=result['report_sha256'],
+                          reason='Observed-sample selection; not a statistical non-inferiority or deployment guarantee')
+        from core.assessment import timing_details, render
+        assessment['timing_details']=timing_details(path,source_report)
+        atomic(out/'assessment.json',assessment)
+        (out/'assessment.md').write_text(render(assessment),encoding='utf-8')
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0
     except (OSError, KeyError, ValueError, TypeError, subprocess.SubprocessError) as exc:
+        if created:
+            atomic(out/'assessment.json',dict(status='FAILED',quality_decision='INCONCLUSIVE',error=str(exc),
+                   command=command,logs=str(out/'measurement')))
+            (out/'assessment.md').write_text(
+                '# 自动评估报告\n\n执行状态：FAILED\n\n质量结论：INCONCLUSIVE\n\n'
+                '本次运行或证据检查未完成，不产生达标结论。\n\n'
+                f'错误：{exc}\n\n原始日志与已有记录：{out / "measurement"}\n',encoding='utf-8')
         print(f"Selection failed: {exc}", file=sys.stderr)
         return 2
 

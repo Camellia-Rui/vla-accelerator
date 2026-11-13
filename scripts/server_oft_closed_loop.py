@@ -17,6 +17,8 @@ def worker(args):
     from methods.vla_pruner.evaluation import difference, trace
     from methods.oft_choices import OFTChoice
     from scripts.server_lightvla_closed_loop import atomic
+    from core.live_evaluation import assess_progress
+    from scripts.audit_oft_choices import audit
     report=dict(passed=False,quality_decision="INCONCLUSIVE",records=[],closed_loop_tested=True)
     session=None
     try:
@@ -92,6 +94,12 @@ def worker(args):
                         if env is not None:env.close()
                         atomic(args.output/f"{task_id}-{trial}-{mode}.json",row)
                     report["records"].append(row)
+                    try:
+                        assessment = assess_progress(report)
+                    except (ValueError, KeyError, TypeError) as exc:
+                        atomic(args.output/"assessment.json",dict(status="INVALID_EVIDENCE",quality_decision="INCONCLUSIVE",error=str(exc)))
+                        raise
+                    atomic(args.output/"assessment.json",assessment)
                     atomic(args.output/"progress.json",dict(expected=len(args.tasks)*len(args.trials)*3,
                         completed=len(report["records"]),successes={m:sum(r["success"] for r in report["records"] if r["mode"]==m) for m in session.modes}))
                     print(f"task={task_id} trial={trial} mode={mode} success={row['success']} error={row['error']}",flush=True)
@@ -104,8 +112,16 @@ def worker(args):
         report["modules_restored"]=current_modules.keys()==modules.keys() and all(current_modules[n] is m and m.forward==f for n,(m,f) in modules.items())
         report["successes"]={m:sum(r["success"] for r in report["records"] if r["mode"]==m) for m in session.modes}
         report["passed"]=report["parameters_preserved"] and report["modules_restored"] and report["restored_vs_native"]["matches"]
+        if not report['passed']:
+            raise ValueError('Final parameter/module/action restoration check failed')
+        assessment = assess_progress(report)
+        assessment.update(status='AUDITED', audit=audit(report),
+                          reason='Raw evidence audited; outer selection entry applies user policy automatically')
+        atomic(args.output/'assessment.json', assessment)
     except Exception as exc:
+        report['passed']=False
         report["error"]=f"{type(exc).__name__}: {exc}"
+        atomic(args.output/'assessment.json',dict(status='FAILED',quality_decision='INCONCLUSIVE',error=report['error']))
         traceback.print_exc()
     finally:
         if session is not None:session.close()

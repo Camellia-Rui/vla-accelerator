@@ -21,3 +21,7 @@ python -m core evaluate --method specprune --workspace "$WORKSPACE" --checkpoint
 早期独立实验的性能表、Object/Goal 权重清单及开发接口保存在[历史实验记录](HISTORICAL_EXPERIMENTS.md)。其中的 Goal 和大样本结果应按原工程条件引用。
 
 历史 3 对烟雾验证用于追踪接入过程，不与本轮 50 对混合计算成功率。
+
+## 运行与评估一次完成
+
+使用项目配置启动 `python -m core select --project project.json --output runs/new-evaluation`，即可在运行中检查记录、结束后自动生成评估报告，不需要第二条评估指令。未给质量门槛时仅报告证据。检查时机、计时口径和本版验证范围见 [运行中评估](../../docs/LIVE_EVALUATION.md)。

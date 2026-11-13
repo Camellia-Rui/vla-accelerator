@@ -12,3 +12,7 @@ FastV 在前两层处理完整序列（K=2），再按注意力保留一半视�
 使用相应的 FastV 后端源码、模型环境和 LIBERO-Spatial 资源。从工具箱根目录运行 `python -m core evaluate --method fastv --help` 查看参数。传入 `--backend openvla` 或 `--backend oft`、源码、权重、GPU 和新输出目录后，工具箱依次运行 baseline 和 FastV。OFT 可先用 `--tasks 0 --trials 1`；原始 OpenVLA 的 `--trials 1` 会覆盖十个任务。[两套完整命令与环境](../../docs/FASTV_RESULTS.md)
 
 完成后检查 `baseline/`、`fastv/` 与 `report.json`。团队的 H20 正式实验在 seed=7 下为每种模式运行 500 回合。原始 OpenVLA 的成功数为 **421 → 434**，平均单动作延迟 **242.32 → 215.57 ms**。OFT 为 **492 → 497**，平均动作块延迟 **291.68 → 222.73 ms**。每种模式仅剔除整次运行的前五次预测，两条路线各用自己的基线计算加速比。[原始实验、逐任务统计与 FLOPs 口径](../../docs/README-OpenVLA-OFT-FastV.md)
+
+## 运行与评估一次完成
+
+使用项目配置启动 `python -m core select --project project.json --output runs/new-evaluation`，即可在运行中检查记录、结束后自动生成评估报告，不需要第二条评估指令。未给质量门槛时仅报告证据。检查时机、计时口径和本版验证范围见 [运行中评估](../../docs/LIVE_EVALUATION.md)。

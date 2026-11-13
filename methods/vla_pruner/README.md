@@ -19,3 +19,7 @@ python -m core evaluate --method vla_pruner --workspace "$WORKSPACE" --checkpoin
 H20 上两个 Object 任务、六对初始状态，原生与 50% 剪枝各成功 **6/6**。这批闭环的平均查询延迟为 826.16 → 710.90 ms，约 **1.16×**。更多任务与其它权重应重新测量。[同权重实验](../../docs/OFT_METHOD_CHOICES.md)
 
 早期参数、接口示例和实验表见[历史实验记录](HISTORICAL_EXPERIMENTS.md)；当前接入以本页和 INTEGRATION.md 为准。
+
+## 运行与评估一次完成
+
+使用项目配置启动 `python -m core select --project project.json --output runs/new-evaluation`，即可在运行中检查记录、结束后自动生成评估报告，不需要第二条评估指令。未给质量门槛时仅报告证据。检查时机、计时口径和本版验证范围见 [运行中评估](../../docs/LIVE_EVALUATION.md)。

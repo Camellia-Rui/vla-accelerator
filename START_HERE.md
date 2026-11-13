@@ -10,4 +10,8 @@
 4. 查看 `docs/EVIDENCE.md`，区分合成测试、原始证据和历史结论。评估真实效果时再读 `workbench/skill/vla-acceleration-evaluator/SKILL.md`。
 5. 展示成品按 `docs/MIDTERM_DEMO.md`；多人协作采用独立工作目录和输出目录，见用户指南。
 
+用户要求“实际测试并评估”时，资源就绪后优先执行 `core select --project 项目.json --output 新目录`，同一次命令自动运行闭环、审核证据并输出 assessment.json/assessment.md 与 selection.json；无需再等用户发“请评估”。可同时传入完整质量门槛；未提供门槛也可运行并报告证据，但不自动判定达标。OFT、LightVLA、FastV 在回合结束时检查记录；SpecPrune 子任务按回合检查、批量入口按配对汇总。运行状态与限制见 [运行中评估](docs/LIVE_EVALUATION.md)。
+
+只有工具箱、尚无模型源码或环境的初次使用者，按 [OpenVLA-OFT 从零准备与录制](docs/FIRST_USE_OFT_DEMO.md) 检查资源并建立独立目录；资源未就绪时不得把随包实验写成新模型实测。
+
 收到完整发布包时先运行 `python -B scripts/verify_product.py`。源码 checkout 尚未生成 `product-manifest.json`，不运行此发布包校验，改为测试后构建候选包。

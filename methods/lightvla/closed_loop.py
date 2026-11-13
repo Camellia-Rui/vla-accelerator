@@ -29,11 +29,12 @@ def summarize(records, expected):
 
 
 def worker(args):
+    from core.live_evaluation import publish
     import numpy as np
     import torch
     from methods.lightvla.oft_factory import build
     from methods.lightvla import LightVLAAccelerator
-    from methods.vla_pruner.evaluation import actions_array,difference
+    from methods.vla_pruner.evaluation import actions_array,difference,trace
     report=dict(records=[],closed_loop_tested=True,passed=False)
     try:
         bundle=build(args.workspace,args.checkpoint,seed=args.seed)
@@ -43,7 +44,7 @@ def worker(args):
         suite=benchmark.get_benchmark_dict()["libero_spatial"]()
         model=bundle["model"]
         report["provenance"]=bundle["provenance"]
-        report["protocol"]=dict(tasks=args.tasks,trials=args.trials,seed=args.seed,max_steps=220,
+        report["protocol"]=dict(tasks=args.tasks,trials=args.trials,seed=args.seed,max_steps=220,modes=['baseline','packaged'],
             settle_steps=10,action_chunk=8,mode_order="alternating",fresh_env_per_episode=True)
         report["environment"]=dict(python=sys.version,torch=torch.__version__,gpu=torch.cuda.get_device_name(0),
                                     visible_devices=os.environ.get("CUDA_VISIBLE_DEVICES"))
@@ -54,10 +55,17 @@ def worker(args):
         adapter=LightVLAAccelerator.install(model,mode="baseline",allow_existing_pruner=True)
         try:
             # Warm each mode on a fixed input outside episode timing.
+            lengths={}
             for mode in ("baseline","packaged"):
                 adapter.set_mode(mode)
                 for _ in range(3):
                     bundle["run"]()
+                _,lengths[mode]=trace(model,bundle['run'])
+            report['layer_lengths']=lengths
+            report['mechanism_observed']=any(y<x for k,v in lengths['baseline'].items()
+                for x,y in zip(v,lengths['packaged'].get(k,[])))
+            if not report['mechanism_observed']:
+                raise ValueError('No shortened decoder sequence observed')
             for task_id in args.tasks:
                 task=suite.get_task(task_id)
                 states=suite.get_task_init_states(task_id)
@@ -72,6 +80,9 @@ def worker(args):
                             previous=json.loads(path.read_text())
                             if previous.get("complete") and previous.get("error") is None:
                                 report["records"].append(previous)
+                                # Older records omit the redundant policy sum.
+                                previous.setdefault('policy_ms',sum(q['ms'] for q in previous['queries']))
+                                publish(args.output,report)
                                 continue
                         row=dict(task_id=task_id,trial=trial,mode=mode,seed=args.seed,initial_state_hash=state_hash,
                             success=False,complete=False,error=None,queries=[],executed_actions=[],control_steps=0)
@@ -105,6 +116,7 @@ def worker(args):
                                     row["success"]=True
                                     break
                             row["episode_seconds"]=time.perf_counter()-started
+                            row['policy_ms']=sum(q['ms'] for q in row['queries'])
                             row["complete"]=True
                         except Exception as exc:
                             row["error"]=f"{type(exc).__name__}: {exc}"
@@ -114,6 +126,7 @@ def worker(args):
                                 env.close()
                             atomic(path,row)
                         report["records"].append(row)
+                        publish(args.output,report)
                         atomic(args.output/"progress.json",summarize(report["records"],len(args.tasks)*len(args.trials)*2))
                         print(f"task={task_id} trial={trial} mode={mode} success={row['success']} error={row['error']}",flush=True)
                         if row["error"]:
@@ -128,7 +141,11 @@ def worker(args):
         report["modules_restored"]=current_modules.keys()==modules.keys() and all(current_modules[n] is m and m.forward==f for n,(m,f) in modules.items())
         report.update(summarize(report["records"],len(args.tasks)*len(args.trials)*2))
         report["passed"]=report["execution_complete"] and report["restored_vs_native"]["matches"] and report["parameters_preserved"] and report["modules_restored"]
+        if not report['passed']:raise ValueError('Final restoration check failed')
+        publish(args.output,report,final=True)
     except Exception as exc:
+        report['passed']=False
+        atomic(args.output/'assessment.json',dict(status='FAILED',quality_decision='INCONCLUSIVE',error=str(exc)))
         report["error"]=f"{type(exc).__name__}: {exc}"
         traceback.print_exc()
     finally:

@@ -1,5 +1,7 @@
 # 选择成功率达标且平均推理延迟最低的配置
 
+`--project` 现在在一次命令中完成运行中证据检查和结束评估，生成 `assessment.json`、中文 `assessment.md` 和 `selection.json`。质量门槛三项可全部省略；这时仍运行并展示指标，但不选择达标方案，也不授予 PASS。详见 [运行中评估](LIVE_EVALUATION.md)。
+
 最新的 [Object 同模型评分对照](OFT_OBJECT_SCORING.md)包含 50 对留出状态，支持直接读取压缩原始报告。零成功率下降选 VLA-Pruner，允许下降两百分点选同后端 FastV 评分。旧 LightVLA 风格对照仍按其原协议保留。
 
 在工具箱根目录运行。第一次演示可直接复用仓库随附的真实 H20 对照记录，无需模型或 GPU：

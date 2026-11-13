@@ -22,6 +22,7 @@ def main(argv=None):
  p.add_argument('--gpu',default=None)
  p.add_argument('--_worker',action='store_true')
  args=p.parse_args(argv)
+ from core.live_evaluation import publish, specprune_progress, atomic
  if not 0<=args.task<10 or args.trial<0 or args.pairs<2 or args.warmup<1:
   p.error('task must be 0..9, trial >= 0, pairs >= 2, warmup >= 1')
  for key in ('workspace','checkpoint','observation','output'): setattr(args,key,str(Path(getattr(args,key)).resolve()))
@@ -125,6 +126,7 @@ def main(argv=None):
      env.reset(); observation=env.set_init_state(initial)
      for _ in range(10): observation,_,_,_=env.step(get_libero_dummy_action('openvla'))
      executed=0
+     episode_started=time.perf_counter()
      for policy_step in range(350):
       state=np.concatenate((observation['robot0_eef_pos'],quat2axisangle(observation['robot0_eef_quat']),observation['robot0_gripper_qpos']))
       torch.cuda.synchronize(); tick=time.perf_counter()
@@ -137,15 +139,20 @@ def main(argv=None):
        if done: row['success']=True; break
        if executed>=330: break
      row['environment_steps']=executed
+     row['episode_seconds']=time.perf_counter()-episode_started
     finally:
      if env is not None: env.close()
      if adapter is not None: adapter.detach(); adapter=None
     report['episodes'].append(row)
     (out/(mode+'-episode.json')).write_text(json.dumps(row,indent=2,allow_nan=False))
+    publish(out,specprune_progress(report['episodes'],args.task,args.trial,7))
    report['closed_loop_tested']=True
    report['post_loop_restored']=difference(native,query(original))
    report['passed']=report['passed'] and report['post_loop_restored']['matches']
+   if not report['passed']:raise ValueError('Final restoration check failed')
+   publish(out,specprune_progress(report['episodes'],args.task,args.trial,7),final=True)
  except Exception as exc:
+  atomic(out/'assessment.json',dict(status='FAILED',quality_decision='INCONCLUSIVE',error=str(exc)))
   report['passed']=False; report['error']=str(exc); report['traceback']=traceback.format_exc(); print(report['traceback'])
  finally:
   if adapter is not None:

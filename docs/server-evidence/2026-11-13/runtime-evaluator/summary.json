@@ -1,0 +1,296 @@
+{
+  "oft-003": {
+    "status": "FINISHED",
+    "quality_decision": "INCONCLUSIVE",
+    "sample_policy_status": "NOT_SPECIFIED",
+    "selected": null,
+    "policy": null,
+    "candidates": {
+      "baseline": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 137.61698934693067
+      },
+      "fastv_scoring": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 105.57441603547583
+      },
+      "vla_pruner": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 128.55853729516915
+      }
+    },
+    "report": "/home/wxy/Rui_work/live-evaluator-20261113/oft-003/measurement/report.json",
+    "report_sha256": "52a06f1259c73d57488b3f64af572f637dceb6973624ce6b635bd481822898fb",
+    "reason": "Observed-sample selection; not a statistical non-inferiority or deployment guarantee",
+    "timing_details": {
+      "scope": "Model-query wrapper, excluding simulator steps; per-episode sum uses all queries",
+      "modes": {
+        "baseline": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 21,
+          "mean_query_ms": 137.61698934693067,
+          "mean_episode_policy_ms": 2889.956776285544,
+          "mean_episode_wall_seconds": 6.600682139862329,
+          "speedups": {
+            "mean_query_ms": 1.0,
+            "mean_episode_policy_ms": 1.0,
+            "mean_episode_wall_seconds": 1.0
+          }
+        },
+        "vla_pruner": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 23,
+          "mean_query_ms": 128.55853729516915,
+          "mean_episode_policy_ms": 2956.8463577888906,
+          "mean_episode_wall_seconds": 7.213447657879442,
+          "speedups": {
+            "mean_query_ms": 1.070461691944763,
+            "mean_episode_policy_ms": 0.9773780665582618,
+            "mean_episode_wall_seconds": 0.9150523373732707
+          }
+        },
+        "fastv_scoring": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 18,
+          "mean_query_ms": 105.57441603547583,
+          "mean_episode_policy_ms": 1900.339488638565,
+          "mean_episode_wall_seconds": 5.110836222069338,
+          "speedups": {
+            "mean_query_ms": 1.303506990753211,
+            "mean_episode_policy_ms": 1.5207581558787464,
+            "mean_episode_wall_seconds": 1.2915072706418607
+          }
+        }
+      }
+    }
+  },
+  "specprune_object-001": {
+    "status": "FINISHED",
+    "quality_decision": "INCONCLUSIVE",
+    "sample_policy_status": "NOT_SPECIFIED",
+    "selected": null,
+    "policy": null,
+    "candidates": {
+      "baseline": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 168.44046581536531
+      },
+      "specprune": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 116.43153469776735
+      }
+    },
+    "report": "/home/wxy/Rui_work/live-evaluator-20261113/specprune_object-001/measurement/report.json",
+    "report_sha256": "2f2502a00fabb2657b46d2a827c102564e8cc2ffc7e86c07f9ce29462cdfad7f",
+    "reason": "Observed-sample selection; not a statistical non-inferiority or deployment guarantee",
+    "timing_details": {
+      "scope": "SpecPrune: query includes preprocessing/controller; strategy total includes queue-only calls",
+      "modes": {
+        "baseline": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 20,
+          "mean_query_ms": 185.84759132936597,
+          "mean_episode_policy_ms": 3738.24763786979,
+          "mean_episode_wall_seconds": 21.713818250922486,
+          "speedups": {
+            "mean_query_ms": 1.0,
+            "mean_episode_policy_ms": 1.0,
+            "mean_episode_wall_seconds": 1.0
+          }
+        },
+        "specprune": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 19,
+          "mean_query_ms": 119.95425586294579,
+          "mean_episode_policy_ms": 2299.9252951703966,
+          "mean_episode_wall_seconds": 16.5752670399379,
+          "speedups": {
+            "mean_query_ms": 1.5493205305004507,
+            "mean_episode_policy_ms": 1.6253778528023153,
+            "mean_episode_wall_seconds": 1.3100131779839994
+          }
+        }
+      }
+    }
+  },
+  "fastv_openvla_spatial-002": {
+    "status": "FINISHED",
+    "quality_decision": "INCONCLUSIVE",
+    "sample_policy_status": "NOT_SPECIFIED",
+    "selected": null,
+    "policy": null,
+    "candidates": {
+      "baseline": {
+        "successes": 8,
+        "episodes": 10,
+        "success_pct": 80.0,
+        "mean_ms": 240.15231079342908
+      },
+      "fastv": {
+        "successes": 10,
+        "episodes": 10,
+        "success_pct": 100.0,
+        "mean_ms": 202.72524535961992
+      }
+    },
+    "report": "/home/wxy/Rui_work/live-evaluator-20261113/fastv_openvla_spatial-002/measurement/report.json",
+    "report_sha256": "cf7cb4e73b4f47fef4e52e6358aea0952297b12e71bc13840f5986413d99eb18",
+    "reason": "Observed-sample selection; not a statistical non-inferiority or deployment guarantee",
+    "timing_details": {
+      "scope": "FastV query includes its preprocessing; wall timing scope is backend-specific (see method guide)",
+      "modes": {
+        "baseline": {
+          "episodes": 10,
+          "successes": 8,
+          "model_queries": 1372,
+          "mean_query_ms": 240.7826757277077,
+          "mean_episode_policy_ms": 33035.383109841496,
+          "mean_episode_wall_seconds": 38.088342163013294,
+          "speedups": {
+            "mean_query_ms": 1.0,
+            "mean_episode_policy_ms": 1.0,
+            "mean_episode_wall_seconds": 1.0
+          }
+        },
+        "fastv": {
+          "episodes": 10,
+          "successes": 10,
+          "model_queries": 1128,
+          "mean_query_ms": 203.24795239531528,
+          "mean_episode_policy_ms": 22926.369030191563,
+          "mean_episode_wall_seconds": 26.746203162102027,
+          "speedups": {
+            "mean_query_ms": 1.184674545991921,
+            "mean_episode_policy_ms": 1.4409339336001026,
+            "mean_episode_wall_seconds": 1.4240653872315785
+          }
+        }
+      }
+    }
+  },
+  "fastv_oft_spatial-003": {
+    "status": "FINISHED",
+    "quality_decision": "INCONCLUSIVE",
+    "sample_policy_status": "NOT_SPECIFIED",
+    "selected": null,
+    "policy": null,
+    "candidates": {
+      "baseline": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 142.73426122963428
+      },
+      "fastv": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 125.33118077553809
+      }
+    },
+    "report": "/home/wxy/Rui_work/live-evaluator-20261113/fastv_oft_spatial-003/measurement/report.json",
+    "report_sha256": "8a560bc0e2dbed0e595b0cb6a2fee7f3518af5d278aa2b2b6b3073c20924d4e8",
+    "reason": "Observed-sample selection; not a statistical non-inferiority or deployment guarantee",
+    "timing_details": {
+      "scope": "FastV query includes its preprocessing; wall timing scope is backend-specific (see method guide)",
+      "modes": {
+        "fastv": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 10,
+          "mean_query_ms": 193.6362351058051,
+          "mean_episode_policy_ms": 1936.362351058051,
+          "mean_episode_wall_seconds": 9.296465921914205,
+          "speedups": {
+            "mean_query_ms": 1.1143237659748493,
+            "mean_episode_policy_ms": 1.1143237659748493,
+            "mean_episode_wall_seconds": 1.8021064362245447
+          }
+        },
+        "baseline": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 10,
+          "mean_query_ms": 215.77345873229206,
+          "mean_episode_policy_ms": 2157.7345873229206,
+          "mean_episode_wall_seconds": 16.753221072023734,
+          "speedups": {
+            "mean_query_ms": 1.0,
+            "mean_episode_policy_ms": 1.0,
+            "mean_episode_wall_seconds": 1.0
+          }
+        }
+      }
+    }
+  },
+  "lightvla_spatial-004": {
+    "status": "FINISHED",
+    "quality_decision": "INCONCLUSIVE",
+    "sample_policy_status": "NOT_SPECIFIED",
+    "selected": null,
+    "policy": null,
+    "candidates": {
+      "baseline": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 133.05959310382605
+      },
+      "lightvla": {
+        "successes": 1,
+        "episodes": 1,
+        "success_pct": 100.0,
+        "mean_ms": 77.04151074867696
+      }
+    },
+    "report": "/home/wxy/Rui_work/live-evaluator-20261113/lightvla_spatial-004/measurement/report.json",
+    "report_sha256": "2d4caa3a5741fb9c63afc9ffd7b253b62236f212ea1408fadbb998795893740d",
+    "reason": "Observed-sample selection; not a statistical non-inferiority or deployment guarantee",
+    "timing_details": {
+      "scope": "Model-query wrapper, excluding simulator steps; per-episode sum uses all queries",
+      "modes": {
+        "baseline": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 10,
+          "mean_query_ms": 133.05959310382605,
+          "mean_episode_policy_ms": 1330.5959310382605,
+          "mean_episode_wall_seconds": 3.475649592000991,
+          "speedups": {
+            "mean_query_ms": 1.0,
+            "mean_episode_policy_ms": 1.0,
+            "mean_episode_wall_seconds": 1.0
+          }
+        },
+        "packaged": {
+          "episodes": 1,
+          "successes": 1,
+          "model_queries": 10,
+          "mean_query_ms": 77.04151074867696,
+          "mean_episode_policy_ms": 770.4151074867696,
+          "mean_episode_wall_seconds": 2.9484172558877617,
+          "speedups": {
+            "mean_query_ms": 1.7271155745879645,
+            "mean_episode_policy_ms": 1.7271155745879645,
+            "mean_episode_wall_seconds": 1.1788187662585365
+          }
+        }
+      }
+    }
+  }
+}
